@@ -3,7 +3,7 @@
 #include <conio.h>
 
 
-int main(){
+int najwan(){
 	float pertama, kedua, hasil;
 	
 	char operasi;

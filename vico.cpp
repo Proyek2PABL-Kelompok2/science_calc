@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+void vico()
 {
 	int x,y,z;
 	int total = 1;

@@ -1,6 +1,6 @@
 #ifndef vico_h
 #define vico_h
 
-int perpangkatan();
+void vico();
 
 #endif

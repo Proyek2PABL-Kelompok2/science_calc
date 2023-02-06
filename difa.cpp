@@ -1,13 +1,14 @@
 #include <math.h>
+#include "difa.h"
 
-float sinus(int angka){
+float sinus(float angka){
 	return sin(angka);
 }
 
-float cosinus(int angka){
+float cosinus(float angka){
 	return cos(angka);
 }
 
-float tangent(int angka){
+float tangent(float angka){
 	return tan(angka);
 }

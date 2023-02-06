@@ -2,5 +2,4 @@
 #include <stdlib.h>
 #include <math.h>
 
-
-int aritmatika();
+void najwan();

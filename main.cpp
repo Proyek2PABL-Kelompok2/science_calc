@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "difa.h"
 
 int calc(int a, int b, char op);
 

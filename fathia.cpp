@@ -65,7 +65,7 @@ void penjumlahan(){ //memanggil fungsi penjumlahan
 }
  
 void pengurangan(){//fungsi pengurangan
-    Input(); //memanggil fungsi show jenis operasi (–) minus/kurang
+    Input(); //memanggil fungsi show jenis operasi (ï¿½) minus/kurang
     show('-');
     printf("Hasil Pengurangan:\n");
  
@@ -95,5 +95,4 @@ void fathia(){ //fungsi utama dari main
         }
     }
     system("pause");
-    return 0;
 }

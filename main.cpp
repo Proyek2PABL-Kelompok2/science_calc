@@ -14,9 +14,12 @@ int main(){
     scanf("%f%c%f", &a, &op, &b);
     printf("Hasil: %d", calc(a,b,op));
 
-    printf("Difa sinus: %f\n", sinus(a));
-    printf("Difa sinus: %f\n", cosinus(a));
-    printf("Difa sinus: %f\n", tangent(a));
+   	printf("\nHasil sinus difa : %f", sinus(a));
+    printf("\nHasil sinus difa : %f", cosinus(a));
+    printf("\nHasil sinus difa : %f", tangent(a));
+    najwan();
+    vico();
+    fathia();
 }
 
 int calc(int a, int b, char op){

@@ -79,7 +79,7 @@ void pengurangan(){//fungsi pengurangan
  
  
  
-int fathia(void){ //fungsi utama dari main
+void fathia(){ //fungsi utama dari main
     int selesai=1,pilih; //program akan berlanjut jika variabel selesai bernilai 1
     printf("\n-----------PROGRAM PENGHITUNGAN MATRIKS 2 ORDO------------\n\n");
     while(selesai==1){

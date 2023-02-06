@@ -10,6 +10,7 @@ void input();
 void show();
 void penjumlahan();
 void pengurangan();
+void fathia();
 
 
 

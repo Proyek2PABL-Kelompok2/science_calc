@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include "difa.h"
+// #include "fathia qurrata.h"
+#include "jacky.h"
+#include "najwan.h"
+#include "vico.h"
 
 int calc(int a, int b, char op);
 

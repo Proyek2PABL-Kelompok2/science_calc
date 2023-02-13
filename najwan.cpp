@@ -2,38 +2,33 @@
 #include <math.h>
 #include <conio.h>
 #include "najwan.h"
+#include <stdio.h>
 
-int main(){
-	float pertama, kedua, hasil;
-	int pilihan;
-	
-	char operasi;
-	 	
-	printf("masukan 2 angka untuk melakukan operasi hitung aritmatika : \n");
-	scanf("%f ", &pertama); 
-	
-	scanf("%c", &operasi);
-	
-	scanf("%f", &kedua);
-	
-	if(operasi == '+'){
-		hasil = pertama + kedua;
+
+
+
+
+int najwan(float a, float b, char c){	
+	float hasil;
+
+	if(c == '+'){
+		hasil = a + b;
 		printf("hasil = %g", hasil);
 	}
-	else if(operasi == '-'){
-		hasil = pertama - kedua;
+	else if(c == '-'){
+		hasil = a - b;
 		printf("hasil = %g", hasil);
 	}
-	else if(operasi == '*'){
-		hasil = pertama * kedua;
+	else if(c == '*'){
+		hasil = a * b;
 		printf("hasil = %g", hasil);
 	}
-	else if(operasi == '/'){
-		hasil = pertama / kedua;
+	else if(c == '/'){
+		hasil = a / b;
 		printf("hasil = %g", hasil);
 	}
-	else if(operasi == '%'){
-		hasil = fmod(pertama,kedua);
+	else if(c == '%'){
+		hasil = fmod(a,b);
 		printf("hasil = %g", hasil);
 	}
 	else{
@@ -41,7 +36,7 @@ int main(){
 	}
 	
 
-
+ 	return hasil;
 	//int penjumlahan(&pertama, )
 }
 

@@ -12,3 +12,11 @@ float cosinus(float angka){
 float tangent(float angka){
 	return tan(angka);
 }
+
+float secan(float angka){
+	return 1/cos(angka);
+}
+
+float cotangent(float angka){
+	return cos(angka)/sin(angka);
+}

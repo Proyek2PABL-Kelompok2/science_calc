@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#ifndef Fathia
+#define Fathia
+
 
 float entryA[2][2],entryB[2][2],varC[2][2];
 int a,b,c;
@@ -12,6 +13,6 @@ void penjumlahan();
 void pengurangan();
 void fathia();
 
-
+#endif
 
 

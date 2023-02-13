@@ -2,46 +2,66 @@
 #include <math.h>
 #include <conio.h>
 #include "najwan.h"
+#include <stdio.h>
 
-int main(){
-	float pertama, kedua, hasil;
-	int pilihan;
-	
-	char operasi;
-	 	
-	printf("masukan 2 angka untuk melakukan operasi hitung aritmatika : \n");
-	scanf("%f ", &pertama); 
-	
-	scanf("%c", &operasi);
-	
-	scanf("%f", &kedua);
-	
-	if(operasi == '+'){
-		hasil = pertama + kedua;
-		printf("hasil = %g", hasil);
-	}
-	else if(operasi == '-'){
-		hasil = pertama - kedua;
-		printf("hasil = %g", hasil);
-	}
-	else if(operasi == '*'){
-		hasil = pertama * kedua;
-		printf("hasil = %g", hasil);
-	}
-	else if(operasi == '/'){
-		hasil = pertama / kedua;
-		printf("hasil = %g", hasil);
-	}
-	else if(operasi == '%'){
-		hasil = fmod(pertama,kedua);
-		printf("hasil = %g", hasil);
-	}
-	else{
-		printf("anda salah memasukan operasi hitung");
-	}
-	
-
-
-	//int penjumlahan(&pertama, )
+float penjumlahan(float a,float b){
+	float hasil;
+	hasil = a + b;
+	return hasil;	
 }
+
+float pengurangan(float a,float b){
+	float hasil;
+	hasil = a - b;
+	return hasil;	
+}
+
+float perkalian(float a,float b){
+	float hasil;
+	hasil = a * b;
+	return hasil;	
+}
+
+float pembagian(float a,float b){
+	float hasil;
+	hasil = a / b;
+	return hasil;	
+}
+
+float modulus(float a, float b){
+	float hasil;
+	hasil = fmod(a,b);
+	return hasil;	
+}
+
+void najwan(){	
+	float hasil;
+	
+	switch(){
+		case '+':
+			hasil = penjumlahan(a,b);
+			
+			break;
+		case '-':
+			hasil = pengurangan(a,b);
+			
+			break;
+		case '*':
+			hasil = perkalian(a,b);
+			
+			break;
+		case '/':
+			hasil = pembagian(a,b);
+			
+			break;
+		case '%':
+			hasil = modulus(a,b);
+			
+			break;
+		default:
+			printf("anda salah memasukan operasi hitung");
+	}
+}
+
+ 	
 

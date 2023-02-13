@@ -4,7 +4,7 @@
 
 void vico()
 {
-	int x,y,z;
+	int x,y,z,n,result;
 	int total = 1;
 	
 	printf("Masukan angka yang akan dipangkatkan :");
@@ -19,5 +19,12 @@ void vico()
 	
 	printf("Hasilnya adalah %d", total);
 	
+	printf("Masukan angka :");
+    scanf("%lf", &n);
+    
+    result = log10(n);
+    printf("%Mengubah %lf  menjadi log10 2= %lf", n ,result);
+
+    return 0;
 	return 0;
 }

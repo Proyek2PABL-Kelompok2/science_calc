@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#ifndef najwan_h
+#define najwan_h
 
 void najwan();
+
+#endif

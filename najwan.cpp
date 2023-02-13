@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 #include <conio.h>
+#include "najwan.h"
 
-
-void najwan(){
+int main(){
 	float pertama, kedua, hasil;
+	int pilihan;
 	
 	char operasi;
 	 	
@@ -40,6 +41,7 @@ void najwan(){
 	}
 	
 
-	
+
 	//int penjumlahan(&pertama, )
 }
+

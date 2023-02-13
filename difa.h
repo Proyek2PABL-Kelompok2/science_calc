@@ -12,5 +12,10 @@ float secan(float angka);
 
 float cotangent(float angka);
 
+float asinus(float angka);
+
+float acosinus(float angka);
+
+float atangent(float angka);
 
 #endif

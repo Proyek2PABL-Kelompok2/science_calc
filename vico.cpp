@@ -41,8 +41,8 @@ void vico()
 
         z = sqrt(a);
 
-         //Menampilkan hasil pangkat x akarkuadrat 2 = z
+         //Menampilkan hasil pangkat x akarkuadrat 2 = b
 
         printf("%.2f akarkuadrat 2  = %.2f \n", a, b);
-	return 0;
+
 }

@@ -1,48 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "vico.h"
+#include <math.h>
 
-void vico()
+int akarKuadrat(int a)
 {
-	
-	//Perpangkatan
-	int x,y,z,n,result;
+	return sqrt(a);
+}
+
+int akarKubik(int a)
+{
+	return cbrt(a);
+}
+
+int logSepuluh(int d)
+{
+	return log10(d);
+}
+
+int main()
+{
+	int a,b,c;
+	float d, hasil;
 	int total = 1;
 	
-	printf("Masukan angka yang akan dipangkatkan :");
-	scanf("%i", &y);
-	printf("Masukan pangkat :");
-	scanf("%i",&z);
+	printf("Masukan angka = ");
+	scanf("%i", &a);
+	printf("Masukan pangkatnya = ");
+	scanf("%i", &b);
 	
-	for(x=1; x<=z; x++)
+	for(c=1; c<=b; c++) //Membuat perpangkatan
 	{
-		total=total*y;
+		total = total*a;
 	}
+	printf("Hasil dari %i pangkat %i adalah = %i \n", a,b,total); //Hasil dari perpangkatan
 	
-	printf("Hasilnya adalah %d", total);
+	
+	printf("Masukan angka yang akan diakar kuadrat kan = "); //Membuat akar kuadrat
+	scanf("%i",&a);
+	
+	hasil = sqrt(a);
+	printf("Hasil dari akar kuadrat %i adalah %g \n",a,hasil); //Hasil akar kuadrat
+
+
+	printf("Masukan angka yang akan diakar kubik kan = "); //Membuat akar kubik
+	scanf("%i",&a);
+	
+	hasil = cbrt(a);
+	printf("Hasil dari akar kubik %i adalah %g \n",a,hasil); //Hasil akar kubik
 	
 	
-	//Log 10
-	printf("Masukan angka :");
-    scanf("%lf", &n);
-    
-    result = log10(n);
-    printf("%Mengubah %lf  menjadi log10 2= %lf", n ,result);
-
+	printf("Masukan angka yang akan di log10 = "); //Membuat perhitungan dari log10
+	scanf("%f", &d);
 	
-	//akar kuadrat
-	    float a, b;
-
-        puts("Masukan bilangan (x akarkuadrat 2):");
-        printf("x = ");
-        scanf("%f", &a);
-
-        //Menghitug pangkat dengan fungsi sqrt
-
-        z = sqrt(a);
-
-         //Menampilkan hasil pangkat x akarkuadrat 2 = b
-
-        printf("%.2f akarkuadrat 2  = %.2f \n", a, b);
-
+	hasil = logSepuluh(d);
+	printf("Mengubah %g menjadi log10 adalah %g",d,hasil); //Hasil log10
+	
+	return 0;
 }

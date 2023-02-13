@@ -4,6 +4,8 @@
 
 void vico()
 {
+	
+	//Perpangkatan
 	int x,y,z,n,result;
 	int total = 1;
 	
@@ -19,12 +21,28 @@ void vico()
 	
 	printf("Hasilnya adalah %d", total);
 	
+	
+	//Log 10
 	printf("Masukan angka :");
     scanf("%lf", &n);
     
     result = log10(n);
     printf("%Mengubah %lf  menjadi log10 2= %lf", n ,result);
 
-    return 0;
+	
+	//akar kuadrat
+	    float a, b;
+
+        puts("Masukan bilangan (x akarkuadrat 2):");
+        printf("x = ");
+        scanf("%f", &a);
+
+        //Menghitug pangkat dengan fungsi sqrt
+
+        z = sqrt(a);
+
+         //Menampilkan hasil pangkat x akarkuadrat 2 = z
+
+        printf("%.2f akarkuadrat 2  = %.2f \n", a, b);
 	return 0;
 }

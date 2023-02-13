@@ -2,10 +2,10 @@
 #define difa_h
 
 
-float sinus(int angka);
+float sinus(float angka);
 
-float cosinus(int angka);
+float cosinus(float angka);
 
-float tangent(int angka);
+float tangent(float angka);
 
 #endif

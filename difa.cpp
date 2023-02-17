@@ -1,7 +1,23 @@
 #include <math.h>
+#include <string.h>
+#include <stdio.h>
 #include "difa.h"
 
-
+float hitungTrigono(char *query){
+	int angka;
+	if(strstr(query,"sin")){
+    	sscanf(query,"sin(%d)",&angka);
+		return sinus(angka);
+	}
+	if(strstr(query,"cos")){
+    	sscanf(query,"cos(%d)",&angka);
+    	return cosinus(angka);
+	}
+	if(strstr(query,"tan")){
+    	sscanf(query,"tan(%d)",&angka);
+    	return tangent(angka);
+	}
+}
 float sinus(float angka){
 	return sin(angka);
 }

@@ -18,4 +18,6 @@ float acosinus(float angka);
 
 float atangent(float angka);
 
+float hitungTrigono(char *query);
+
 #endif

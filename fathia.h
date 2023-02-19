@@ -2,16 +2,16 @@
 #define Fathia
 
 
-float entryA[2][2],entryB[2][2],varC[2][2];
-int a,b,c;
+	int size;
+    float matrix1[MAX_SIZE][MAX_SIZE], matrix2[MAX_SIZE][MAX_SIZE], hasil[MAX_SIZE][MAX_SIZE];
+    int option;
+    int i, j, k;
+    float det1,det2,in1,in2;
 
 // pilihan void //
-void pilihan();
 void input();
-void show();
-void penjumlahan();
-void pengurangan();
-void fathia();
+void tampil();
+void pilihan();
 
 #endif
 

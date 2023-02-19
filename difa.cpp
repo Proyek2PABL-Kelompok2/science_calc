@@ -130,8 +130,8 @@ int hitungQuery(char query[]){
 			}
 			akhir = j - 1;
 			strrev(operand1);
-			operandNum1 = atof(operand1);
-			operandNum2 = atof(operand2);
+			operandNum1 = atoi(operand1);
+			operandNum2 = atoi(operand2);
 			
 			hasil = operasi(opp,operandNum1,operandNum2);
 			
@@ -222,8 +222,8 @@ int hitungQuery(char query[]){
 			strrev(operand1);
 
 			
-			operandNum1 = atof(operand1);
-			operandNum2 = atof(operand2);
+			operandNum1 = atoi(operand1);
+			operandNum2 = atoi(operand2);
 			
 			hasil = operasi(opp,operandNum1,operandNum2);
 			
@@ -278,6 +278,6 @@ int hitungQuery(char query[]){
 			i++;
 		}
 		}
-		hasil = atof(query);
+		hasil = atoi(query);
 		return hasil;
 }

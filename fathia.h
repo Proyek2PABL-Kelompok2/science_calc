@@ -14,5 +14,3 @@ void tampil();
 void pilihan();
 
 #endif
-
-

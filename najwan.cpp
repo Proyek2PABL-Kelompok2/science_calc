@@ -114,6 +114,7 @@ double konverter_volume(float c, float d, double e){
 
 //konvert dari detik	
 int secToMin(float angka){
+	float detik, menit;
 	detik = angka;
 	menit = detik / 60;
 	
@@ -121,6 +122,7 @@ int secToMin(float angka){
 }
 
 int secToHour(float angka){
+	float detik, jam;
 	detik = angka;
 	jam = detik / 3600;
 	
@@ -128,6 +130,7 @@ int secToHour(float angka){
 }
 
 int secToDay(float angka){
+	float detik, hari;
 	detik = angka;
 	hari = detik / 86400;
 	
@@ -135,6 +138,7 @@ int secToDay(float angka){
 }
 
 int secToWeek(float angka){
+	float detik, minggu;
 	detik = angka;
 	minggu = detik/604800;
 	
@@ -142,6 +146,7 @@ int secToWeek(float angka){
 }
 
 int secToMounth(float angka){
+	float detik, bulan;
 	detik = angka;
 	bulan = detik/2592000;
 	
@@ -149,6 +154,7 @@ int secToMounth(float angka){
 }
 
 int secToYear(float angka){
+	float detik, tahun;
 	detik = angka;
 	tahun = detik/31104000;
 	
@@ -157,6 +163,7 @@ int secToYear(float angka){
 
 //konvert dari menit
 int minToSec(float angka){
+	float menit, detik;
 	menit = angka;
 	detik = menit*60;
 	
@@ -164,6 +171,7 @@ int minToSec(float angka){
 }
 
 int minToHour(float angka){
+	float menit, jam;
 	menit = angka;
 	jam = menit / 60;
 	
@@ -171,6 +179,7 @@ int minToHour(float angka){
 }
 
 int minToDay(float angka){
+	float menit, hari;
 	menit = angka;
 	hari = menit / 1440;
 	
@@ -178,6 +187,7 @@ int minToDay(float angka){
 }
 
 int minToWeek(float angka){
+	float menit, minggu;
 	menit = angka;
 	minggu = menit/10080;
 	
@@ -185,6 +195,7 @@ int minToWeek(float angka){
 }
 
 int minToMounth(float angka){
+	float menit, bulan;
 	menit = angka;
 	bulan = menit/43200;
 	
@@ -192,6 +203,7 @@ int minToMounth(float angka){
 }
 
 int minToYear(float angka){
+	float menit, tahun;
 	menit = angka;
 	tahun = menit/518400;
 	
@@ -200,6 +212,7 @@ int minToYear(float angka){
 
 //konvert dari jam
 int hourToSec(float angka){
+	float jam, detik;
 	jam = angka;
 	detik = jam * 3600;
 	
@@ -207,6 +220,7 @@ int hourToSec(float angka){
 }
 
 int hourToMin(float angka){
+	float jam, menit;
 	jam = angka;
 	menit = jam * 60;
 	
@@ -214,6 +228,7 @@ int hourToMin(float angka){
 }
 
 int hourToDay(float angka){
+	float jam, hari;
 	jam = angka; 
 	hari = jam/24;
 	
@@ -221,6 +236,7 @@ int hourToDay(float angka){
 }
 
 int hourToWeek(float angka){
+	float jam, minggu;
 	jam = angka;
 	minggu = jam/168;
 	
@@ -228,21 +244,24 @@ int hourToWeek(float angka){
 }
 
 int hourToMounth(float angka){
-		jam = angka;
-		bulan = jam/672;
+	int jam, bulan;
+	jam = angka;
+	bulan = jam/672;
 	
 	return bulan;
 }
 
 int hourToYear(float angka){
-		jam = angka;
-		tahun = jam/8064;
+	float jam, tahun;
+	jam = angka;
+	tahun = jam/8064;
 	
 	return tahun;
 }
 
 //konvert dari hari
 int dayToSec(float angka){
+	float hari, detik;
 	hari = angka;
 	detik = hari*86400;
 	
@@ -250,6 +269,7 @@ int dayToSec(float angka){
 }
 
 int dayToMin(float angka){
+	float hari, menit;
 	hari = angka;
 	menit = hari * 1440;
 	
@@ -257,6 +277,7 @@ int dayToMin(float angka){
 }
 
 int dayToHour(float angka){
+	float hari, jam;
 	hari = angka;
 	jam = hari*24;	
 	
@@ -264,6 +285,7 @@ int dayToHour(float angka){
 }
 
 int dayToWeek(float angka){
+	float hari, minggu;
 	hari = angka;
 	minggu = hari / 7;
 	
@@ -271,6 +293,7 @@ int dayToWeek(float angka){
 }
 
 int dayToMounth(float angka){
+	float hari, bulan;
 	hari = angka;
 	bulan = hari /30;
 	
@@ -278,6 +301,7 @@ int dayToMounth(float angka){
 }
 
 int dayToYear(float angka){
+	float hari, tahun;
 	hari = angka;
 	tahun = hari / 365;
 	
@@ -286,6 +310,7 @@ int dayToYear(float angka){
 
 //konvert dari minggu
 int weekToSec(float angka){
+	float minggu, detik;
 	minggu = angka;
 	detik = minggu*604800;
 	
@@ -293,6 +318,7 @@ int weekToSec(float angka){
 }
 
 int weekToMin(float angka){
+	float minggu, menit;
 	minggu = angka;
 	menit = minggu*10080;
 	
@@ -300,6 +326,7 @@ int weekToMin(float angka){
 }
 
 int weekToHour(float angka){
+	float minggu, jam;
 	minggu = angka;
 	jam = minggu*168;	
 	
@@ -307,6 +334,7 @@ int weekToHour(float angka){
 }
 
 int weekToDay(float angka){
+	float minggu, hari;
 	minggu = angka;
 	hari = minggu*7;
 	
@@ -314,6 +342,7 @@ int weekToDay(float angka){
 }
 
 int weekToMounth(float angka){
+	float minggu, bulan;
 	minggu = angka; 
 	bulan = minggu/4;
 	
@@ -321,6 +350,7 @@ int weekToMounth(float angka){
 }
 
 int weekToYear(float angka){
+	float minggu, tahun;
 	minggu = angka;
 	tahun = minggu/52;
 	
@@ -329,6 +359,7 @@ int weekToYear(float angka){
 
 //konvert dari bulan
 int mounthToSec(float angka){
+	float bulan, detik;
 	bulan = angka;
 	detik = bulan*2592000;
 	
@@ -336,6 +367,7 @@ int mounthToSec(float angka){
 }
 
 int mounthToMin(float angka){
+	float bulan, menit;
 	bulan = angka;
 	menit = bulan*43200;
 	
@@ -343,6 +375,7 @@ int mounthToMin(float angka){
 }
 
 int mounthToHour(float angka){
+	float bulan, jam;
 	bulan = angka;
 	jam = bulan*720;
 	
@@ -350,6 +383,7 @@ int mounthToHour(float angka){
 }
 
 int mounthToDay(float angka){
+	float bulan, hari;
 	bulan = angka;
 	hari = bulan*30;
 	
@@ -357,6 +391,7 @@ int mounthToDay(float angka){
 }
 
 int mounthToWeek(float angka){
+	float bulan, minggu;
 	bulan = angka;
 	minggu = bulan*4;
 	
@@ -364,6 +399,7 @@ int mounthToWeek(float angka){
 }
 
 int mounthToYear(float angka){
+	float bulan, tahun;
 	bulan = angka;
 	tahun = bulan / 12;
 	
@@ -372,6 +408,7 @@ int mounthToYear(float angka){
 
 //konvert dari tahun
 int yearToSec(float angka){
+	float tahun, detik;
 	tahun = angka;
 	detik = tahun*31104000;
 	
@@ -379,6 +416,7 @@ int yearToSec(float angka){
 }
 
 int yearToMin(float angka){
+	float tahun, menit;
 	tahun = angka;
 	menit = tahun*518400;
 	
@@ -386,6 +424,7 @@ int yearToMin(float angka){
 }
 
 int yearToHour(float angka){
+	float tahun, jam;
 	tahun = angka;
 	jam = tahun*8640;
 	
@@ -393,6 +432,7 @@ int yearToHour(float angka){
 }
 
 int yearToDay(float angka){
+	float tahun, hari;
 	tahun = angka; 
 	hari = tahun*365;	
 	
@@ -400,6 +440,7 @@ int yearToDay(float angka){
 }
 
 int yearToWeek(float angka){
+	float tahun, minggu;
 	tahun = angka; 
 	minggu = tahun*52;
 	
@@ -407,6 +448,7 @@ int yearToWeek(float angka){
 }
 
 int yearToMounth(float angka){
+	float tahun,bulan;
 	tahun = angka;
 	bulan = tahun*12;
 	
@@ -414,6 +456,7 @@ int yearToMounth(float angka){
 }
 
 float celciToFar(float angka){
+	float c,f;
 	c = angka;
 	f = (c*1.8)+32;
 	
@@ -421,6 +464,7 @@ float celciToFar(float angka){
 }
 
 float celciToKel(float angka){
+	float c,k;
 	c = angka;
 	k = c + 273.15;
 	
@@ -428,6 +472,7 @@ float celciToKel(float angka){
 }
 
 float celciToRea(float angka){
+	float c,r;
 	c = angka;
 	r = (c*4)/5;
 
@@ -435,6 +480,7 @@ float celciToRea(float angka){
 }
 
 float farToCelci(float angka){
+	float f,c;
 	f = angka;
 	c = (f-32)*5/9;
 	
@@ -442,6 +488,7 @@ float farToCelci(float angka){
 }
 
 float farToKel(float angka){
+	float f,c,k;
 	f = angka;
 	c = (f-32)*5/9;
 	k = c + 273.15;
@@ -450,6 +497,7 @@ float farToKel(float angka){
 }
 
 float farToRea(float angka){
+	float f,r;
 	f = angka;
 	r = (f-32)*4/9;
 
@@ -457,6 +505,7 @@ float farToRea(float angka){
 }
 
 float kelToCelci(float angka){
+	float k,c;
 	k = angka;
 	c = k-273.15;
 
@@ -464,6 +513,7 @@ float kelToCelci(float angka){
 }
 
 float kelToFar(float angka){
+	float k,c,f;
 	k = angka;
 	c = k-273.15;
 	f = (c*1.8)+32; 
@@ -472,6 +522,7 @@ float kelToFar(float angka){
 }
 
 float kelToRea(float angka){
+	float r,k;
 	k = angka;
 	r = (k-273.15)*4/5;
 	
@@ -479,6 +530,7 @@ float kelToRea(float angka){
 }
 
 float reaToCelci(float angka){
+	float r,c;
 	r = angka;
 	c = r*5/4;
 
@@ -486,6 +538,7 @@ float reaToCelci(float angka){
 }
 
 float reaToFar(float angka){
+	float r,c,f;
 	r = angka;
 	c = r*5/4;
 	f = (c*1.8)+32;
@@ -494,6 +547,7 @@ float reaToFar(float angka){
 }
 
 float reaToKel(float angka){
+	float k, r;
 	r = angka;
 	k = (r*5/4)+273.15;
 
@@ -502,52 +556,53 @@ float reaToKel(float angka){
 
 //void utama
 void najwan(){	
-	float hasil,n;
-	
-	switch(){
-		case '+':
-			hasil = penjumlahan(a,b);
-			
-			break;
-		case '-':
-			hasil = pengurangan(a,b);
-			
-			break;
-		case '*':
-			hasil = perkalian(a,b);
-			
-			break;
-		case '/':
-			hasil = pembagian(a,b);
-			
-			break;
-		case '%':
-			hasil = modulus(a,b);
-			
-			break;
-		default:
-			printf("anda salah memasukan operasi hitung");
-	}
-	
-	switch(){
-		
-		case 1:
-			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
-		case 2:
-			n = konverter_luas(c,d,e);
-		case 3:
-			n = konverter_volume(c,d,e);
-		case 4:
-			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
-		case 5:
-			waktu();
-		case 6:
-			suhu();
-			
-	}
+	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
+//	
+//	switch(){
+//		case '+':
+//			hasil = penjumlahan(a,b);
+//			
+//			break;
+//		case '-':
+//			hasil = pengurangan(a,b);
+//			
+//			break;
+//		case '*':
+//			hasil = perkalian(a,b);
+//			
+//			break;
+//		case '/':
+//			hasil = pembagian(a,b);
+//			
+//			break;
+//		case '%':
+//			hasil = modulus(a,b);
+//			
+//			break;
+//		default:
+//			printf("anda salah memasukan operasi hitung");
+//	}
+//	
+//	switch(){
+//		
+//		case 1:
+//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
+//		case 2:
+//			n = konverter_luas(c,d,e);
+//		case 3:
+//			n = konverter_volume(c,d,e);
+//		case 4:
+//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
+//		case 5:
+//			waktu();
+//		case 6:
+//			suhu();
+//			
+//	}
+//	
 }
 
-void waktu(){
+void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit
 		detik = angka;
@@ -905,7 +960,7 @@ void waktu(){
 	
 }	
 
-void suhu(){
+void suhu(int jawaban, int jawaban2, int f, int k, int r, int c, int angka){
 	if(jawaban==1 && jawaban2==2){
 		//c ke f
 		f = celciToFar(angka);

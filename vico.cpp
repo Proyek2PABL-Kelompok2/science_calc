@@ -19,7 +19,8 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 	return pangkat_turunan;
 }
 
-int main()
+//int main()
+void vico()
 {
 	int i, c, nilai_perpangkatan, pangkat_perpangkatan, pangkat_akar, pangkat_turunan, koef[jmlh_pangkat+1], koefs[jmlh_pangkat] ;
 	double basis, nilai_loga, hasil_loga;
@@ -81,5 +82,5 @@ int main()
         }
     }
 
-	return 0;
+//	return 0;
 }

@@ -27,10 +27,10 @@ int angka;
 		sscanf(query,"cot(%d)",&angka);
     	return cotangent(angka);
 	}
-//	if (strstr(query,"cosec")){
-//		sscanf(query,"cosec(%d)",&angka);
-//    	return cosecan(angka);
-//	}
+	if (strstr(query,"cosec")){
+		sscanf(query,"cosec(%d)",&angka);
+    	return cosecan(angka);
+	}
 	if (strstr(query,"asin")){
 		sscanf(query,"asin(%d)",&angka);
     	return asinus(angka);
@@ -63,9 +63,9 @@ float secan(float angka){
 float cotangent(float angka){
 	return cos(angka)/sin(angka);
 }
-//float cosecan(float angka){
-//	return 1/sin(angka);
-//}
+float cosecan(float angka){
+	return 1/sin(angka);
+}
 float asinus(float angka){
 	return asin(angka);
 }

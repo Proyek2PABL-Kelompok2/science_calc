@@ -10,7 +10,7 @@
     float matrix1[MAX_SIZE][MAX_SIZE], matrix2[MAX_SIZE][MAX_SIZE], hasil[MAX_SIZE][MAX_SIZE], A[MAX_SIZE][MAX_SIZE];
     int option;
     int i, j, k;
-    float det1, det2, det3, det4, in1,in2;
+    float det1, det2, det3, det4, in1, in2;
 
 
     
@@ -57,9 +57,9 @@ void kali(float matrix1[][MAX_SIZE], float matrix2[][MAX_SIZE], float hasil[][MA
 
 
 
-int main() {
+//int main(){
+void fathia(){
 	int pilih;
-    
 
     printf("pilih ordo matriks: ");
     scanf("%d", &size);
@@ -152,5 +152,5 @@ int main() {
 	
 
 	
-    return 0;
+//    return 0;
 }

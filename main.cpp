@@ -29,7 +29,7 @@ int main(){
 //				printf("You chose 2");
 				printf("Ingin hitung apa? ");
 				printf("\n1. Eksponensial, Logaritma, Turunan");
-				printf("\n2. Matriks");
+				printf("\n2. Matriks, Barisan dan Deret");
 				printf("\n3. Trigonometri");
 				printf("\nChoose: ");
 				scanf("%d", &choice);

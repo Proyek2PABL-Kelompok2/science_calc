@@ -598,23 +598,39 @@ void najwan(){
 	switch(pilihan){
 		
 		case 1:
+			panjang();
 			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
 		case 2:
+			panjang();
 			n = konverter_luas(c,d,e);
 		case 3:
+			panjang();
 			n = konverter_volume(c,d,e);
 		case 4:
+			panjang();
 			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
 		case 5:;
 			waktu();
 		case 6:
-			
 			suhu();
 			
 	}
 	
 }
 
+void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
+	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
+	printf("\t\t1. Km\n");
+	printf("\t\t2. Hm\n");
+	printf("\t\t3. Dam\n");
+	printf("\t\t4. M\n");
+	printf("\t\t5. dm\n");
+	printf("\t\t6. cm\n");
+	printf("\t\t7. mm\n");
+	printf("dari : ");scanf("%d", &pilihan_panjang);
+	printf("ke : ");scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");scanf("%lf", &angka);	
+}
 
 void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
 	printf("==========konversi satuan waktu==========\n");
@@ -983,6 +999,15 @@ void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, i
 }	
 
 void suhu(int jawaban, int jawaban2, int f, int k, int r, int c, int angka){
+	printf("==========konversi satuan suhu==========\n");
+	printf("\t\t1. celcuis\n");
+	printf("\t\t2. fahrenheit\n");	
+	printf("\t\t3. kelvin\n");
+	printf("\t\t4. reamur\n");
+	printf("dari : ");scanf("%d",&jawaban);
+	printf("ke : ");scanf("%d",&jawaban2);
+	printf("masukan angka yang akan di konversikan : ");scanf("%f",&angka);
+	
 	if(jawaban==1 && jawaban2==2){
 		//c ke f
 		f = celciToFar(angka);

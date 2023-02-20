@@ -557,6 +557,7 @@ float reaToKel(float angka){
 //void utama
 void najwan(){	
 	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
+<<<<<<< HEAD
 	int pilihan;
 	char operasi;
 	
@@ -632,15 +633,54 @@ void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
 	printf("masukan angka ");scanf("%lf", &angka);	
 }
 
+=======
+//	
+//	switch(){
+//		case '+':
+//			hasil = penjumlahan(a,b);
+//			
+//			break;
+//		case '-':
+//			hasil = pengurangan(a,b);
+//			
+//			break;
+//		case '*':
+//			hasil = perkalian(a,b);
+//			
+//			break;
+//		case '/':
+//			hasil = pembagian(a,b);
+//			
+//			break;
+//		case '%':
+//			hasil = modulus(a,b);
+//			
+//			break;
+//		default:
+//			printf("anda salah memasukan operasi hitung");
+//	}
+//	
+//	switch(){
+//		
+//		case 1:
+//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
+//		case 2:
+//			n = konverter_luas(c,d,e);
+//		case 3:
+//			n = konverter_volume(c,d,e);
+//		case 4:
+//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
+//		case 5:
+//			waktu();
+//		case 6:
+//			suhu();
+//			
+//	}
+//	
+}
+
+>>>>>>> e78e3ea0149458dc80390a668d5b8287f5b09a17
 void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
-	printf("==========konversi satuan waktu==========\n");
-	printf("\t\t1. detik\n");printf("\t\t2. menit\n");	printf("\t\t3. jam\n");
-	printf("\t\t4. hari\n");printf("\t\t5. minggu\n");printf("\t\t6. bulan\n");
-	printf("\t\t7. tahun\n");
-	printf("dari : ");scanf("%d",&jawaban);
-	printf("ke : ");scanf("%d",&jawaban2);
-	printf("masukan angkan yang akan dikonversikan : ");scanf("%f",&angka);
-	
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit
 		detik = angka;

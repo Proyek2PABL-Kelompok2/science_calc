@@ -40,9 +40,7 @@ void tampil(float matrix[][MAX_SIZE], int size) {
 void pilihan(){ //fungsi pilihan menu perhitungan
     printf("\n[1] Penjumlahan"); 
     printf("\n[2] Pengurangan");
-    printf("\n[3] Kali");
-    printf("\n[4] Determinan");
-    printf("\n[5] Invers");
+    printf("\n[3] Kali");;
     printf("\n[0] Keluar");
 }
 

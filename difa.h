@@ -14,6 +14,8 @@ float secan(float angka);
 
 float cotangent(float angka);
 
+float cosecan(float angka);
+
 float asinus(float angka);
 
 float acosinus(float angka);

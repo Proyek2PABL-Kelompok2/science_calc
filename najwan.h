@@ -11,4 +11,8 @@ float perkalian(float a,float b);
 float pembagian(float a,float b);
 float modulus(float a, float b);
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> e78e3ea0149458dc80390a668d5b8287f5b09a17

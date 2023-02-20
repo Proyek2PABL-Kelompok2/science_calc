@@ -7,8 +7,8 @@
 #include "vico.h"
 
 int main(){
-	char prompt; int res;
-	char s[250];
+	char s[250], prompt;
+	int res, choice;
 	do{
 		system("cls");
 		printf("Scientific Calculator");
@@ -16,7 +16,8 @@ int main(){
 		printf("\n2. Perform other calculations");
 		printf("\n3. Perform conversions");
 		printf("\nChoose: ");
-		switch(scanf("%d")){
+		scanf("%d", &choice);
+		switch(choice){
 			case 1:
 //				printf("You chose 1");
 				printf("Masukkan ekspresi aritmatika: ");
@@ -31,7 +32,8 @@ int main(){
 				printf("\n2. Matriks");
 				printf("\n3. Trigonometri");
 				printf("\nChoose: ");
-				switch(scanf("%d")){
+				scanf("%d", &choice);
+				switch(choice){
 					case 1:
 						system("cls");
 						vico(); // kekurangan: masih pakai void function, fungsi-fungsi hitung belum atomized
@@ -45,7 +47,7 @@ int main(){
 						printf("\nTrigonometri");
 						printf("\nMasukkan input: ");
 						scanf("%s", s);
-						printf("Hasil: %d", hitungTrigono(s));
+						printf("Hasil: %f", hitungTrigono(s));
 						break;
 					default:
 						break;
@@ -58,7 +60,8 @@ int main(){
 //				printf("\n2. Matriks");
 //				printf("\n3. Trigonometri");
 				printf("\nChoose: ");
-				switch(scanf("%d")){
+				scanf("%d", &choice);
+				switch(choice){
 					case 1:
 						system("cls");
 						break;
@@ -82,26 +85,4 @@ int main(){
 			break;
 		}
 	}while(prompt=='y'||prompt=='Y');
-}
-
-int calc(int a, int b, char op){
-    int c;
-    switch (op)
-    {
-    case '+':
-        c = a+b;
-        break;
-    case '-':
-        c = a-b;
-        break;
-    case '*':
-        c = a*b;
-        break;
-    case '/':
-        c = a/b;
-        break;
-    default:
-        break;
-    }
-    return c;
 }

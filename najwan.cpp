@@ -559,11 +559,11 @@ float reaToKel(float angka){
 //void utama
 void najwan(){
 	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
-	float hasil,n,a,b,e,angka,pilihan_jawaban,pilihan_jawaban2;
+	float pilihan_jawaban,pilihan_jawaban2;
 	int pilihan;
 	char operasi;
 	int detik, menit, jam, hari, minggu, bulan, tahun;
-	int f,k,r,c,q,w;
+	int f,k,r,q,w;
 	
 	
 	printf("masukan operasi aritmatika \n");
@@ -691,7 +691,7 @@ void panjang(){
 //	
 //}
 
-void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
+//void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
 void luas(){
 	int pilihan_panjang,pilihan_panjang2;
 	long double angka,n;
@@ -1210,5 +1210,3 @@ void suhu(){
 	
 	
 }
-
-		

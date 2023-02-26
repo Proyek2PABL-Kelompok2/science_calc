@@ -557,7 +557,6 @@ float reaToKel(float angka){
 //void utama
 void najwan(){	
 	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
-<<<<<<< HEAD
 	int pilihan;
 	char operasi;
 	
@@ -595,7 +594,8 @@ void najwan(){
 	printf("\t\t4. Satuan Kapasitas \n");
 	printf("\t\t5. Satuan Massa \n");
 	printf("\t\t6. Satuan Waktu \n");
-	printf("\n\t\tjawab : ");scanf("%d", &pilihan);
+	printf("\n\t\tjawab : ");
+	scanf("%d", &pilihan);
 	switch(pilihan){
 		
 		case 1:
@@ -633,7 +633,6 @@ void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
 	printf("masukan angka ");scanf("%lf", &angka);	
 }
 
-=======
 //	
 //	switch(){
 //		case '+':
@@ -677,9 +676,8 @@ void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
 //			
 //	}
 //	
-}
+//}
 
->>>>>>> e78e3ea0149458dc80390a668d5b8287f5b09a17
 void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit

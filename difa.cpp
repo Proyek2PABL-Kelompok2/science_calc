@@ -78,8 +78,8 @@ float atangent(float angka){
 	return atan(angka);
 }
 
-int operasi(char opp,int operandNum1, int operandNum2){
-	int hasil;
+float operasi(char opp,float operandNum1, float operandNum2){
+	float hasil;
 			if(opp=='*'){
 				hasil = operandNum1 * operandNum2;
 			}
@@ -97,28 +97,32 @@ int operasi(char opp,int operandNum1, int operandNum2){
 	
 }
 
-int hitungQuery(char query[]){
+float hitungQuery(char query[]){
 	char operand1[250], operand2[250];
 	int i, j;
 	char opp;
-	int hasil,operandNum1,operandNum2;
+	float hasil,operandNum1,operandNum2;
 	int iteration;
 	char temp[20];
 	int k, awal, akhir, penampung, iTemp;
 	i = 0;
 	j = 0;
-		while (strstr(query, "*") || strstr(query, "/"))
+			while (strstr(query, "*") || strstr(query, "/"))
 	{
+		
 		k = 0;
-		if (query[i] == '*'|| query[i] == '/')
+		if (query[i] == '*' || (query[i] == '/' && i>=0))
 		{
-			memset(operand1,'\0',7);
-			memset(operand2,'\0',7);
+			memset(operand1,'\0',250);
+			memset(operand2,'\0',250);
+			
 			opp = query[i]; //assign operator
+				
 			j = i - 1;
-			while ((isdigit(query[j])||query[j]=='.' )&& j >= 0) // deteksi operand 1
+		
+			while ((isdigit(query[j])||query[j]=='.' ) && j >= 0) // deteksi operand 1
 			{
-
+				
 				operand1[k] = query[j];
 				j--;
 				k++;
@@ -136,23 +140,68 @@ int hitungQuery(char query[]){
 			}
 			akhir = j - 1;
 			strrev(operand1);
-			operandNum1 = atoi(operand1);
-			operandNum2 = atoi(operand2);
+		
+		
+			
+			operandNum1 = atof(operand1);
+			operandNum2 = atof(operand2);
 			
 			hasil = operasi(opp,operandNum1,operandNum2);
 			
-			sprintf(temp, "%d", hasil);
+			sprintf(temp, "%f", hasil);
+		
 
-
-			penampung = awal;
 			
-			while (awal <= akhir) // done
+		
+			int penampung_akhir;
+			
+
+			
+			penampung_akhir = akhir;
+			
+			
+			int panjangTemp,panjangQuery,rangeOperasi,afterOperasi,penSize,iShift;
+			iShift=0;
+			panjangQuery=strlen(query);
+			penSize=panjangQuery;
+				rangeOperasi=akhir-awal+1;
+				afterOperasi=panjangQuery-akhir-1;
+			panjangTemp=strlen(temp);
+	
+			
+			while (panjangTemp-1>rangeOperasi){
+				rangeOperasi=akhir-awal+1;
+				iShift=0;
+				while(iShift<afterOperasi){
+					query[panjangQuery]=query[panjangQuery-1];
+					query[panjangQuery-1]='=';
+					panjangQuery--;
+					iShift++;	
+				}
+				panjangQuery=penSize+1;
+				penSize++;
+				akhir++;
+			}
+			i=0;
+			penampung = awal;
+						while (awal <= akhir)
 			{
-				query[awal] = '\0';
+				query[awal] = '=';
 				awal++;
 			}
-
+		
 			awal = penampung;
+			int iawal,iakhir,space;
+			space=akhir;
+	
+			akhir=penampung_akhir;
+			int index;
+		
+			
+		
+
+		penampung=awal;
+			
 
 			iTemp = 0;
 			while (temp[iTemp] != '\0') // loop jika temp tidak null
@@ -161,11 +210,24 @@ int hitungQuery(char query[]){
 				iTemp++;
 				awal++;
 			}
-
+			
+			iShift=0;
+			while(iShift<=strlen(query)-1){
+				if(query[iShift]=='='&&query[space+1]!='\0'){
+					query[iShift]=query[space+1];
+					query[space+1]='=';
+					space++;
+				}
+				iShift++;
+				
+			}
+			
+	
+			
 			awal = penampung;
 			penampung = akhir;
-			int iawal = awal;
-			int iakhir = akhir;
+			 iawal = awal;
+			 iakhir = akhir;
 			// dibawah adalah untuk shift query
 			while (awal <= akhir)
 			{
@@ -191,24 +253,25 @@ int hitungQuery(char query[]){
 		else{
 			i++;
 		}
-		
-		
-	}
+		}
 	i = 0;
 	j = 0;
 	while (strstr(query, "+") || strstr(query, "-"))
 	{
+		
 		k = 0;
 		if (query[i] == '+' || (query[i] == '-' && i>=0))
 		{
-			memset(operand1,'\0',7);
-			memset(operand2,'\0',7);
+			memset(operand1,'\0',250);
+			memset(operand2,'\0',250);
+			
 			opp = query[i]; //assign operator
 
 			j = i - 1;
+
 			while ((isdigit(query[j])||query[j]=='.' ) && j >= 0) // deteksi operand 1
 			{
-
+			
 				operand1[k] = query[j];
 				j--;
 				k++;
@@ -226,25 +289,67 @@ int hitungQuery(char query[]){
 			}
 			akhir = j - 1;
 			strrev(operand1);
+		
 
 			
-			operandNum1 = atoi(operand1);
-			operandNum2 = atoi(operand2);
+			operandNum1 = atof(operand1);
+			operandNum2 = atof(operand2);
 			
 			hasil = operasi(opp,operandNum1,operandNum2);
 			
-			sprintf(temp, "%d", hasil);
+			sprintf(temp, "%f", hasil);
 
 
-			penampung = awal;
+			
 		
-			while (awal <= akhir)
+			int penampung_akhir;
+			
+
+			
+			penampung_akhir = akhir;
+			
+		
+			int panjangTemp,panjangQuery,rangeOperasi,afterOperasi,penSize,iShift;
+			iShift=0;
+			panjangQuery=strlen(query);
+			penSize=panjangQuery;
+				rangeOperasi=akhir-awal+1;
+				afterOperasi=panjangQuery-akhir-1;
+			panjangTemp=strlen(temp);
+
+			
+			while (panjangTemp>rangeOperasi){
+				rangeOperasi=akhir-awal+1;
+				iShift=0;
+				while(iShift<afterOperasi){
+					query[panjangQuery]=query[panjangQuery-1];
+					query[panjangQuery-1]='=';
+					panjangQuery--;
+					iShift++;	
+				}
+				panjangQuery=penSize+1;
+				penSize++;
+				akhir++;
+			}
+			i=0;
+			penampung = awal;
+						while (awal <= akhir)
 			{
-				query[awal] = '\0';
+				query[awal] = '=';
 				awal++;
 			}
 
 			awal = penampung;
+			int iawal,iakhir,space;
+			space=akhir;
+
+			akhir=penampung_akhir;
+			int index;
+		
+			
+
+		penampung=awal;
+			
 
 			iTemp = 0;
 			while (temp[iTemp] != '\0') // loop jika temp tidak null
@@ -254,10 +359,23 @@ int hitungQuery(char query[]){
 				awal++;
 			}
 
+			iShift=0;
+			while(iShift<=strlen(query)-1){
+				if(query[iShift]=='='&&query[space+1]!='\0'){
+					query[iShift]=query[space+1];
+					query[space+1]='=';
+					space++;
+				}
+				iShift++;
+				
+			}
+			
+
+			
 			awal = penampung;
 			penampung = akhir;
-			int iawal = awal;
-			int iakhir = akhir;
+			 iawal = awal;
+			 iakhir = akhir;
 			// dibawah adalah untuk shift query
 			while (awal <= akhir)
 			{
@@ -284,6 +402,7 @@ int hitungQuery(char query[]){
 			i++;
 		}
 		}
-		hasil = atoi(query);
+		hasil = atof(query);
+		
 		return hasil;
 }

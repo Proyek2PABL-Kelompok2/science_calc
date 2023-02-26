@@ -24,7 +24,7 @@ float atangent(float angka);
 
 float hitungTrigono(char *query);
 
-int hitungQuery(char query[]);
+float hitungQuery(char query[]);
 
-int operasi(char opp,int operandNum1,int operandNum2);
+float operasi(char opp,int operandNum1,int operandNum2);
 #endif

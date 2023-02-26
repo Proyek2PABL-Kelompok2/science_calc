@@ -137,7 +137,7 @@ float hitungQuery(char query[]){
 			}
 			
 			
-			awal = j + 1;
+			awal = j + 1;//awal adalah variabel yang menunjukan indeks ke berapa operasi dimulai
 			j = i + 1;
 			k = 0;
 			while ((isdigit(query[j])||query[j]=='.' ) && query[j] != '\0') // deteksi operand 2
@@ -146,22 +146,23 @@ float hitungQuery(char query[]){
 				j++;
 				k++;
 			}
-			akhir = j - 1;
-			strrev(operand1);
+			akhir = j - 1; //akhir adalah variabel yang menunjukkan indeks ke berapa operasi berakhir
+			strrev(operand1); //karena operand1 diassign secara terbalik, maka harus di reverse
 		
 		
-			
-			operandNum1 = atof(operand1);
+			//convert to float
+			operandNum1 = atof(operand1); 
 			operandNum2 = atof(operand2);
 			
 			hasil = operasi(opp,operandNum1,operandNum2);
 			
+			//float to string
 			sprintf(temp, "%f", hasil);
 		
 
 			
 		
-			int penampung_akhir;
+			int penampung_akhir; // dibuat untuk menampung nilai akhir
 			
 
 			
@@ -176,7 +177,7 @@ float hitungQuery(char query[]){
 				afterOperasi=panjangQuery-akhir-1;
 			panjangTemp=strlen(temp);
 	
-			
+			//melakukan geser kanan jika hasil operasi > range operasi
 			while (panjangTemp-1>rangeOperasi){
 				rangeOperasi=akhir-awal+1;
 				iShift=0;
@@ -192,6 +193,7 @@ float hitungQuery(char query[]){
 			}
 			i=0;
 			penampung = awal;
+			//mengisi range operasi dengan =
 						while (awal <= akhir)
 			{
 				query[awal] = '=';
@@ -210,7 +212,7 @@ float hitungQuery(char query[]){
 
 		penampung=awal;
 			
-
+			//mengisi hasil kedalam array query
 			iTemp = 0;
 			while (temp[iTemp] != '\0') // loop jika temp tidak null
 			{
@@ -219,6 +221,7 @@ float hitungQuery(char query[]){
 				awal++;
 			}
 			
+			//menggeser ke kiri jika ada char antara 1 operasi dengan operasi lainnya
 			iShift=0;
 			while(iShift<=strlen(query)-1){
 				if(query[iShift]=='='&&query[space+1]!='\0'){

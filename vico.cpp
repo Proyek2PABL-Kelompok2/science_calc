@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
+#include "najwan.h"
 #define jmlh_pangkat 10
 
-int akarPangkat(float nilai_akar,int pangkat_akar)
+int akarPangkat(float nilai_akar,float pangkat_akar)
 {
 	return pow(nilai_akar, 1.0/pangkat_akar);
 } 
@@ -22,31 +22,32 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 //int main()
 void vico()
 {
-	int i, c, nilai_perpangkatan, pangkat_perpangkatan, pangkat_akar, pangkat_turunan, koef[jmlh_pangkat+1], koefs[jmlh_pangkat] ;
+	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan;
+	float c, nilai_perpangkatan, pangkat_perpangkatan,pangkat_akar;
 	double basis, nilai_loga, hasil_loga;
 	float nilai_akar, hasil_akar;
 	long long total = 1;
 	
 	printf("Masukan angka yang akan dipangkatkan= ");
-	scanf("%i", &nilai_perpangkatan);
+	scanf("%f", &nilai_perpangkatan);
 	printf("Masukan pangkatnya = ");
-	scanf("%i", &pangkat_perpangkatan);
+	scanf("%f", &pangkat_perpangkatan);
 	
 	for(c=1; c<=pangkat_perpangkatan; c++) //Membuat perpangkatan
 	{
-		total = total*nilai_perpangkatan;
+		total = perkalian(total, nilai_perpangkatan);
 	}
-	printf("Hasil dari %i pangkat %i adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
+	printf("Hasil dari %g pangkat %g adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
 
 	printf("Masukan bilangan yang akan diakarkan :"); //Membuat nilai akar
 	scanf("%f", &nilai_akar);
 	
 	printf("Masukan nilai pangkatnya :"); //Membuat pangkat dari akarnya
-	scanf("%i", &pangkat_akar);
+	scanf("%f", &pangkat_akar);
 	
 	hasil_akar=pow(nilai_akar, 1.0/pangkat_akar);
 	
-	printf("%.2lf pangkat dari 1/%d = %.2lf \n", nilai_akar, pangkat_akar, hasil_akar); //hasil yang didapat dari akar
+	printf("%g hasil pangkat = %g \n", nilai_akar, hasil_akar); //hasil yang didapat dari akar
 
 	printf("Masukan angka untuk log :"); //Membuat logaritma
 	scanf("%lf", &nilai_loga); //Memasukan nilainya
@@ -54,8 +55,8 @@ void vico()
 	printf("Masukan basis log :");
 	scanf("%lf", &basis); //Memasukan basis dari log
 	
-	hasil_loga = log(nilai_loga)/log(basis);
-	printf("log(%.2lf) base %.2lf = %.2lf \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
+	hasil_loga = pembagian(log(nilai_loga),log(basis));
+	printf("log(%g) base %g = %g \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
 	
     printf("Masukkan banyak variabel persamaan: "); //Membuat turunan polinomial
     scanf("%d", &pangkat_turunan); //Memasukan jumlah dari isinya misal membuat tiga pangkat = (ax^3 + bx^2 + cx + d)

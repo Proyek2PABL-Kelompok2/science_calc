@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_SIZE 10
 #include <math.h>
+#include "najwan.h"
+#define MAX_SIZE 10
+
 //#include "fathia.h"
 //#include "najwan.h"
 
@@ -44,19 +46,6 @@ void pilihan(){ //fungsi pilihan menu perhitungan
     printf("\n[0] Keluar");
 }
 
-	
-void tambah(float matrix1[][MAX_SIZE], float matrix2[][MAX_SIZE], float hasil[][MAX_SIZE], int size){
-}
-
-void kurang(float matrix1[][MAX_SIZE], float matrix2[][MAX_SIZE], float hasil[][MAX_SIZE], int size) {
-}
-
-void kali(float matrix1[][MAX_SIZE], float matrix2[][MAX_SIZE], float hasil[][MAX_SIZE], int size) {
-}
-
-
-
-
 //int main(){
 void fathia(){
 	int pilih;
@@ -83,10 +72,9 @@ void fathia(){
 
     switch (pilih) {
         case 1:
-            tambah(matrix1, matrix2, hasil, size);
             for (i = 0; i < size; i++) {
 		        for (j = 0; j < size; j++) {
-		            hasil[i][j] = matrix1[i][j] + matrix2[i][j]; 
+		            hasil[i][j] = penjumlahan(matrix1[i][j], matrix2[i][j]); 
 		        }
 		    }
 			printf("\n Hasil:\n");
@@ -94,7 +82,6 @@ void fathia(){
             break;
             
         case 2:
-	        kurang(matrix1, matrix2, hasil, size);
 	        for (i = 0; i < size; i++) {
 		        for (j = 0; j < size; j++) {
 		            hasil[i][j] = matrix1[i][j] - matrix2[i][j];    
@@ -105,7 +92,6 @@ void fathia(){
 	        break;
 	        
 	    case 3:
-	        kali(matrix1, matrix2, hasil, size);
 			for (i = 0; i < size; i++) {
 		        for (j = 0; j < size; j++) {
 				hasil[i][j] = 0;

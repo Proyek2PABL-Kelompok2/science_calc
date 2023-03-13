@@ -31,7 +31,8 @@ void vico()
 	printf("1. Perpangkatan\n");
 	printf("2. Akar Pangkat\n");
 	printf("3. Logaritma\n");
-	printf("4. Turunan");
+	printf("4. Turunan\n");
+	printf("Masukan pilihan anda : ");
 	scanf("%d", &pilihlah);
 	switch(pilihlah){
 		case 1:
@@ -46,6 +47,7 @@ void vico()
 				total = perkalian(total, nilai_perpangkatan);
 			}
 			printf("Hasil dari %g pangkat %g adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
+			break;
 		case 2:
 			system("cls");
 			printf("Masukan bilangan yang akan diakarkan :"); //Membuat nilai akar
@@ -57,6 +59,7 @@ void vico()
 			hasil_akar=pow(nilai_akar, 1.0/pangkat_akar);
 			
 			printf("%g hasil pangkat = %g \n", nilai_akar, hasil_akar); //hasil yang didapat dari akar
+			break;
 		case 3:
 			system("cls");
 			printf("Masukan angka untuk log :"); //Membuat logaritma
@@ -67,6 +70,7 @@ void vico()
 			
 			hasil_loga = pembagian(log(nilai_loga),log(basis));
 			printf("log(%g) base %g = %g \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
+			break;
 		case 4:
 			system("cls");
 		    printf("Masukkan banyak variabel persamaan: "); //Membuat turunan polinomial
@@ -93,5 +97,9 @@ void vico()
 		            printf("+ ");
 		        }
 		    }
+		    break;
+		default:
+			printf("Yang anda inputkan tidak ada");
+			break;
 	}
 }

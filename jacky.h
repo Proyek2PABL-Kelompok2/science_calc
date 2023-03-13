@@ -1,6 +1,6 @@
 #ifndef JACK
 #define JACK
 
-void jacky();
+void otherCalcs(); //menu display for other calculations outside inline calculator
 
 #endif // !JACK

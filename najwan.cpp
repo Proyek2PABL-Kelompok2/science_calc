@@ -4,6 +4,8 @@
 #include "najwan.h"
 #include <stdio.h>
 
+
+
 float penjumlahan(float a,float b){
 	float hasil;
 	hasil = a + b;
@@ -555,10 +557,13 @@ float reaToKel(float angka){
 }
 
 //void utama
-void najwan(){	
+void najwan(){
 	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
 	int pilihan;
 	char operasi;
+	int detik, menit, jam, hari, minggu, bulan, tahun;
+	int f,k,r,q,w;
+	
 	
 	printf("masukan operasi aritmatika \n");
 	scanf("%f",a);scanf("%c",operasi);scanf("%f",b);
@@ -586,7 +591,11 @@ void najwan(){
 		default:
 			printf("anda salah memasukan operasi hitung");
 	}
-	
+
+}
+
+void untuk_pemilihan_konverter(){
+	int pilihan;	
 	printf("==========Satuan apa yang ingin anda konversi?========== \n");
 	printf("\t\t1. Satuan Panjang \n");
 	printf("\t\t2. Satuan Luas \n");
@@ -600,26 +609,26 @@ void najwan(){
 		
 		case 1:
 			panjang();
-			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
 		case 2:
-			panjang();
-			n = konverter_luas(c,d,e);
+			luas();
 		case 3:
-			panjang();
-			n = konverter_volume(c,d,e);
+			volume();
 		case 4:
-			panjang();
-			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
+			massa();
 		case 5:;
 			waktu();
 		case 6:
 			suhu();
+		default:
+			printf("masukan angka dengan benar");
 			
 	}
 	
 }
 
-void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
+void panjang(){
+	int pilihan_panjang,pilihan_panjang2;
+	float angka,n;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
 	printf("\t\t1. Km\n");
 	printf("\t\t2. Hm\n");
@@ -630,7 +639,10 @@ void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
 	printf("\t\t7. mm\n");
 	printf("dari : ");scanf("%d", &pilihan_panjang);
 	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%lf", &angka);	
+	printf("masukan angka ");scanf("%lf", &angka);
+	
+	n = konverter_panjang_dan_massa(pilihan_panjang,pilihan_panjang2,angka);
+	printf("-----hasil dari konverter : %.6f -----",n);	
 }
 
 //	
@@ -678,7 +690,6 @@ void panjang(int pilihan_panjang, int pilihan_panjang2, float angka){
 //	
 //}
 
-void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, int minggu, int bulan, int tahun, int angka){
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit
 		detik = angka;
@@ -1036,7 +1047,9 @@ void waktu(int jawaban, int jawaban2, int detik, int menit, int jam, int hari, i
 	
 }	
 
-void suhu(int jawaban, int jawaban2, int f, int k, int r, int c, int angka){
+void suhu(){
+	int jawaban, jawaban2; 
+	float angka, f, c, r, k;
 	printf("==========konversi satuan suhu==========\n");
 	printf("\t\t1. celcuis\n");
 	printf("\t\t2. fahrenheit\n");	
@@ -1049,50 +1062,62 @@ void suhu(int jawaban, int jawaban2, int f, int k, int r, int c, int angka){
 	if(jawaban==1 && jawaban2==2){
 		//c ke f
 		f = celciToFar(angka);
+		printf("-----hasil dari konverter : %f f -----",f);
 	}
 	else if(jawaban==1 && jawaban2==3){
 		//c ke k
 		k = celciToKel(angka);
+		printf("-----hasil dari konverter : %f k -----",k);
 	}
 	else if(jawaban==1 && jawaban2==4){
 		//c ke r
 		r = celciToRea(angka);
+		printf("-----hasil dari konverter : %f r -----",r);
 	}
 	else if(jawaban==2 && jawaban2==1){
 		//f ke c
 		c = farToCelci(angka);
+		printf("-----hasil dari konverter : %f c -----",c);
 	}
 	else if(jawaban==2 && jawaban2==3){
 		//f ke k
 		k = farToKel(angka);
+		printf("-----hasil dari konverter : %f k -----",k);
 	}
 	else if(jawaban==2 && jawaban2==4){
 		//f ke r
 		r = farToRea(angka);
+		printf("-----hasil dari konverter : %f r -----",r);
 	}
 	else if(jawaban==3 && jawaban2==1){
 		//k ke c
 		c = kelToCelci(angka);
+		printf("-----hasil dari konverter : %f c -----",c);
 	}
 	else if(jawaban==3 && jawaban2==2){
 		//k ke f
-		f = kelToFar(angka);	
+		f = kelToFar(angka);
+		printf("-----hasil dari konverter : %f f -----",f);	
 	}
 	else if(jawaban==3 && jawaban2==4){
 		//k ke r
 		r = kelToRea(angka);
+		printf("-----hasil dari konverter : %f r -----",r);
 	}
 	else if(jawaban==4 && jawaban2==1){
 		//r ke c
 		c = reaToCelci(angka);
+		printf("-----hasil dari konverter : %f c -----",c);
 	}
 	else if(jawaban==4 && jawaban2==2){
 		//r ke f
 		f = reaToFar(angka);
+		printf("-----hasil dari konverter : %f f -----",f);
 	}
 	else if(jawaban==4 && jawaban2==3){
 		//r ke k
 		k = reaToKel(angka);
+		printf("-----hasil dari konverter : %f k -----",k);	
 	}
 	else if(jawaban==jawaban2){
 		printf("\ntidak ada perubahan\n");
@@ -1100,4 +1125,6 @@ void suhu(int jawaban, int jawaban2, int f, int k, int r, int c, int angka){
 	else{
 		printf("masukan kembali suhu yang akan dikonversikan sesuai dengan yang ada\n");
 	}
+	
+	
 }

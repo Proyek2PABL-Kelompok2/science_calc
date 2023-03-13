@@ -14,6 +14,7 @@ void otherCalcs(){
 	printf("\n1. Exponentials, Logarithms, Differentials");
 	printf("\n2. Matrices, Sequence and Series");
 	printf("\n3. Trigonometry");
+	printf("\n4. Converter");
 	printf("\nChoose: ");
 	scanf("%d", &choice);
 	switch(choice){

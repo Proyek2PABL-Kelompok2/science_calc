@@ -652,7 +652,7 @@ void panjang(){
 	printf("-----hasil dari konverter : %f -----",y);	
 }
 
-<<<<<<< HEAD
+
 void luas(){
 	int pilihan_panjang,pilihan_panjang2;
 	long double angka,n;
@@ -733,7 +733,7 @@ void waktu(){
 	printf("ke : ");scanf("%d",&jawaban2);
 	printf("masukan angka yang akan di konversikan : ");scanf("%f",&angka);
 	
-=======
+
 //	
 //	switch(){
 //		case '+':
@@ -779,7 +779,7 @@ void waktu(){
 //	
 //}
 
->>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
+
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit
 		detik = angka;

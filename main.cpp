@@ -17,13 +17,13 @@ int main(){
 		memset(s,'\0',250);
 		for(int iter=0; iter<250; iter++){
 			s[iter] = getch();
-			if(s[iter]==13){
+			if(s[iter]==13){ //enter key
 				if(iter==0){
 					otherCalcs(); //redirects user to other calculations menu when enter key is the first key being pressed
 				} 
 				break; //ends input loop when enter key is pressed
 			}
-			else if(s[iter]==8){
+			else if(s[iter]==8){ //backspace
 				memset(s+(iter-1),'\0',2); //sets the element where the backspace key and the last character being deleted are located in the array to null
 				iter-=2; //rolls back the iteration to the second-to-last character after deletion of last character
 			}
@@ -33,7 +33,9 @@ int main(){
 			}
 		}
 		res = hitungQuery(s);
-		printf("\nResult: %g", res);
+		if(res!=NULL){
+			printf("\nResult: %g", res);
+		}
 		printf("\nWould you like to try again? (y/n) ");
 		scanf("\n%c", &prompt);
 		if(prompt=='n'||prompt=='N'){

@@ -84,7 +84,7 @@ void fathia(){
         case 2:
 	        for (i = 0; i < size; i++) {
 		        for (j = 0; j < size; j++) {
-		            hasil[i][j] = matrix1[i][j] - matrix2[i][j];    
+		            hasil[i][j] = pengurangan(matrix1[i][j],matrix2[i][j]);    
 		        }
 		    }
 	        printf("\n Hasil:\n");
@@ -96,8 +96,8 @@ void fathia(){
 		        for (j = 0; j < size; j++) {
 				hasil[i][j] = 0;
 					for(k=0;k<2;k++){
-						 hasil[i][j] = hasil[i][j] +(matrix1[i][k] * matrix2[k][j]);
-					}
+						 hasil[i][j] = penjumlahan(hasil[i][j], perkalian(matrix1[i][k], matrix2[k][j]));
+					}		
 				}
 		    }
 	        printf("\n Hasil:\n");

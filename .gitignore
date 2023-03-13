@@ -36,3 +36,6 @@
 # folders
 .vscode/
 coverage/
+
+# makefile
+*.win

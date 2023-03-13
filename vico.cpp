@@ -22,13 +22,18 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 //int main()
 void vico()
 {
+<<<<<<< HEAD
 	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan, pilihan;
+=======
+	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan, pilihlah;
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 	float c, nilai_perpangkatan, pangkat_perpangkatan,pangkat_akar;
 	double basis, nilai_loga, hasil_loga;
 	float nilai_akar, hasil_akar;
 	long long total = 1;
 	
 	printf("1. Perpangkatan\n");
+<<<<<<< HEAD
 	printf("2. Akar\n");
 	printf("3. Logaritma\n");
 	printf("4. Turunan\n");
@@ -37,6 +42,16 @@ void vico()
 	system("cls");
 	switch(pilihan){
 		case 1:
+=======
+	printf("2. Akar Pangkat\n");
+	printf("3. Logaritma\n");
+	printf("4. Turunan\n");
+	printf("Masukan pilihan anda : ");
+	scanf("%d", &pilihlah);
+	switch(pilihlah){
+		case 1:
+			system("cls");
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 			printf("Masukan angka yang akan dipangkatkan= ");
 			scanf("%f", &nilai_perpangkatan);
 			printf("Masukan pangkatnya = ");
@@ -49,6 +64,10 @@ void vico()
 			printf("Hasil dari %g pangkat %g adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
 			break;
 		case 2:
+<<<<<<< HEAD
+=======
+			system("cls");
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 			printf("Masukan bilangan yang akan diakarkan :"); //Membuat nilai akar
 			scanf("%f", &nilai_akar);
 			
@@ -60,8 +79,14 @@ void vico()
 			printf("%g hasil pangkat = %g \n", nilai_akar, hasil_akar); //hasil yang didapat dari akar
 			break;
 		case 3:
+<<<<<<< HEAD
 			printf("Masukan angka untuk log :"); //Membuat logaritma
 			scanf("%lf", &nilai_loga); //Memasukan nilainya
+=======
+			system("cls");
+			printf("Masukan angka untuk log :"); //Membuat logaritma
+			scanf("%lf", &nilai_loga); //Memasukan nilainya.
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 			
 			printf("Masukan basis log :");
 			scanf("%lf", &basis); //Memasukan basis dari log
@@ -70,6 +95,10 @@ void vico()
 			printf("log(%g) base %g = %g \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
 			break;
 		case 4:
+<<<<<<< HEAD
+=======
+			system("cls");
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 		    printf("Masukkan banyak variabel persamaan: "); //Membuat turunan polinomial
 		    scanf("%d", &pangkat_turunan); //Memasukan jumlah dari isinya misal membuat tiga pangkat = (ax^3 + bx^2 + cx + d)
 		
@@ -94,9 +123,15 @@ void vico()
 		            printf("+ ");
 		        }
 		    }
+<<<<<<< HEAD
 			break;
 		default:
 			printf("Angka yang anda masukan tidak ada");
+=======
+		    break;
+		default:
+			printf("Yang anda inputkan tidak ada");
+>>>>>>> 240ce8b903c77af2bab979bc113af2a6c2fc4d81
 			break;
 	}
 }

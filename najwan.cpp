@@ -64,7 +64,7 @@ float pembagian(float a,float b){
 	float hasil = 0;
 		//untuk kedua bilangan positif
 		if(a > 0 && b > 0){
-			hasil = pembagian(a, b);
+			hasil = pembagian2(a, b);
 		}
 		
 		//looping pembagian

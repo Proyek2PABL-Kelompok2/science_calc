@@ -66,7 +66,7 @@ float konverter_panjang_dan_massa(int o, int p, float y){
 
 double konverter_luas(float c, float d, double e){
 	int i; //untuk penampung
-	double x = 1;//untuk penampung perkalian 100
+	long double x = 1;//untuk penampung perkalian 100
 	if(c < d){ //contohnya dari km ke m
 		i = d - c; //nilai i adalah 3
 		while(i>0){
@@ -600,27 +600,34 @@ void untuk_pemilihan_konverter(){
 	printf("\t\t1. Satuan Panjang \n");
 	printf("\t\t2. Satuan Luas \n");
 	printf("\t\t3. Satuan Volume \n");
-	printf("\t\t4. Satuan Kapasitas \n");
-	printf("\t\t5. Satuan Massa \n");
-	printf("\t\t6. Satuan Waktu \n");
+	printf("\t\t4. Satuan Massa \n");
+	printf("\t\t5. Satuan Waktu \n");
+	printf("\t\t6. Satuan Suhu \n");
 	printf("\n\t\tjawab : ");
 	scanf("%d", &pilihan);
 	switch(pilihan){
 		
 		case 1:
 			panjang();
+			break;
 		case 2:
 			luas();
+			break;
 		case 3:
 			volume();
+			break;
 		case 4:
 			massa();
+			break;
 		case 5:;
 			waktu();
+			break;
 		case 6:
 			suhu();
+			break;
 		default:
 			printf("masukan angka dengan benar");
+			break;
 			
 	}
 	
@@ -628,7 +635,7 @@ void untuk_pemilihan_konverter(){
 
 void panjang(){
 	int pilihan_panjang,pilihan_panjang2;
-	float angka,n;
+	float angka,y;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
 	printf("\t\t1. Km\n");
 	printf("\t\t2. Hm\n");
@@ -639,62 +646,101 @@ void panjang(){
 	printf("\t\t7. mm\n");
 	printf("dari : ");scanf("%d", &pilihan_panjang);
 	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%lf", &angka);
+	printf("masukan angka ");scanf("%f", &angka);
+	
+	y = konverter_panjang_dan_massa(pilihan_panjang,pilihan_panjang2,angka);
+	printf("-----hasil dari konverter : %f -----",y);	
+}
+
+
+void luas(){
+	int pilihan_panjang,pilihan_panjang2;
+	long double angka,n;
+	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
+	printf("\t\t1. Km\n");
+	printf("\t\t2. Hm\n");
+	printf("\t\t3. Dam\n");
+	printf("\t\t4. M\n");
+	printf("\t\t5. dm\n");
+	printf("\t\t6. cm\n");
+	printf("\t\t7. mm\n");
+	printf("dari : ");scanf("%d", &pilihan_panjang);
+	printf("ke : ");scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");scanf("%Lf", &angka);
+	
+	n = konverter_luas(pilihan_panjang,pilihan_panjang2,angka);
+	printf("-----hasil dari konverter : %Lf -----",n);	
+}
+
+void volume(){
+	int pilihan_panjang,pilihan_panjang2;
+	long double angka,n;
+	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
+	printf("\t\t1. Km\n");
+	printf("\t\t2. Hm\n");
+	printf("\t\t3. Dam\n");
+	printf("\t\t4. M\n");
+	printf("\t\t5. dm\n");
+	printf("\t\t6. cm\n");
+	printf("\t\t7. mm\n");
+	printf("dari : ");scanf("%d", &pilihan_panjang);
+	printf("ke : ");scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");scanf("%Lf", &angka);	
+	
+	n = konverter_volume(pilihan_panjang,pilihan_panjang2,angka);
+	printf("-----hasil dari konverter : %.16Lf -----",n);
+}
+
+void massa(){
+	int pilihan_panjang,pilihan_panjang2;
+	float angka,n;
+	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
+	printf("\t\t1. Kg\n");
+	printf("\t\t2. Hg\n");
+	printf("\t\t3. Dag\n");
+	printf("\t\t4. gram\n");
+	printf("\t\t5. dg\n");
+	printf("\t\t6. cg\n");
+	printf("\t\t7. mg\n");
+	printf("dari : ");scanf("%d", &pilihan_panjang);
+	printf("ke : ");scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");scanf("%f", &angka);
 	
 	n = konverter_panjang_dan_massa(pilihan_panjang,pilihan_panjang2,angka);
 	printf("-----hasil dari konverter : %.6f -----",n);	
 }
 
-//	
-//	switch(){
-//		case '+':
-//			hasil = penjumlahan(a,b);
-//			
-//			break;
-//		case '-':
-//			hasil = pengurangan(a,b);
-//			
-//			break;
-//		case '*':
-//			hasil = perkalian(a,b);
-//			
-//			break;
-//		case '/':
-//			hasil = pembagian(a,b);
-//			
-//			break;
-//		case '%':
-//			hasil = modulus(a,b);
-//			
-//			break;
-//		default:
-//			printf("anda salah memasukan operasi hitung");
-//	}
-//	
-//	switch(){
-//		
-//		case 1:
-//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
-//		case 2:
-//			n = konverter_luas(c,d,e);
-//		case 3:
-//			n = konverter_volume(c,d,e);
-//		case 4:
-//			n = konverter_panjang_dan_massa(pilihan_dari,pilihan_ke,angka);
-//		case 5:
-//			waktu();
-//		case 6:
-//			suhu();
-//			
-//	}
-//	
-//}
+void waktu(){
+	int detik = 0,
+		menit = 0,
+		jam = 0,
+		hari = 0,
+		minggu = 0,
+		bulan = 0, 
+		tahun = 0;
+	int jawaban,jawaban2;
+	float angka; 
+	
+	printf("==========konversi satuan waktu==========\n");
+	printf("\t\t1. Detik\n");
+	printf("\t\t2. Menit\n");	
+	printf("\t\t3. Jam\n");
+	printf("\t\t4. Hari\n");
+	printf("\t\t5. Minggu\n");
+	printf("\t\t6. Bulan\n");
+	printf("\t\t7. Tahun\n");
+	printf("dari : ");scanf("%d",&jawaban);
+	printf("ke : ");scanf("%d",&jawaban2);
+	printf("masukan angka yang akan di konversikan : ");scanf("%f",&angka);
+	
+
+
 
 	if(jawaban==1 && jawaban2==2){
 		//detik ke menit
 		detik = angka;
 		menit = secToMin(detik);
-		
+		detik = detik%60;		
 	}
 	else if(jawaban==1 && jawaban2==3){
 		//detik ke jam

@@ -23,19 +23,30 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 void vico()
 {
 	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan, pilihlah;
+
 	float c, nilai_perpangkatan, pangkat_perpangkatan,pangkat_akar;
 	double basis, nilai_loga, hasil_loga;
 	float nilai_akar, hasil_akar;
 	long long total = 1;
 	
 	printf("1. Perpangkatan\n");
+	printf("2. Akar\n");
+	printf("3. Logaritma\n");
+	printf("4. Turunan\n");
+	printf("Masukan Pilihan anda : ");
+	scanf("%d", &pilihlah);
+	system("cls");
+	switch(pilihlah){
+		case 1:
 	printf("2. Akar Pangkat\n");
 	printf("3. Logaritma\n");
-	printf("4. Turunan");
+	printf("4. Turunan\n");
+	printf("Masukan pilihan anda : ");
 	scanf("%d", &pilihlah);
 	switch(pilihlah){
 		case 1:
 			system("cls");
+
 			printf("Masukan angka yang akan dipangkatkan= ");
 			scanf("%f", &nilai_perpangkatan);
 			printf("Masukan pangkatnya = ");
@@ -46,7 +57,9 @@ void vico()
 				total = perkalian(total, nilai_perpangkatan);
 			}
 			printf("Hasil dari %g pangkat %g adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
+			break;
 		case 2:
+
 			system("cls");
 			printf("Masukan bilangan yang akan diakarkan :"); //Membuat nilai akar
 			scanf("%f", &nilai_akar);
@@ -57,7 +70,11 @@ void vico()
 			hasil_akar=pow(nilai_akar, 1.0/pangkat_akar);
 			
 			printf("%g hasil pangkat = %g \n", nilai_akar, hasil_akar); //hasil yang didapat dari akar
+			break;
 		case 3:
+			printf("Masukan angka untuk log :"); //Membuat logaritma
+			scanf("%lf", &nilai_loga); //Memasukan nilainya
+
 			system("cls");
 			printf("Masukan angka untuk log :"); //Membuat logaritma
 			scanf("%lf", &nilai_loga); //Memasukan nilainya.
@@ -67,8 +84,11 @@ void vico()
 			
 			hasil_loga = pembagian(log(nilai_loga),log(basis));
 			printf("log(%g) base %g = %g \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
+			break;
 		case 4:
+
 			system("cls");
+
 		    printf("Masukkan banyak variabel persamaan: "); //Membuat turunan polinomial
 		    scanf("%d", &pangkat_turunan); //Memasukan jumlah dari isinya misal membuat tiga pangkat = (ax^3 + bx^2 + cx + d)
 		
@@ -93,5 +113,13 @@ void vico()
 		            printf("+ ");
 		        }
 		    }
+
+			break;
+		default:
+			printf("Angka yang anda masukan tidak ada");
+
+		    break;
+		
 	}
+}
 }

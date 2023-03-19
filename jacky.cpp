@@ -4,6 +4,7 @@
 #include "vico.h"
 #include "fathia.h"
 #include "difa.h"
+#include "najwan.h"
 
 void otherCalcs(){
 	int choice;
@@ -13,6 +14,7 @@ void otherCalcs(){
 	printf("\n1. Exponentials, Logarithms, Differentials");
 	printf("\n2. Matrices, Sequence and Series");
 	printf("\n3. Trigonometry");
+	printf("\n4. Converter");
 	printf("\nChoose: ");
 	scanf("%d", &choice);
 	switch(choice){
@@ -30,6 +32,9 @@ void otherCalcs(){
 			printf("\nMasukkan input: ");
 			scanf("%s", s);
 			printf("Hasil: %f", hitungTrigono(s));
+			break;
+		case 4:
+			untuk_pemilihan_konverter();
 			break;
 		default:
 			break;

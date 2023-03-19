@@ -246,20 +246,16 @@ float hitungQuery(char query[]){
 				{
 					while (query[iakhir + 1] != '\0')
 					{
-
 						query[iawal] = query[iakhir + 1];
 						query[iawal + 1] = '\0';
 						iawal++;
 
 						iakhir++;
-					}
-					
-				}
-				
+					}	
+				}			
 				iawal++;
 				awal++;
 			}
-
 		}
 		else{
 			i++;

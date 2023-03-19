@@ -19,15 +19,89 @@ float pengurangan(float a,float b){
 }
 
 float perkalian(float a,float b){
-	float hasil;
-	hasil = a * b;
+	float hasil = 0;
+	int i=1;
+		//untuk bilangan yang pertama negatif dan bilangan yang kedua positif
+		if(a < 0 && b > 0){
+			while(i <= b){ //melakukan pengecekan untuk perulangan
+				hasil = hasil + a; //selama loopig berjalan, maka melakukan penjumlahan
+				
+				i++; //agar tidak terjadi i nya bisa tidak kurang atau sama dengan b
+			}
+		}
+		
+		//untuk bilangan yang pertama positif dan bilangan yang kedua negatif
+		else if(a > 0 && b < 0){
+			while(i <= a){
+				hasil = hasil + b;
+				
+				i++;
+			}
+		}
+		
+		//untuk bilangan yang pertama negatif dan bilangan yang kedua negatif
+		else if(a < 0 && b < 0){
+			while(i <= abs(b)){
+				hasil = hasil + abs(a);
+				
+				i++;
+			}
+		}
+		
+		//kedua bilangan positif
+		else{
+			while(i<=b){
+				hasil = hasil + a;
+				
+				i++;
+			}
+		}
+	
 	return hasil;	
 }
 
 float pembagian(float a,float b){
-	float hasil;
-	hasil = a / b;
+	float hasil = 0;
+		//untuk kedua bilangan positif
+		if(a > 0 && b > 0){
+			hasil = pembagian(a, b);
+		}
+		
+		//looping pembagian
+		
+		//untuk bilangan yang negatif
+		else if(a < 0 || b < 0){
+			if(a < 0){ //jika bilangan a negatif, 
+				a = -a; //maka bilangan tersebut dijadikan positif
+				if(b < 0){ //jika bilangan a juga negatif
+					b = -b; //maka bilangan tersebut dijadikan positif
+					hasil = pembagian2(a, b);
+				}
+				else{
+					hasil = pembagian2(a, b);
+					hasil = -hasil; //jika hanya a saja yang negatif, berarti hasilnya harus negatif
+				}
+			}
+			else if(b < 0){ //jika bilangan b negatif
+				b = -b; //maka bilangan tersebut dijadikan positif
+				hasil = pembagian2(a, b);
+				hasil = -hasil; //kemudian hasilnya akan jadi negatif
+			}	
+		}
+		
 	return hasil;	
+}
+
+float pembagian2(float a, float b){
+	float hasil;
+	while(a >= b){ // melakukan pengecekan ketika pembilang lebih besar dari penyebut
+		a = a - b; //maka pembilang akan dikurangi oleh penyebut
+				
+		hasil = hasil + 1; //ketika proses looping ini dijalankan, berarti hasil akan bertambah 1 nilainya
+	}
+	hasil += a/b;
+	
+	return hasil;
 }
 
 float modulus(float a, float b){

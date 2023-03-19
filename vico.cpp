@@ -18,6 +18,10 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 {
 	return pangkat_turunan;
 }
+float hitung_logaritma()
+{
+	return log(nilai_log)/log(basis);
+}
 
 //int main()
 void vico()
@@ -113,11 +117,25 @@ void vico()
 		            printf("+ ");
 		        }
 		    }
-
+		    break;
+		case 5:
+			
+			system("cls");
+			// Membaca input sebagai string
+		    printf("Masukkan basislognilai : ");
+		    scanf("%[^\n]", str);
+		
+		    // Memecah string menjadi basis dan nilai
+		    sscanf(str, "%lflog%lf", &basis, &nilai_loga);
+		
+		    // Menghitung logaritma
+		    hasil_loga = pembagian(log(nilai_loga),log(basis));
+		
+		    // Menampilkan hasil
+		    printf("%glog%g = %g\n", basis, nilai_loga, hasil_loga);
 			break;
 		default:
 			printf("Angka yang anda masukan tidak ada");
-
 		    break;
 		
 	}

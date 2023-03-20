@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "najwan.h"
 #define jmlh_pangkat 10
 
@@ -18,16 +19,16 @@ int turunanPolinomial(int pangkat_turunan, int koef)
 {
 	return pangkat_turunan;
 }
-float hitung_logaritma()
+float hitung_logaritma(double nilai_loga, double basis)
 {
-	return log(nilai_log)/log(basis);
+	return log(nilai_loga)/log(basis);
 }
 
 //int main()
 void vico()
 {
 	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan, pilihlah;
-
+	char str[100];
 	float c, nilai_perpangkatan, pangkat_perpangkatan,pangkat_akar;
 	double basis, nilai_loga, hasil_loga;
 	float nilai_akar, hasil_akar;

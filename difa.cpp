@@ -7,6 +7,8 @@
 #include "najwan.h"
 #include "vico.h"
 
+
+
 float hitungTrigono(char *query){
 int angka;
 	if(strstr(query,"sin")){
@@ -561,4 +563,110 @@ float hitungQuery(char query[]){
 		hasil = atof(query);
 		
 		return hasil;
+}
+
+//LINKEDLIST
+void viewAsc(address First){ //fungsi untuk print isi linkedlist
+	address P;
+
+				P = First;//assign P dengan First (First adalah pointer yang menunjuk list pertama)
+				while (P != Nil)//terus loop sampai P == Null
+				{
+
+				if(info(P)!=Nil){
+					printf("%c |", info(P));//info berisi Operator
+				}
+				else{
+						printf("%g |", angka(P));//angka berisi angka
+				}
+				P = next(P);//iteration untuk pindah ke next list
+				}
+}
+void insLast(address *P, address *Last,address *First){//merubah pointer dengan behavior insert last
+	if(*First==Nil||*Last==Nil){
+		
+					*First = *P;
+					*Last = *P;
+	}
+	else{
+	
+	prev(*P) = *Last;
+				next(*Last) = *P;
+				*Last = *P;
+}
+}
+address LLcreateListOperator(char opp)
+{
+	address D;
+	D = (address)malloc(sizeof(ElmtList)); // alokasi memori sebesar D
+	info(D) = opp;					   // assign value operator
+	angka(D)=Nil; //angka dibuat nill
+	next(D) = Nil;						   // membuat list menunjuk ke nil
+	prev(D) = Nil;
+	return D;
+}
+
+address LLcreateListAngka(char data[])
+{
+	float angka;
+	angka=atof(data);
+	address D;
+	D = (address)malloc(sizeof(ElmtList)); // alokasi memori sebesar D
+	angka(D) = angka;					   // assign value angka
+	info(D) = Nil;	//opp dibuat nill
+	next(D) = Nil;						   // membuat list menunjuk ke nil
+	prev(D) = Nil;
+	return D;
+}
+
+void LLBuatList(char query[]){
+	int iteration,j,i,hitung;
+	char data[255],opp;
+	address P,First,Last;
+	First=Nil;
+	Last=Nil;
+	P=Nil;
+	memset(data,'\0',255);
+	hitung=0;
+	j=0;
+
+	iteration=0;
+
+	while(query[iteration]!='\0'){
+	memset(data,'\0',256);
+	opp='\0';
+	j=0;
+	
+	//dibawah untuk catch angka
+	while(isdigit(query[iteration])||query[iteration]=='.'||(query[iteration]=='-'&&iteration==0)||(iteration>0&&query[iteration]=='-'&&!isdigit(query[iteration-1]))){
+		data[j]=query[iteration];
+		iteration++;
+		j++;
+		
+	
+	}
+	
+	if(data!='\0'){//jika var data yang berisi angka tidak null
+		P=LLcreateListAngka(data);	//buat list
+		insLast(&P,&Last,&First); // sambungkan list dengan behavior insert last
+	hitung++;//iteration untuk hitung jumlah node (debugging)
+	}
+	
+		printf("< %s >",data); //print untuk debugging
+		
+		//dibawah untuk catch operator
+	if(query[iteration]=='^'||query[iteration]=='v'||query[iteration]=='*'||query[iteration]=='/'||query[iteration]=='+'||(query[iteration]=='-'&&iteration>0)||(query[iteration]=='-'&&isdigit(query[iteration-1]))){
+		opp=query[iteration];//Assign operator
+		
+		P=LLcreateListOperator(opp);//Buat list 
+		insLast(&P,&Last,&First);//sambungkan dengan behavior insert last
+		hitung++;//iteration untuk hitung jumlah node (debugging)
+		iteration++;
+
+	}
+	
+}
+
+	printf("\nNode : %d\n",hitung);//jumlah node (debugging)
+	viewAsc(First); //print linked List dari awal ke akhir
 }

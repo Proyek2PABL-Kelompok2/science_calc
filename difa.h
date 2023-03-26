@@ -1,7 +1,22 @@
 #ifndef difa_h
 #define difa_h
 
+#define info(P) (P)->opp
+#define angka(P) (P)->angka
+#define next(P) (P)->next
+#define prev(P) (P)->prev
+#define Nil NULL
+typedef char infotype;			   // variable bentukan bernama infotype dengan tipe char
+typedef struct tElmtlist *address; // variable pointer yang akan menunjuk ke alamat yang nilainya bernilai tElmtlist
 
+typedef struct tElmtlist //Var bentukan untuk list
+{
+	address prev;
+	infotype opp;
+	float angka;
+	address next;
+	
+} ElmtList;
 
 
 float sinus(float angka);
@@ -27,4 +42,16 @@ float hitungTrigono(char *query);
 float hitungQuery(char query[]);
 
 float operasi(char opp,int operandNum1,int operandNum2);
+
+//Linked List
+
+void viewAsc(address First);
+
+void insLast(address *P,address *Last, address *First);
+
+address LLcreateListOperator(char opp);
+
+address LLcreateListAngka(char data[]);
+
+void LLBuatList(char query[]);
 #endif

@@ -565,7 +565,7 @@ float hitungQuery(char query[]){
 		return hasil;
 }
 
-//LINKEDLIST
+//===================LINKEDLIST==================
 void viewAsc(address First){ //fungsi untuk print isi linkedlist
 	address P;
 
@@ -582,6 +582,21 @@ void viewAsc(address First){ //fungsi untuk print isi linkedlist
 				P = next(P);//iteration untuk pindah ke next list
 				}
 }
+address searchValue(address Q, address First, char operator1,char operator2){
+	Q=First;
+		while((info(Q)!=operator1&&info(Q)!=operator2)&&next(Q)!=NULL){
+						Q=next(Q);
+					}
+	if(next(Q)==Nil){
+		return next(Q);
+	}
+	else{
+		return Q;
+	}
+	
+		
+	
+}
 void insLast(address *P, address *Last,address *First){//merubah pointer dengan behavior insert last
 	if(*First==Nil||*Last==Nil){
 		
@@ -594,6 +609,7 @@ void insLast(address *P, address *Last,address *First){//merubah pointer dengan 
 				next(*Last) = *P;
 				*Last = *P;
 }
+
 }
 address LLcreateListOperator(char opp)
 {
@@ -619,12 +635,71 @@ address LLcreateListAngka(char data[])
 	return D;
 }
 
-void LLBuatList(char query[]){
+float MenentukanRumusHitung(address P){
+	if(info(P)=='+'){
+	return penjumlahan(angka(prev(P)),angka(next(P)));
+	}
+	else if(info(P)=='-'){
+	return pengurangan(angka(prev(P)),angka(next(P)));
+	}
+	else if(info(P)=='*'){
+	return perkalian(angka(prev(P)),angka(next(P)));
+	}
+	else if(info(P)=='/'){
+	return pembagian(angka(prev(P)),angka(next(P)));
+	}
+	else if(info(P)=='^'){
+	return pow(angka(prev(P)),angka(next(P)));
+	}
+	else if(info(P)=='v'){
+	return akarPangkat(angka(next(P)),angka(prev(P)));
+	}
+}
+
+void HitungOperasi(address P, address First,char operator1, char operator2){
+	address awalOperasi,akhirOperasi,Q;
+	P=searchValue(P,First,operator1,operator2);
+	while(P!=Nil){
+	
+	awalOperasi=prev(P);
+	akhirOperasi=next(P);
+
+	next(awalOperasi)=next(akhirOperasi);
+	if(next(akhirOperasi)!=Nil){
+		
+	Q=next(akhirOperasi);
+	prev(Q)=awalOperasi;
+	angka(prev(P))=MenentukanRumusHitung(P);
+	}
+
+	
+	free(P);
+	free(akhirOperasi);
+	P=searchValue(P,First,operator1,operator2);
+}
+}
+
+float HitungHasil(address First,address Last){
+	address P,Q,adaOperator,awalOperasi,akhirOperasi;
+	float operand1,operand2;
+	viewAsc(First);
+	P=First;
+	//*/
+	HitungOperasi(P,First,'*','/');
+	//+-
+	HitungOperasi(P,First,'+','-');
+	viewAsc(First);
+ return angka(First);
+	
+}
+
+void LLBuatList(char query[], address *First, address *Last){
 	int iteration,j,i,hitung;
 	char data[255],opp;
-	address P,First,Last;
-	First=Nil;
-	Last=Nil;
+	float hasil;
+	address P;
+	*First=Nil;
+	*Last=Nil;
 	P=Nil;
 	memset(data,'\0',255);
 	hitung=0;
@@ -636,8 +711,6 @@ void LLBuatList(char query[]){
 	memset(data,'\0',256);
 	opp='\0';
 	j=0;
-	
-	//dibawah untuk catch angka
 	while(isdigit(query[iteration])||query[iteration]=='.'||(query[iteration]=='-'&&iteration==0)||(iteration>0&&query[iteration]=='-'&&!isdigit(query[iteration-1]))){
 		data[j]=query[iteration];
 		iteration++;
@@ -646,27 +719,29 @@ void LLBuatList(char query[]){
 	
 	}
 	
-	if(data!='\0'){//jika var data yang berisi angka tidak null
-		P=LLcreateListAngka(data);	//buat list
-		insLast(&P,&Last,&First); // sambungkan list dengan behavior insert last
-	hitung++;//iteration untuk hitung jumlah node (debugging)
+	if(data!='\0'){
+		P=LLcreateListAngka(data);	
+		insLast(&P,Last,First);
+	hitung++;
 	}
 	
-		printf("< %s >",data); //print untuk debugging
-		
-		//dibawah untuk catch operator
+		printf("< %s >",data);
 	if(query[iteration]=='^'||query[iteration]=='v'||query[iteration]=='*'||query[iteration]=='/'||query[iteration]=='+'||(query[iteration]=='-'&&iteration>0)||(query[iteration]=='-'&&isdigit(query[iteration-1]))){
-		opp=query[iteration];//Assign operator
-		
-		P=LLcreateListOperator(opp);//Buat list 
-		insLast(&P,&Last,&First);//sambungkan dengan behavior insert last
-		hitung++;//iteration untuk hitung jumlah node (debugging)
+		opp=query[iteration];//CATATAN: cek ulang untuk operator -
 		iteration++;
+		P=LLcreateListOperator(opp);
+		insLast(&P,Last,First);
+		hitung++;
 
 	}
 	
 }
+	P=LLcreateListOperator('+');
+	insLast(&P,Last,First);
+	P=LLcreateListAngka(0);
+	insLast(&P,Last,First);
 
-	printf("\nNode : %d\n",hitung);//jumlah node (debugging)
-	viewAsc(First); //print linked List dari awal ke akhir
+
+	printf("\nNode : %d\n",hitung);
+	
 }

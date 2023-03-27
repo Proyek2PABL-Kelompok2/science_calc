@@ -47,11 +47,23 @@ float operasi(char opp,int operandNum1,int operandNum2);
 
 void viewAsc(address First);
 
+address searchValue(address Q, address First, char operator1,char operator2);
+
 void insLast(address *P,address *Last, address *First);
 
 address LLcreateListOperator(char opp);
 
 address LLcreateListAngka(char data[]);
 
+float MenentukanRumusHitung(address P);
+
+void HitungOperasi(address P, address First,char operator1, char operator2);
+
+float HitungHasil(address First,address Last);
+
 void LLBuatList(char query[]);
+
+
+
+
 #endif

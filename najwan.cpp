@@ -5,6 +5,50 @@
 #include <stdio.h>
 
 
+void pengecekanTrigonometri( char functionName[] ){
+	
+	if( functionName[0] == 's' || functionName[0] == 't' || functionName[0] == 'c' || functionName[0] == 'l' ){
+		
+		if( functionName[0] == 's' && functionName[1] == 'i' && functionName[2] == 'n' ){
+			//kondisi sin tersusun dari karakter s,i,dan n
+		}
+		
+		else if( functionName[0] == 's' && functionName[1] == 'e' && functionName[2] == 'c' ){
+			//kondisi sec tersusun dari karakter s,e, dan c
+		}
+		
+		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 's' ){
+			//kondisi cos tersusun dari karakter c,o, dan s
+		}
+		
+		else if( functionName[0] == 'c' && functionName[1] == 's' && functionName[2] == 'c' ){
+			//kondisi cosecan tersusun dari karakter c,o,s,e dan c
+		}
+		
+		else if( functionName[0] == 't' && functionName[1] == 'a' && functionName[2] == 'n' ){
+			//kondisi tan tersusun dari karakter t,a, dan n
+		}
+		
+		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 't' ){
+			//kondisi cotan tersusun dari karakter c,o, dan t
+		}
+		 
+		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'g' ){
+			//kondisi logaritma tersusun dari karakter l,o, dan g
+		}
+		
+		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'n' ){
+			//kondisi logaritma natural tersusun dari karakter l,o, dan n
+		}
+
+		else{
+			printf("\nError! periksa kembali tulisan anda!");
+		}
+		
+		
+	}
+}
+
 
 float penjumlahan(float a,float b){
 	float hasil;

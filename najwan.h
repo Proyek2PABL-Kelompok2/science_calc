@@ -9,6 +9,7 @@ void volume();
 void massa();
 void waktu();
 void suhu();
+void pengecekanTrigonometri( char functionName[] );
 float penjumlahan(float y,float z);
 float pengurangan(float a,float b);
 float perkalian(float a,float b);

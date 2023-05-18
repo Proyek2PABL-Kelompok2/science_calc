@@ -5,6 +5,56 @@
 #include <stdio.h>
 
 
+treeNode* deleteNode(treeNode* root, treeNode* toBeDeleted) {
+    if (root == NULL || toBeDeleted == NULL) {
+        return root;
+    }
+
+    if (toBeDeleted->left == NULL && toBeDeleted->right == NULL) {
+        if (toBeDeleted->parent != NULL) {
+            if (toBeDeleted->parent->left == toBeDeleted) {
+                toBeDeleted->parent->left = NULL;
+            } else {
+                toBeDeleted->parent->right = NULL;
+            }
+        }
+        free(toBeDeleted);
+        return root;
+    }
+
+    if (toBeDeleted->left == NULL && toBeDeleted->right != NULL) {
+        if (toBeDeleted->parent != NULL) {
+            if (toBeDeleted->parent->left == toBeDeleted) {
+                toBeDeleted->parent->left = toBeDeleted->right;
+            } else {
+                toBeDeleted->parent->right = toBeDeleted->right;
+            }
+        } else {
+            root = toBeDeleted->right;
+        }
+        toBeDeleted->right->parent = toBeDeleted->parent;
+        free(toBeDeleted);
+        return root;
+    }
+
+    if (toBeDeleted->left != NULL && toBeDeleted->right == NULL) {
+        if (toBeDeleted->parent != NULL) {
+            if (toBeDeleted->parent->left == toBeDeleted) {
+                toBeDeleted->parent->left = toBeDeleted->left;
+            } else {
+                toBeDeleted->parent->right = toBeDeleted->left;
+            }
+        } else {
+            root = toBeDeleted->left;
+        }
+        toBeDeleted->left->parent = toBeDeleted->parent;
+        free(toBeDeleted);
+        return root;
+    }
+    
+    return root;
+}
+
 void pengecekanTrigonometri( char functionName[] ){
 	
 	if( functionName[0] == 's' || functionName[0] == 't' || functionName[0] == 'c' || functionName[0] == 'l' ){

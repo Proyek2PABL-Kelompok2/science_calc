@@ -5,6 +5,44 @@
 #include "najwan.h"
 #include "vico.h"
 
+bool isRootWorthy(treeNode* root, treeNode* any) {
+	return ((root!=NULL && any->oper!=NULL) || (root==NULL && any->oper=='\0'));
+}
+
+bool isMathNotation(char keypress, int iteration) {
+	if(iteration<0)
+	{
+		return false;
+	}
+	else if(keypress!=mathNotations[iteration])
+	{
+		return isMathNotation(keypress, iteration-1);
+	}
+	else
+	{
+		return true;
+	}
+}
+
+bool isNumberChar(char input) {
+	return (input >= '0' && input <= '9');
+}
+
+bool isFunctionNameLetter(char input, int iteration) {
+	if(iteration<0)
+	{
+		return false;
+	}
+	else if(input!=funcNameLetters[iteration])
+	{
+		return isFunctionNameLetter(input, iteration-1);
+	}
+	else
+	{
+		return true;
+	}
+}
+
 double hitunglogaritma(char *query){
 int angka1, angka2;	
 	if(strstr(query,"log")){

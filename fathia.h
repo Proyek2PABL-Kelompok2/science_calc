@@ -14,4 +14,7 @@ void tampil();
 void pilihan();
 void fathia();
 
+void printInorder(treeNode* root);
+void printTree(treeNode* node, int depth);
+
 #endif

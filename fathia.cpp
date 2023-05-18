@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include "najwan.h"
+#include "jacky.h"
 #define MAX_SIZE 10
 
-//#include "fathia.h"
-//#include "najwan.h"
 
 // deklarasi
 	int size;
@@ -139,4 +138,39 @@ void fathia(){
 
 	
 //    return 0;
+}
+
+void printInorder(treeNode* root) {
+    if (root == NULL) {
+        return;
+    }
+    printInorder(root->left);
+    if (root->oper != '\0') {
+        printf("%c", root->oper);
+    } else {
+        printf("%g", root->num);
+    }
+    printInorder(root->right);
+}
+
+void printTree(treeNode* node, int depth) {
+    if (node == NULL) {
+        return;
+    }
+
+    // Print the right subtree with increased depth
+    printTree(node->right, depth + 1);
+
+    // Print this node
+    for (int i = 0; i < depth; i++) {
+        printf("    ");
+    }
+    if (node->oper == '\0') {
+        printf("%.1f\n", node->num);
+    } else {
+        printf("%c\n", node->oper);
+    }
+
+    // Print the left subtree with increased depth
+    printTree(node->left, depth + 1);
 }

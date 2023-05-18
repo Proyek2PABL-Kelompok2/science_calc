@@ -6,7 +6,7 @@
 #include "difa.h"
 #include "najwan.h"
 #include "vico.h"
-
+#include "jacky.h"
 
 
 float hitungTrigono(char *query){
@@ -745,3 +745,55 @@ void LLBuatList(char query[], address *First, address *Last){
 	printf("\nNode : %d\n",hitung);
 	
 }
+
+
+//Tree
+
+double evaluate(treeNode* root) {
+    if (root == NULL) {
+        return 0.0;
+    }
+
+    // Evaluate the left and right subtrees recursively
+    double left_val = evaluate(root->left);
+    double right_val = evaluate(root->right);
+
+    // Perform the operation based on the operator character
+    switch (root->oper) {
+        case '+':
+            return left_val + right_val;
+        case '-':
+            return left_val - right_val;
+        case '*':
+            return left_val * right_val;
+        case '/':
+            return left_val / right_val;
+        case '^':
+            return pow(left_val, right_val);
+        default:
+            return root->num;
+    }
+}
+
+int getPrecedence(char oper)
+{
+	switch (oper) {
+        case '+':
+        case '-':
+        	return 1;
+//            return ADDITION;
+        case '*':
+        case '/':
+        	return 2;
+//            return MULTIPLICATION;
+        case '^':
+        case 'v':
+        	return 3;
+//            return EXPONENT;
+		case '\0':
+        default:
+        	return 0;
+//            return PRECEDENCE_LOWEST;
+    }
+}
+

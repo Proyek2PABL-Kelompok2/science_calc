@@ -64,6 +64,10 @@ float HitungHasil(address First,address Last);
 void LLBuatList(char query[]);
 
 
+//tree
 
+
+double evaluate(treeNode* root);
+int getPrecedence(char oper);
 
 #endif

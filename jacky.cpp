@@ -6,6 +6,19 @@
 #include "difa.h"
 #include "najwan.h"
 
+char mathNotations[] = {
+	'+',
+	'-',
+	'*',
+	'/',
+	'^',
+	'v',
+	'!',
+	'(',
+	')',
+	'|'
+};
+
 void otherCalcs(){
 	int choice;
 	char s[250];
@@ -38,5 +51,35 @@ void otherCalcs(){
 			break;
 		default:
 			break;
+	}
+}
+
+//enum operatorPrecedence {
+//	ADDITION,
+//	MULTIPLICATION,
+//	EXPONENT
+//};
+
+treeNode* createNode(double num, char oper, mathFunction func, treeNode* left, treeNode* right, treeNode* parent) {
+    treeNode* newNode = (treeNode*) malloc(sizeof(treeNode));
+    newNode->num = num;
+    newNode->oper = oper;
+    newNode->func = func;
+    newNode->left = left;
+    newNode->right = right;
+    newNode->parent = parent;
+    return newNode;
+}
+
+double updateNodeNum(double numInNode, double newNum, bool hasComma, int* tenth)
+{
+	if(hasComma == true)
+	{
+		*tenth = *tenth + 1;
+		return numInNode + newNum / pow(10, (double)*tenth);
+	}
+	else
+	{
+		return numInNode * 10 + newNum;
 	}
 }

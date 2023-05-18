@@ -3,4 +3,48 @@
 
 void otherCalcs(); //menu display for other calculations outside inline calculator
 
+enum mathFunction {
+	SINUS,
+	COSINUS,
+	TANGENT,
+	ARC_SINUS,
+	ARC_COSINUS,
+	ARC_TANGENT,
+	HYPERBOLIC_SINUS,
+	HYPERBOLIC_COSINUS,
+	HYPERBOLIC_TANGENT,
+	EXPONENTIAL,
+	NATURAL_LOG,
+	COMMON_LOG,
+	SQUARE_ROOT,
+	CUBE_ROOT,
+	POWER,
+	NO_FUNC
+};
+
+typedef struct treeNode {
+	double num; // operand
+	char oper; // operator
+	mathFunction func;
+	treeNode* left; // left son
+	treeNode* right; // right son
+	treeNode* parent; // parent
+} treeNode;
+
+//enum operatorPrecedence {
+//	ADDITION,
+//	MULTIPLICATION,
+//	EXPONENT
+//};
+
+treeNode* createNode(double num, char oper, mathFunction func, treeNode* left, treeNode* right, treeNode* parent);
+
+double updateNodeNum(double numInNode, double newNum, bool hasComma, int* tenth);
+
+//enum numAppendRule
+//{
+//	DECIMAL_DIVIDE,
+//	DECIMAL_MULTI
+//};
+
 #endif // !JACK

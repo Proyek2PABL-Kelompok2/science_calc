@@ -48,20 +48,59 @@ int angka;
     	return atangent(angka);
 	}
 }
-float sinus(float angka){
-	return sin(angka);
+double sinus(float angka){
+	 double result = 0.0;
+    int i;
+
+    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
+        int exponent = 2 * i + 1;
+        int sign = i % 2 == 0 ? 1 : -1;
+        double term = sign * power(angka, exponent) / factorial(exponent);
+        result += term;
+    }
+
+    return result;
 }
 
-float cosinus(float angka){
-	return cos(angka);
+double cosinus(float angka){
+	 double result = 0.0;
+    int i;
+
+    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
+        int exponent = 2 * i;
+        int sign = i % 2 == 0 ? 1 : -1;
+        double term = sign * power(angka, exponent) / factorial(exponent);
+        result += term;
+    }
+
+    return result;
 }
 
 float tangent(float angka){
-	return tan(angka);
+	return sine(angka) / cosine(angka);
+}
+
+double to_radian(double angle) {
+    return angle * PI / 180.0;
+}
+
+double sine_deg(double angle) {
+    double radian = to_radian(angle);
+    return sine(radian);
+}
+
+double cosine_deg(double angle) {
+    double radian = to_radian(angle);
+    return cosine(radian);
+}
+
+double tangent_deg(double angle) {
+    double radian = to_radian(angle);
+    return tangent(radian);
 }
 
 float secan(float angka){
-	return 1/cos(angka);
+	return 1/cosinus(angka);
 }
 
 float cotangent(float angka){

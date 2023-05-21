@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <math.h>
-#include <conio.h>
 #include "najwan.h"
-#include <stdio.h>
-#include <windows.h>
+
 
 treeNode* deleteNode(treeNode* root, treeNode* toBeDeleted) {
 	if (root == NULL || toBeDeleted == NULL) {

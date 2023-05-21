@@ -11,11 +11,15 @@
 int main() {
 	treeNode* nodeInsertion = NULL;
 	treeNode* root = NULL; 
+	treeNode* pseudoRoot = NULL;
 	treeNode* current = NULL;
 	treeNode* leftChildCarrier = NULL;
 	treeNode* rightChildCarrier = NULL;
 	treeNode* parentCarrier = NULL;
+	treeNode* toBeDeleted = NULL;
 	char keypress, prevKeypress = '#'; double numInput, prevNumInput = NULL;
+	bool hasComma = false; // hasOpenParenthesis = false, hasCloseParenthesis = false;
+	int tenth = 0, negativeNotation = 1, openParentheses = 0, closeParentheses = 0, totalOpenParen = 0, totalCloseParen = 0;
 	do
 	{
 		system("cls");
@@ -25,35 +29,43 @@ int main() {
 		}
 		else
 		{
-			printInorder(root);	
+			printInorder(root);
+//			printf("%c")
+			printf("%c", (prevKeypress=='.')?prevKeypress:'\0');
+			printf("%c", (negativeNotation<0 && !(prevKeypress >= '0' && prevKeypress <= '9') && prevKeypress!='.')?'-':'\0');
+			printf("\n\n\n");
+			printTree(root, 0);
 		}
-		printf("\n = %g", evaluate(root));
+		printf("\n = %.1000g", evaluate(root));
+//		printf("\n%s", conditions[i]);
+		
 		keypress = getch();
-		if((keypress >= '0' && keypress <= '9') || keypress == '.')
+		if(isNumberChar(keypress))
 		{
-			if(keypress!='.')
-			{
-				numInput = keypress - '0';
-			}
-			
-			if((prevKeypress >= '0' && prevKeypress <= '9') || keypress == '.')
+			numInput = keypress - '0';
+			if(isNumberChar(prevKeypress) || prevKeypress == '.') // || getLastInorderNode(root)->oper == '\0')
 			{
 				if(rightChildCarrier!=NULL)
 				{
-					rightChildCarrier->num = rightChildCarrier->num * 10 + numInput;
+					rightChildCarrier->num = updateNodeNum(rightChildCarrier->num, numInput*negativeNotation, hasComma, &tenth);
 				}
 				else if(current!=NULL)
 				{
-					current->num = current->num * 10 + numInput;
+					current->num = updateNodeNum(current->num, numInput*negativeNotation, hasComma, &tenth);
+				}
+				else if(root!=NULL)
+				{
+					root->num = updateNodeNum(root->num, numInput*negativeNotation, hasComma, &tenth);
 				}
 			}
 			else
 			{
+				numInput*=negativeNotation; // !!
 				nodeInsertion = createNode(numInput, '\0', NULL, NULL, NULL);
 				if(isRootWorthy(root, nodeInsertion))
 				{
 					root = nodeInsertion;
-					current = root;
+//					current = root;
 				}
 				else
 				{
@@ -65,38 +77,77 @@ int main() {
 					rightChildCarrier = nodeInsertion;
 					current->right = rightChildCarrier;
 					rightChildCarrier->parent = current;
+	//				parentAndChildrenPairing(NULL, rightChildCarrier, current);
 				}
 			}
 		}
-		else if(keypress == '+' || keypress == '-' || keypress == '*' || keypress == '/')
+		else if(keypress == '.' && hasComma == false)
 		{
-			nodeInsertion = createNode(NULL, keypress, NULL, NULL, NULL);
-			if(root!=NULL)
+			hasComma = true;
+		}
+		else if(isMathNotation(keypress, 5))
+		{
+			hasComma = false;
+			tenth = 0;
+			if(isMathNotation(prevKeypress, 5) || root == NULL) // sebelumnya oper, sekarang oper lagi
 			{
-				if(root->num!=NULL || (root->oper!='\0' && getPrecedence(root->oper) >= getPrecedence(nodeInsertion->oper)))
+				if(keypress == '-') //sebelumnya oper, setelahnya minus
 				{
-					leftChildCarrier = root;
-					root = nodeInsertion;
-					root->left = leftChildCarrier;
-					leftChildCarrier->parent = root;
-				}
-				else if(root->oper!='\0' && getPrecedence(root->oper) < getPrecedence(nodeInsertion->oper))
-				{
-					current = root;
-					while(current->oper!='\0' && current->right->oper!='\0')
-					{
-						current = current->right;
-					}
-					rightChildCarrier = nodeInsertion;
-					rightChildCarrier->left = current->right;
-					current->right->parent = rightChildCarrier;
-					rightChildCarrier->parent = current;
-					current->right = rightChildCarrier;
+					negativeNotation = -1;
 				}
 			}
+			else{
+				negativeNotation = 1;
+				nodeInsertion = createNode(NULL, keypress, NULL, NULL, NULL);
+				if(root!=NULL)
+				{
+					current = root;
+					if(current->oper==NULL || (current->oper!='\0' && (hasHigherPrecedenceThan(aNodeOrItsChild(current)->oper, nodeInsertion->oper) || hasSamePrecedenceAs(aNodeOrItsChild(current)->oper, nodeInsertion->oper))))
+					{
+						if(hasLowerPrecedenceThan(current->oper, nodeInsertion->oper) && current->oper != NULL)
+						{
+							leftChildCarrier = current->right;
+							current->right = nodeInsertion;
+							nodeInsertion->left = leftChildCarrier;
+							leftChildCarrier->parent = nodeInsertion;
+						}
+						else
+						{
+							leftChildCarrier = current;
+							current = nodeInsertion;
+							current->left = leftChildCarrier;
+							leftChildCarrier->parent = current;
+						}
+						root = current;
+	//					parentAndChildrenPairing(leftChildCarrier, NULL, root);
+					}
+					else if(current->oper!='\0' && hasLowerPrecedenceThan(aNodeOrItsChild(current)->oper, nodeInsertion->oper))
+					{
+//						current = root;
+						while(current->oper!='\0' && current->right->oper!='\0')
+						{
+							current = current->right;
+						}
+						rightChildCarrier = nodeInsertion;
+						rightChildCarrier->left = current->right;
+						current->right->parent = rightChildCarrier;
+						rightChildCarrier->parent = current;
+						current->right = rightChildCarrier;
+	//					parentAndChildrenPairing(current->right, NULL, rightChildCarrier);
+	//					parentAndChildrenPairing(current->left, rightChildCarrier, current);
+					}
+				}
+			}
+		}
+//		prevNumInput = numInput;
 		prevKeypress = keypress;
 	}
 	while(keypress!='\r');
+	
+//	system("cls");
+	
+//	printf("\n\n\n");
+//	printTree(root, 0);
 
     return 0;
 }

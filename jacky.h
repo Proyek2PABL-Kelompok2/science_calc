@@ -26,6 +26,8 @@ typedef struct treeNode {
 	double num; // operand
 	char oper; // operator
 	mathFunction func;
+	int openParentheses;
+	int closeParentheses;
 	treeNode* left; // left son
 	treeNode* right; // right son
 	treeNode* parent; // parent
@@ -37,9 +39,15 @@ typedef struct treeNode {
 //	EXPONENT
 //};
 
-treeNode* createNode(double num, char oper, mathFunction func, treeNode* left, treeNode* right, treeNode* parent);
+treeNode* createNode(double num, char oper, /*mathFunction func,*/ treeNode* left, treeNode* right, treeNode* parent);
 
 double updateNodeNum(double numInNode, double newNum, bool hasComma, int* tenth);
+
+treeNode* getLastInorderNode(treeNode* root);
+
+treeNode* getInorderSuccessor(treeNode* node);
+
+treeNode* aNodeOrItsChild(treeNode* current);
 
 //enum numAppendRule
 //{

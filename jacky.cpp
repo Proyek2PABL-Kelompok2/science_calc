@@ -60,11 +60,13 @@ void otherCalcs(){
 //	EXPONENT
 //};
 
-treeNode* createNode(double num, char oper, mathFunction func, treeNode* left, treeNode* right, treeNode* parent) {
+treeNode* createNode(double num, char oper, /*mathFunction func, int openParentheses, int closeParentheses,*/ treeNode* left, treeNode* right, treeNode* parent) {
     treeNode* newNode = (treeNode*) malloc(sizeof(treeNode));
     newNode->num = num;
     newNode->oper = oper;
-    newNode->func = func;
+    newNode->func = NO_FUNC;
+    newNode->openParentheses = 0;
+    newNode->closeParentheses = 0;
     newNode->left = left;
     newNode->right = right;
     newNode->parent = parent;
@@ -82,4 +84,55 @@ double updateNodeNum(double numInNode, double newNum, bool hasComma, int* tenth)
 	{
 		return numInNode * 10 + newNum;
 	}
+}
+
+treeNode* getLastInorderNode(treeNode* root) {
+    if (root == NULL) {
+        return NULL;
+    }
+
+    treeNode* lastNode = NULL;
+    treeNode* currentNode = root;
+
+    while (currentNode != NULL) {
+        if (currentNode->left == NULL) {
+            lastNode = currentNode;
+            currentNode = currentNode->right;
+        } else {
+            treeNode* predecessor = currentNode->left;
+
+            while (predecessor->right != NULL && predecessor->right != currentNode) {
+                predecessor = predecessor->right;
+            }
+
+            if (predecessor->right == NULL) {
+                predecessor->right = currentNode;
+                currentNode = currentNode->left;
+            } else {
+                predecessor->right = NULL;
+                lastNode = currentNode;
+                currentNode = currentNode->right;
+            }
+        }
+    }
+
+    return lastNode;
+}
+
+treeNode* getInorderSuccessor(treeNode* node) {
+    treeNode* current = node->right;
+
+    while (current != NULL && current->left != NULL) {
+        current = current->left;
+    }
+
+    return current;
+}
+
+treeNode* aNodeOrItsChild(treeNode* current)
+{
+	if (current->right==NULL || current->right->oper=='\0')
+		return current;
+	else
+		return aNodeOrItsChild(current->right);
 }

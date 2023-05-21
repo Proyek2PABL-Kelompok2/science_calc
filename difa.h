@@ -1,6 +1,6 @@
 #ifndef difa_h
 #define difa_h
-
+#include "jacky.h"
 #define info(P) (P)->opp
 #define angka(P) (P)->angka
 #define next(P) (P)->next

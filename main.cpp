@@ -8,6 +8,10 @@
 #include "najwan.h"
 #include "vico.h"
 
+#define hasHigherPrecedenceThan(x,y) getPrecedence(x) > getPrecedence(y)
+#define hasSamePrecedenceAs(x,y) getPrecedence(x) == getPrecedence(y)
+#define hasLowerPrecedenceThan(x,y) getPrecedence(x) < getPrecedence(y)
+
 int main() {
 	treeNode* nodeInsertion = NULL;
 	treeNode* root = NULL; 

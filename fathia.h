@@ -1,6 +1,7 @@
+#include "jacky.h"
 #ifndef Fathia
 #define Fathia
-//#define MAX_SIZE 10
+#define MAX_SIZE 10
 //
 //	int size;
 //    float matrix1[MAX_SIZE][MAX_SIZE], matrix2[MAX_SIZE][MAX_SIZE], hasil[MAX_SIZE][MAX_SIZE];
@@ -9,6 +10,10 @@
 //    float det1,det2,in1,in2;
 
 // pilihan void //
+int faktoril;
+int mutlak;
+int arit;
+int geo; 
 void input();
 void tampil();
 void pilihan();

@@ -1,10 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <string.h>
+#include <ctype.h>
+//#include <math.h>
 #include "najwan.h"
 #include "jacky.h"
+#include "fathia.h"
+#define string char*
 #define MAX_SIZE 10
 
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <math.h>
+//#include <stack>
+//#include <string.h>
+//#include <ctype.h>
+//#include "najwan.h"
+//#include "difa.h"
+//#include "vico.h"
+//#define MAX_SIZE 10
+//
+//#include "fathia.h"
+////#include "najwan.h"
 
 // deklarasi
 	int size;
@@ -12,9 +29,35 @@
     int option;
     int i, j, k;
     float det1, det2, det3, det4, in1, in2;
-
-
     
+    
+// faktorial
+int faktoril (int a){
+	if (a ==0){
+		return 1;
+	} 
+	else{
+		return a*faktoril(a-1);
+	}
+}
+
+// mutlak
+int mutlak (int b){
+	//krn nrgatif
+	return (b<0)?-b:b;	
+}
+
+//arit
+int arit (int a,int b, int c){
+	return a+(b-1)*c;
+}
+
+// geo
+int geo (int a, int b, int c){
+	return a*pow(b,(c-1)); 
+	
+}
+   
 // memasukan angka yang ingin dimasukan   
 void input(float matrix[][MAX_SIZE], int size) {
     int i, j;
@@ -45,8 +88,10 @@ void pilihan(){ //fungsi pilihan menu perhitungan
     printf("\n[0] Keluar");
 }
 
-//int main(){
-void fathia(){
+void fathia (){
+	int a;
+	int b;
+	int c;
 	int pilih;
 
     printf("pilih ordo matriks: ");
@@ -107,38 +152,42 @@ void fathia(){
 	        printf("Salah memasukan angka.\n");
 	        break;
 	}
+	printf("masukan angka = ");
+	scanf ("%d",&a);
+	printf("\n %d = %d \n",a,faktoril(a));
+	getchar();
+	system("pause");
+	system ("cls");
+	printf ("masukan angka =");
+	scanf ("%d", &b);
+	printf("\n %d =%d \n",b ,mutlak(b));
+	getchar();
+	system("pause");
+	system ("cls");
+	printf ("masukan angka awal =");
+	scanf ("%d",&a);
+	printf ("masukan angka beda =");
+	scanf ("%d",&c);
+	printf ("masukan angka n =");
+	scanf ("%d",&b);
+	printf("\n Aritmatika =%d \n",arit(a, b, c));
+	getchar();
+	system("pause");
+	system ("cls");
+	printf ("masukan angka awal =");
+	scanf ("%d",&a);
+	printf ("masukan rasio =");
+	scanf ("%d",&b);
+	printf ("masukan angka n =");
+	scanf ("%d",&c);
+	printf("\n Geometri =%d \n",geo(a, b, c));
+	getchar();
+	system("pause");
+		
 	
-	
-	// membuat deret aritmatika dan geometri
-	    int i,awal, beda, n, rasio,hasila, hasilg;
-	    printf("Masukan nilai a: ");
-	    scanf("%d", &awal);
-	    printf("Masukan nilai b: ");
-	    scanf("%d", &beda);
-	    printf("Masukan nilai n : ");
-	    scanf("%d", &n);
-	    printf("Masukan nilai r : ");
-	    scanf("%d", &rasio);
-	    if (beda!=0){
-	   	    hasila= awal +(n-1)*beda; 
-	    }
-	    else if (beda=0){
-	    	hasila=awal;
-		}
-	    printf("Nilai Un Aritmatika= %d\n", hasila); 
-	    
-	    if (n!=0){
-		 	hasilg= awal * pow(rasio,(n-1));
-		}
-		else if(n==0){
-			hasilg= awal * pow(rasio,(0-1));
-		}
-		printf("Nilai Un Geometri= %d\n", hasilg); 
-	
-
-	
-//    return 0;
+	return 0;
 }
+
 
 void printInorder(treeNode* root) {
     if (root == NULL) {

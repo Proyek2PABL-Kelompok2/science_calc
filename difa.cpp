@@ -35,18 +35,7 @@ int angka;
 		sscanf(query,"cosec(%d)",&angka);
     	return cosecan(angka);
 	}
-	if (strstr(query,"asin")){
-		sscanf(query,"asin(%d)",&angka);
-    	return asinus(angka);
-	}
-	if (strstr(query,"acos")){
-		sscanf(query,"acos(%d)",&angka);
-    	return acosinus(angka);
-	}
-	if (strstr(query,"atan")){
-		sscanf(query,"atan(%d)",&angka);
-    	return atangent(angka);
-	}
+
 }
 double sinus(float angka){
 	 double result = 0.0;
@@ -76,50 +65,40 @@ double cosinus(float angka){
     return result;
 }
 
-float tangent(float angka){
-	return sine(angka) / cosine(angka);
+double tangent(double angka){
+	return sinus(angka) / cosinus(angka);
 }
 
-double to_radian(double angle) {
-    return angle * PI / 180.0;
+double to_radian(double angka) {
+    return angka * PI / 180.0;
 }
 
-double sine_deg(double angle) {
-    double radian = to_radian(angle);
-    return sine(radian);
+double sindeg(double angka) {
+    double radian = to_radian(angka);
+    return sinus(radian);
 }
 
-double cosine_deg(double angle) {
-    double radian = to_radian(angle);
-    return cosine(radian);
+double cosdeg(double angka) {
+    double radian = to_radian(angka);
+    return cosinus(radian);
 }
 
-double tangent_deg(double angle) {
-    double radian = to_radian(angle);
+double tandeg(double angka) {
+    double radian = to_radian(angka);
     return tangent(radian);
 }
 
-float secan(float angka){
+double secan(double angka){
 	return 1/cosinus(angka);
 }
 
-float cotangent(float angka){
-	return cos(angka)/sin(angka);
+double cotangent(double angka){
+	return cosinus(angka)/sinus(angka);
 }
 float cosecan(float angka){
-	return 1/sin(angka);
-}
-float asinus(float angka){
-	return asin(angka);
+	return 1/sinus(angka);
 }
 
-float acosinus(float angka){
-	return acos(angka);
-}
-
-float atangent(float angka){
-	return atan(angka);
-}
 
 float operasi(char opp,float operandNum1, float operandNum2){
 	float hasil;

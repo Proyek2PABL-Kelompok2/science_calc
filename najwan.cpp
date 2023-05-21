@@ -1,5 +1,8 @@
 #include "najwan.h"
-
+#include <stdio.h>
+#include <windows.h>
+#include <math.h>
+#include <conio.h>
 
 treeNode* deleteNode(treeNode* root, treeNode* toBeDeleted) {
 	if (root == NULL || toBeDeleted == NULL) {
@@ -144,7 +147,7 @@ void tampilanAwal() {
 
 	getch();  // Menunggu hingga tombol ditekan sebelum menutup program
 
-	return 0;
+//	return 0;
 }
 
 
@@ -160,7 +163,7 @@ double pengurangan(double a,double b) {
 	return hasil;
 }
 
-double perkalian(double a. double b) {
+double perkalian(double a, double b) {
 	double hasil;
 	hasil = a*b;
 	return hasil;

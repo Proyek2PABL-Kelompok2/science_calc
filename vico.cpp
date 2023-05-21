@@ -2,12 +2,23 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "najwan.h"
 #include "vico.h"
+	
+	char *funcNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";;
 
-bool isRootWorthy(treeNode* root, treeNode* any) {
-	return ((root!=NULL && any->oper!=NULL) || (root==NULL && any->oper=='\0'));
-}
+	char mathNotations[7] = {
+		'+',
+		'-',
+		'*',
+		'/',
+		'^',
+		'v',
+		'!',
+	};
+
+//bool isRootWorthy(treeNode* root, treeNode* any) {
+//	return ((root!=NULL && any->oper!=NULL) || (root==NULL && any->oper=='\0'));
+//}
 
 bool isMathNotation(char keypress, int iteration) {
 	if(iteration<0)

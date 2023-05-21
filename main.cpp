@@ -5,8 +5,10 @@
 #include "difa.h"
 #include "fathia.h"
 #include "jacky.h"
-#include "najwan.h"
+//#include "najwan.h"
 #include "vico.h"
+
+#define isRootWorthy(x, y) (x!=NULL && y->oper!=NULL) || (x==NULL && y->oper=='\0')
 
 #define hasHigherPrecedenceThan(x,y) getPrecedence(x) > getPrecedence(y)
 #define hasSamePrecedenceAs(x,y) getPrecedence(x) == getPrecedence(y)
@@ -21,6 +23,17 @@ int main() {
 	treeNode* rightChildCarrier = NULL;
 	treeNode* parentCarrier = NULL;
 	treeNode* toBeDeleted = NULL;
+//	char *funcNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";;
+//
+//	char mathNotations[7] = {
+//		'+',
+//		'-',
+//		'*',
+//		'/',
+//		'^',
+//		'v',
+//		'!',
+//	};
 	char keypress, prevKeypress = '#'; double numInput, prevNumInput = NULL;
 	bool hasComma = false; // hasOpenParenthesis = false, hasCloseParenthesis = false;
 	int tenth = 0, negativeNotation = 1, openParentheses = 0, closeParentheses = 0, totalOpenParen = 0, totalCloseParen = 0;

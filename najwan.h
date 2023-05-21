@@ -1,11 +1,6 @@
 #ifndef najwan_h
 #define najwan_h
 #include "jacky.h"
-#include <stdio.h>
-#include <windows.h>
-#include <stdio.h>
-#include <math.h>
-#include <conio.h>
 
 
 void pengecekanTrigonometri( char functionName[] );

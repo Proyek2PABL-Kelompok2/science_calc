@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-//#include <math.h>
-#include "najwan.h"
-#include "jacky.h"
+#include <math.h>
 #include "fathia.h"
 #define string char*
 #define MAX_SIZE 10
@@ -88,106 +86,106 @@ void pilihan(){ //fungsi pilihan menu perhitungan
     printf("\n[0] Keluar");
 }
 
-void fathia (){
-	int a;
-	int b;
-	int c;
-	int pilih;
-
-    printf("pilih ordo matriks: ");
-    scanf("%d", &size);
-
- 	pilihan();
-    printf("\nMasukkan pilihan >");
-    scanf("%d",&pilih);
-    printf("%d",pilih);
-    
-    printf("Masukan angka matriks pertama:\n");
-    input(matrix1, size);
-    printf("Matrix 1 :\n");
-    tampil(matrix1, size);
-
-    printf("Masukan angka matriks kedua:\n");
-    input(matrix2, size);
-    printf("Matrikx 2:\n");
-    tampil(matrix2, size);
-
-
-
-    switch (pilih) {
-        case 1:
-            for (i = 0; i < size; i++) {
-		        for (j = 0; j < size; j++) {
-		            hasil[i][j] = penjumlahan(matrix1[i][j], matrix2[i][j]); 
-		        }
-		    }
-			printf("\n Hasil:\n");
-            tampil(hasil, size);
-            break;
-            
-        case 2:
-	        for (i = 0; i < size; i++) {
-		        for (j = 0; j < size; j++) {
-		            hasil[i][j] = pengurangan(matrix1[i][j],matrix2[i][j]);    
-		        }
-		    }
-	        printf("\n Hasil:\n");
-	        tampil(hasil, size);
-	        break;
-	        
-	    case 3:
-			for (i = 0; i < size; i++) {
-		        for (j = 0; j < size; j++) {
-				hasil[i][j] = 0;
-					for(k=0;k<2;k++){
-						 hasil[i][j] = penjumlahan(hasil[i][j], perkalian(matrix1[i][k], matrix2[k][j]));
-					}		
-				}
-		    }
-	        printf("\n Hasil:\n");
-	        tampil(hasil, size);
-	        break;
-
-		default:
-	        printf("Salah memasukan angka.\n");
-	        break;
-	}
-	printf("masukan angka = ");
-	scanf ("%d",&a);
-	printf("\n %d = %d \n",a,faktoril(a));
-	getchar();
-	system("pause");
-	system ("cls");
-	printf ("masukan angka =");
-	scanf ("%d", &b);
-	printf("\n %d =%d \n",b ,mutlak(b));
-	getchar();
-	system("pause");
-	system ("cls");
-	printf ("masukan angka awal =");
-	scanf ("%d",&a);
-	printf ("masukan angka beda =");
-	scanf ("%d",&c);
-	printf ("masukan angka n =");
-	scanf ("%d",&b);
-	printf("\n Aritmatika =%d \n",arit(a, b, c));
-	getchar();
-	system("pause");
-	system ("cls");
-	printf ("masukan angka awal =");
-	scanf ("%d",&a);
-	printf ("masukan rasio =");
-	scanf ("%d",&b);
-	printf ("masukan angka n =");
-	scanf ("%d",&c);
-	printf("\n Geometri =%d \n",geo(a, b, c));
-	getchar();
-	system("pause");
-		
-	
-	return 0;
-}
-
+//void fathia (){
+//	int a;
+//	int b;
+//	int c;
+//	int pilih;
+//
+//    printf("pilih ordo matriks: ");
+//    scanf("%d", &size);
+//
+// 	pilihan();
+//    printf("\nMasukkan pilihan >");
+//    scanf("%d",&pilih);
+//    printf("%d",pilih);
+//    
+//    printf("Masukan angka matriks pertama:\n");
+//    input(matrix1, size);
+//    printf("Matrix 1 :\n");
+//    tampil(matrix1, size);
+//
+//    printf("Masukan angka matriks kedua:\n");
+//    input(matrix2, size);
+//    printf("Matrikx 2:\n");
+//    tampil(matrix2, size);
+//
+//
+//
+//    switch (pilih) {
+//        case 1:
+//            for (i = 0; i < size; i++) {
+//		        for (j = 0; j < size; j++) {
+//		            hasil[i][j] = penjumlahan(matrix1[i][j], matrix2[i][j]); 
+//		        }
+//		    }
+//			printf("\n Hasil:\n");
+//            tampil(hasil, size);
+//            break;
+//            
+//        case 2:
+//	        for (i = 0; i < size; i++) {
+//		        for (j = 0; j < size; j++) {
+//		            hasil[i][j] = pengurangan(matrix1[i][j],matrix2[i][j]);    
+//		        }
+//		    }
+//	        printf("\n Hasil:\n");
+//	        tampil(hasil, size);
+//	        break;
+//	        
+//	    case 3:
+//			for (i = 0; i < size; i++) {
+//		        for (j = 0; j < size; j++) {
+//				hasil[i][j] = 0;
+//					for(k=0;k<2;k++){
+//						 hasil[i][j] = penjumlahan(hasil[i][j], perkalian(matrix1[i][k], matrix2[k][j]));
+//					}		
+//				}
+//		    }
+//	        printf("\n Hasil:\n");
+//	        tampil(hasil, size);
+//	        break;
+//
+//		default:
+//	        printf("Salah memasukan angka.\n");
+//	        break;
+//	}
+//	printf("masukan angka = ");
+//	scanf ("%d",&a);
+//	printf("\n %d = %d \n",a,faktoril(a));
+//	getchar();
+//	system("pause");
+//	system ("cls");
+//	printf ("masukan angka =");
+//	scanf ("%d", &b);
+//	printf("\n %d =%d \n",b ,mutlak(b));
+//	getchar();
+//	system("pause");
+//	system ("cls");
+//	printf ("masukan angka awal =");
+//	scanf ("%d",&a);
+//	printf ("masukan angka beda =");
+//	scanf ("%d",&c);
+//	printf ("masukan angka n =");
+//	scanf ("%d",&b);
+//	printf("\n Aritmatika =%d \n",arit(a, b, c));
+//	getchar();
+//	system("pause");
+//	system ("cls");
+//	printf ("masukan angka awal =");
+//	scanf ("%d",&a);
+//	printf ("masukan rasio =");
+//	scanf ("%d",&b);
+//	printf ("masukan angka n =");
+//	scanf ("%d",&c);
+//	printf("\n Geometri =%d \n",geo(a, b, c));
+//	getchar();
+//	system("pause");
+//		
+//	
+////	return 0;
+//}
+//
 
 void printInorder(treeNode* root) {
     if (root == NULL) {

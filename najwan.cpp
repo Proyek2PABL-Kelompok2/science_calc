@@ -3,114 +3,186 @@
 #include <conio.h>
 #include "najwan.h"
 #include <stdio.h>
-
+#include <windows.h>
 
 treeNode* deleteNode(treeNode* root, treeNode* toBeDeleted) {
-    if (root == NULL || toBeDeleted == NULL) {
-        return root;
-    }
+	if (root == NULL || toBeDeleted == NULL) {
+		return root;
+	}
 
-    if (toBeDeleted->left == NULL && toBeDeleted->right == NULL) {
-        if (toBeDeleted->parent != NULL) {
-            if (toBeDeleted->parent->left == toBeDeleted) {
-                toBeDeleted->parent->left = NULL;
-            } else {
-                toBeDeleted->parent->right = NULL;
-            }
-        }
-        free(toBeDeleted);
-        return root;
-    }
+	if (toBeDeleted->left == NULL && toBeDeleted->right == NULL) {
+		if (toBeDeleted->parent != NULL) {
+			if (toBeDeleted->parent->left == toBeDeleted) {
+				toBeDeleted->parent->left = NULL;
+			} else {
+				toBeDeleted->parent->right = NULL;
+			}
+		}
+		free(toBeDeleted);
+		return root;
+	}
 
-    if (toBeDeleted->left == NULL && toBeDeleted->right != NULL) {
-        if (toBeDeleted->parent != NULL) {
-            if (toBeDeleted->parent->left == toBeDeleted) {
-                toBeDeleted->parent->left = toBeDeleted->right;
-            } else {
-                toBeDeleted->parent->right = toBeDeleted->right;
-            }
-        } else {
-            root = toBeDeleted->right;
-        }
-        toBeDeleted->right->parent = toBeDeleted->parent;
-        free(toBeDeleted);
-        return root;
-    }
+	if (toBeDeleted->left == NULL && toBeDeleted->right != NULL) {
+		if (toBeDeleted->parent != NULL) {
+			if (toBeDeleted->parent->left == toBeDeleted) {
+				toBeDeleted->parent->left = toBeDeleted->right;
+			} else {
+				toBeDeleted->parent->right = toBeDeleted->right;
+			}
+		} else {
+			root = toBeDeleted->right;
+		}
+		toBeDeleted->right->parent = toBeDeleted->parent;
+		free(toBeDeleted);
+		return root;
+	}
 
-    if (toBeDeleted->left != NULL && toBeDeleted->right == NULL) {
-        if (toBeDeleted->parent != NULL) {
-            if (toBeDeleted->parent->left == toBeDeleted) {
-                toBeDeleted->parent->left = toBeDeleted->left;
-            } else {
-                toBeDeleted->parent->right = toBeDeleted->left;
-            }
-        } else {
-            root = toBeDeleted->left;
-        }
-        toBeDeleted->left->parent = toBeDeleted->parent;
-        free(toBeDeleted);
-        return root;
-    }
-    
-    return root;
+	if (toBeDeleted->left != NULL && toBeDeleted->right == NULL) {
+		if (toBeDeleted->parent != NULL) {
+			if (toBeDeleted->parent->left == toBeDeleted) {
+				toBeDeleted->parent->left = toBeDeleted->left;
+			} else {
+				toBeDeleted->parent->right = toBeDeleted->left;
+			}
+		} else {
+			root = toBeDeleted->left;
+		}
+		toBeDeleted->left->parent = toBeDeleted->parent;
+		free(toBeDeleted);
+		return root;
+	}
+
+	return root;
 }
 
-void pengecekanTrigonometri( char functionName[] ){
-	
-	if( functionName[0] == 's' || functionName[0] == 't' || functionName[0] == 'c' || functionName[0] == 'l' ){
-		
-		if( functionName[0] == 's' && functionName[1] == 'i' && functionName[2] == 'n' ){
+void pengecekanTrigonometri( char functionName[] ) {
+	if( functionName[0] == 's' || functionName[0] == 't' || functionName[0] == 'c' || functionName[0] == 'l' ) {
+
+
+
+
+		if( functionName[0] == 's' && functionName[1] == 'i' && functionName[2] == 'n' ) {
 			//kondisi sin tersusun dari karakter s,i,dan n
 		}
-		
-		else if( functionName[0] == 's' && functionName[1] == 'e' && functionName[2] == 'c' ){
+
+		else if( functionName[0] == 's' && functionName[1] == 'e' && functionName[2] == 'c' ) {
 			//kondisi sec tersusun dari karakter s,e, dan c
 		}
-		
-		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 's' ){
+
+		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 's' ) {
 			//kondisi cos tersusun dari karakter c,o, dan s
 		}
-		
-		else if( functionName[0] == 'c' && functionName[1] == 's' && functionName[2] == 'c' ){
+
+		else if( functionName[0] == 'c' && functionName[1] == 's' && functionName[2] == 'c' ) {
 			//kondisi cosecan tersusun dari karakter c,o,s,e dan c
 		}
-		
-		else if( functionName[0] == 't' && functionName[1] == 'a' && functionName[2] == 'n' ){
+
+		else if( functionName[0] == 't' && functionName[1] == 'a' && functionName[2] == 'n' ) {
 			//kondisi tan tersusun dari karakter t,a, dan n
 		}
-		
-		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 't' ){
+
+		else if( functionName[0] == 'c' && functionName[1] == 'o' && functionName[2] == 't' ) {
 			//kondisi cotan tersusun dari karakter c,o, dan t
 		}
-		 
-		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'g' ){
+
+		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'g' ) {
 			//kondisi logaritma tersusun dari karakter l,o, dan g
 		}
-		
-		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'n' ){
+
+		else if( functionName[0] == 'l' && functionName[1] == 'o' && functionName[2] == 'n' ) {
 			//kondisi logaritma natural tersusun dari karakter l,o, dan n
 		}
 
-		else{
+		else {
 			printf("\nError! periksa kembali tulisan anda!");
 		}
-		
-		
+
 	}
+
+
 }
 
 
-float penjumlahan(float a,float b){
-	float hasil;
+
+//sumber : https://learntocodes.wordpress.com/2015/12/11/cc-common-mistake-gotoxy/
+void gotoxy(int x, int y) {
+	COORD coord;
+
+	coord.X = x;
+	coord.Y = y;
+
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void tampilanAwal() {
+	printf(" ______________________________      \n");
+	printf("|  __________________________  |     \n");
+	printf("| |                          | |     \n");
+	printf("|  ___   ___   ___   _________ |     \n");
+	printf("| | ^ | | . | |deg| |  <- Del ||     \n");
+	printf("| |___| |___| |___| |_________||     \n");
+	printf("| | v | | n!| |rad|            |     \n");
+	printf("| |___| |___| |___|            |     \n");
+	printf("|  ___ ___ ___      ___   ___  |     \n");
+	printf("| | 7 | 8 | 9 |    |csc| |sin| |     \n");
+	printf("| |___|___|___|    |___| |___| |     \n");
+	printf("| | 4 | 5 | 6 |    |sec| |cos| |     \n");
+	printf("| |___|___|___|    |___| |___| |     \n");
+	printf("| | 1 | 2 | 3 |    |cot| |tan| |     \n");
+	printf("| |___|___|___|    |___| |___| |     \n");
+	printf("| |00 | 0 |000|    |ln | |log| |     \n");
+	printf("| |___|___|___|    |___| |___| |     \n");
+	printf("|  ___   ___   ___   ________  |     \n");
+	printf("| | + | | - | | ( | |        | |     \n");
+	printf("| |___| |___| |___| |  ENTER | |     \n");
+	printf("| | * | | / | | ) | |        | |     \n");
+	printf("| |___| |___| |___| |________| |     \n");
+	printf("|______________________________|     \n");
+
+	gotoxy(3, 2);  // Memindahkan kursor ke posisi input
+
+	int angka;
+	scanf("%d", &angka);
+
+	printf("Anda telah memasukkan angka: %d\n", angka);
+
+	getch();  // Menunggu hingga tombol ditekan sebelum menutup program
+
+	return 0;
+}
+
+
+double penjumlahan(double a,double b) {
+	double hasil;
 	hasil = a + b;
-	return hasil;	
+	return hasil;
 }
 
-float pengurangan(float a,float b){
-	float hasil;
+double pengurangan(double a,double b) {
+	double hasil;
 	hasil = a - b;
-	return hasil;	
+	return hasil;
 }
+
+double perkalian(double a. double b) {
+	double hasil;
+	hasil = a*b;
+	return hasil;
+}
+
+double pembagian(double a, double b) {
+	double hasil;
+	hasil = a/b;
+	return hasil;
+}
+
+double modulus(double a, double b) {
+	double hasil;
+	hasil = fmod(a,b);
+	return hasil;
+}
+/*
+			Kelemahannya tidak akurat untuk melakukan perkalian antara dua bilangan yang memiliki nilai di belakang koma(.)
 
 float perkalian(float a,float b){
 	float hasil = 0;
@@ -119,53 +191,56 @@ float perkalian(float a,float b){
 		if(a < 0 && b > 0){
 			while(i <= b){ //melakukan pengecekan untuk perulangan
 				hasil = hasil + a; //selama loopig berjalan, maka melakukan penjumlahan
-				
+
 				i++; //agar tidak terjadi i nya bisa tidak kurang atau sama dengan b
 			}
 		}
-		
+
 		//untuk bilangan yang pertama positif dan bilangan yang kedua negatif
 		else if(a > 0 && b < 0){
 			while(i <= a){
 				hasil = hasil + b;
-				
+
 				i++;
 			}
 		}
-		
+
 		//untuk bilangan yang pertama negatif dan bilangan yang kedua negatif
 		else if(a < 0 && b < 0){
 			while(i <= abs(b)){
 				hasil = hasil + abs(a);
-				
+
 				i++;
 			}
 		}
-		
+
 		//kedua bilangan positif
 		else{
 			while(i<=b){
 				hasil = hasil + a;
-				
+
 				i++;
 			}
 		}
-	
-	return hasil;	
-}
 
+	return hasil;
+}
+*/
+
+/*
+		kekurangannya sama seperti perkalian looping, kurang akurat untuk bilangan desimal yang nilai dibelakang koma(.) itu selain 0
 float pembagian(float a,float b){
 	float hasil = 0;
 		//untuk kedua bilangan positif
 		if(a > 0 && b > 0){
 			hasil = pembagian2(a, b);
 		}
-		
+
 		//looping pembagian
-		
+
 		//untuk bilangan yang negatif
 		else if(a < 0 || b < 0){
-			if(a < 0){ //jika bilangan a negatif, 
+			if(a < 0){ //jika bilangan a negatif,
 				a = -a; //maka bilangan tersebut dijadikan positif
 				if(b < 0){ //jika bilangan a juga negatif
 					b = -b; //maka bilangan tersebut dijadikan positif
@@ -180,468 +255,457 @@ float pembagian(float a,float b){
 				b = -b; //maka bilangan tersebut dijadikan positif
 				hasil = pembagian2(a, b);
 				hasil = -hasil; //kemudian hasilnya akan jadi negatif
-			}	
+			}
 		}
-		
-	return hasil;	
-}
 
+	return hasil;
+}
 float pembagian2(float a, float b){
 	float hasil;
 	while(a >= b){ // melakukan pengecekan ketika pembilang lebih besar dari penyebut
 		a = a - b; //maka pembilang akan dikurangi oleh penyebut
-				
+
 		hasil = hasil + 1; //ketika proses looping ini dijalankan, berarti hasil akan bertambah 1 nilainya
 	}
 	hasil += a/b;
-	
+
 	return hasil;
 }
 
-float modulus(float a, float b){
-	float hasil;
-	hasil = fmod(a,b);
-	return hasil;	
-}
+*/
 
-float konverter_panjang_dan_massa(int o, int p, float y){
+float konverter_panjang_dan_massa(int o, int p, float y) {
 	// o = pilihan_panjang
 	// p = pilihan_panjang2
 	// y = angka yang dimasukan untuk dikonvert
 	int i; //untuk penampung
 	int x = 1; // untuk penampung perkalian 10
-	if(o < p){ //contohnya dari km ke m
-		i = p - o; 
-		while(i>0){
+	if(o < p) { //contohnya dari km ke m
+		i = p - o;
+		while(i>0) {
 			x = x*10;
 			i = i - 1;
 		}
 		y = y*x;
-	}
-	else if(o > p){		
+	} else if(o > p) {
 		i = o - p;
-		while(i>0){
+		while(i>0) {
 			x = x*10;
 			i = i - 1;
 		}
 		y = y/x;
-	}
-	else{
-		i = 1;	
+	} else {
+		i = 1;
 	}
 	return y;
 }
 
-double konverter_luas(float c, float d, double e){
+double konverter_luas(float c, float d, double e) {
 	int i; //untuk penampung
 	long double x = 1;//untuk penampung perkalian 100
-	if(c < d){ //contohnya dari km ke m
+	if(c < d) { //contohnya dari km ke m
 		i = d - c; //nilai i adalah 3
-		while(i>0){
+		while(i>0) {
 			x = x*100;
 			i = i - 1;
 		}
 		e = e*x;
-	}
-	else if(c > d){		
+	} else if(c > d) {
 		i = c - d;
-		while(i>0){
+		while(i>0) {
 			x = x*100;
 			i = i - 1;
 		}
-		e = e/x;	
-	}
-	else{
+		e = e/x;
+	} else {
 		e = e;
 	}
 	return e;
 }
 
-double konverter_volume(float c, float d, double e){
+double konverter_volume(float c, float d, double e) {
 	int i; //untuk penampung
-	double x = 1;//untuk penampung perkalian 
-	if(c < d){ //contohnya dari km ke m
+	double x = 1;//untuk penampung perkalian
+	if(c < d) { //contohnya dari km ke m
 		i = d - c; //nilai i adalah 3
-		while(i>0){
+		while(i>0) {
 			x = x*1000;
 			i = i - 1;
 		}
 		e = e*x;
-	}
-	else if(c > d){		
+	} else if(c > d) {
 		i = c - d;
-		while(i>0){
+		while(i>0) {
 			x = x*1000;
 			i = i - 1;
 		}
 		e = e/x;
-	}
-	else{
-		e = e;	
+	} else {
+		e = e;
 	}
 	return e;
 }
 
-//konvert dari detik	
-int secToMin(float angka){
+//konvert dari detik
+int secToMin(float angka) {
 	float detik, menit;
 	detik = angka;
 	menit = detik / 60;
-	
+
 	return menit;
 }
 
-int secToHour(float angka){
+int secToHour(float angka) {
 	float detik, jam;
 	detik = angka;
 	jam = detik / 3600;
-	
+
 	return jam;
 }
 
-int secToDay(float angka){
+int secToDay(float angka) {
 	float detik, hari;
 	detik = angka;
 	hari = detik / 86400;
-	
+
 	return hari;
 }
 
-int secToWeek(float angka){
+int secToWeek(float angka) {
 	float detik, minggu;
 	detik = angka;
 	minggu = detik/604800;
-	
+
 	return minggu;
 }
 
-int secToMounth(float angka){
+int secToMounth(float angka) {
 	float detik, bulan;
 	detik = angka;
 	bulan = detik/2592000;
-	
+
 	return bulan;
 }
 
-int secToYear(float angka){
+int secToYear(float angka) {
 	float detik, tahun;
 	detik = angka;
 	tahun = detik/31104000;
-	
+
 	return tahun;
 }
 
 //konvert dari menit
-int minToSec(float angka){
+int minToSec(float angka) {
 	float menit, detik;
 	menit = angka;
 	detik = menit*60;
-	
+
 	return detik;
 }
 
-int minToHour(float angka){
+int minToHour(float angka) {
 	float menit, jam;
 	menit = angka;
 	jam = menit / 60;
-	
+
 	return jam;
 }
 
-int minToDay(float angka){
+int minToDay(float angka) {
 	float menit, hari;
 	menit = angka;
 	hari = menit / 1440;
-	
+
 	return hari;
 }
 
-int minToWeek(float angka){
+int minToWeek(float angka) {
 	float menit, minggu;
 	menit = angka;
 	minggu = menit/10080;
-	
+
 	return minggu;
 }
 
-int minToMounth(float angka){
+int minToMounth(float angka) {
 	float menit, bulan;
 	menit = angka;
 	bulan = menit/43200;
-	
+
 	return bulan;
 }
 
-int minToYear(float angka){
+int minToYear(float angka) {
 	float menit, tahun;
 	menit = angka;
 	tahun = menit/518400;
-	
+
 	return tahun;
 }
 
 //konvert dari jam
-int hourToSec(float angka){
+int hourToSec(float angka) {
 	float jam, detik;
 	jam = angka;
 	detik = jam * 3600;
-	
+
 	return detik;
 }
 
-int hourToMin(float angka){
+int hourToMin(float angka) {
 	float jam, menit;
 	jam = angka;
 	menit = jam * 60;
-	
+
 	return menit;
 }
 
-int hourToDay(float angka){
+int hourToDay(float angka) {
 	float jam, hari;
-	jam = angka; 
+	jam = angka;
 	hari = jam/24;
-	
+
 	return hari;
 }
 
-int hourToWeek(float angka){
+int hourToWeek(float angka) {
 	float jam, minggu;
 	jam = angka;
 	minggu = jam/168;
-	
+
 	return minggu;
 }
 
-int hourToMounth(float angka){
+int hourToMounth(float angka) {
 	int jam, bulan;
 	jam = angka;
 	bulan = jam/672;
-	
+
 	return bulan;
 }
 
-int hourToYear(float angka){
+int hourToYear(float angka) {
 	float jam, tahun;
 	jam = angka;
 	tahun = jam/8064;
-	
+
 	return tahun;
 }
 
 //konvert dari hari
-int dayToSec(float angka){
+int dayToSec(float angka) {
 	float hari, detik;
 	hari = angka;
 	detik = hari*86400;
-	
+
 	return detik;
 }
 
-int dayToMin(float angka){
+int dayToMin(float angka) {
 	float hari, menit;
 	hari = angka;
 	menit = hari * 1440;
-	
+
 	return menit;
 }
 
-int dayToHour(float angka){
+int dayToHour(float angka) {
 	float hari, jam;
 	hari = angka;
-	jam = hari*24;	
-	
+	jam = hari*24;
+
 	return jam;
 }
 
-int dayToWeek(float angka){
+int dayToWeek(float angka) {
 	float hari, minggu;
 	hari = angka;
 	minggu = hari / 7;
-	
+
 	return minggu;
 }
 
-int dayToMounth(float angka){
+int dayToMounth(float angka) {
 	float hari, bulan;
 	hari = angka;
 	bulan = hari /30;
-	
+
 	return bulan;
 }
 
-int dayToYear(float angka){
+int dayToYear(float angka) {
 	float hari, tahun;
 	hari = angka;
 	tahun = hari / 365;
-	
+
 	return tahun;
 }
 
 //konvert dari minggu
-int weekToSec(float angka){
+int weekToSec(float angka) {
 	float minggu, detik;
 	minggu = angka;
 	detik = minggu*604800;
-	
+
 	return detik;
 }
 
-int weekToMin(float angka){
+int weekToMin(float angka) {
 	float minggu, menit;
 	minggu = angka;
 	menit = minggu*10080;
-	
+
 	return menit;
 }
 
-int weekToHour(float angka){
+int weekToHour(float angka) {
 	float minggu, jam;
 	minggu = angka;
-	jam = minggu*168;	
-	
+	jam = minggu*168;
+
 	return jam;
 }
 
-int weekToDay(float angka){
+int weekToDay(float angka) {
 	float minggu, hari;
 	minggu = angka;
 	hari = minggu*7;
-	
+
 	return hari;
 }
 
-int weekToMounth(float angka){
+int weekToMounth(float angka) {
 	float minggu, bulan;
-	minggu = angka; 
+	minggu = angka;
 	bulan = minggu/4;
-	
+
 	return bulan;
 }
 
-int weekToYear(float angka){
+int weekToYear(float angka) {
 	float minggu, tahun;
 	minggu = angka;
 	tahun = minggu/52;
-	
+
 	return tahun;
 }
 
 //konvert dari bulan
-int mounthToSec(float angka){
+int mounthToSec(float angka) {
 	float bulan, detik;
 	bulan = angka;
 	detik = bulan*2592000;
-	
+
 	return detik;
 }
 
-int mounthToMin(float angka){
+int mounthToMin(float angka) {
 	float bulan, menit;
 	bulan = angka;
 	menit = bulan*43200;
-	
+
 	return menit;
 }
 
-int mounthToHour(float angka){
+int mounthToHour(float angka) {
 	float bulan, jam;
 	bulan = angka;
 	jam = bulan*720;
-	
+
 	return jam;
 }
 
-int mounthToDay(float angka){
+int mounthToDay(float angka) {
 	float bulan, hari;
 	bulan = angka;
 	hari = bulan*30;
-	
+
 	return hari;
 }
 
-int mounthToWeek(float angka){
+int mounthToWeek(float angka) {
 	float bulan, minggu;
 	bulan = angka;
 	minggu = bulan*4;
-	
+
 	return minggu;
 }
 
-int mounthToYear(float angka){
+int mounthToYear(float angka) {
 	float bulan, tahun;
 	bulan = angka;
 	tahun = bulan / 12;
-	
+
 	return tahun;
 }
 
 //konvert dari tahun
-int yearToSec(float angka){
+int yearToSec(float angka) {
 	float tahun, detik;
 	tahun = angka;
 	detik = tahun*31104000;
-	
+
 	return detik;
 }
 
-int yearToMin(float angka){
+int yearToMin(float angka) {
 	float tahun, menit;
 	tahun = angka;
 	menit = tahun*518400;
-	
+
 	return menit;
 }
 
-int yearToHour(float angka){
+int yearToHour(float angka) {
 	float tahun, jam;
 	tahun = angka;
 	jam = tahun*8640;
-	
+
 	return jam;
 }
 
-int yearToDay(float angka){
+int yearToDay(float angka) {
 	float tahun, hari;
-	tahun = angka; 
-	hari = tahun*365;	
-	
+	tahun = angka;
+	hari = tahun*365;
+
 	return hari;
 }
 
-int yearToWeek(float angka){
+int yearToWeek(float angka) {
 	float tahun, minggu;
-	tahun = angka; 
+	tahun = angka;
 	minggu = tahun*52;
-	
+
 	return minggu;
 }
 
-int yearToMounth(float angka){
+int yearToMounth(float angka) {
 	float tahun,bulan;
 	tahun = angka;
 	bulan = tahun*12;
-	
+
 	return bulan;
 }
 
-float celciToFar(float angka){
+float celciToFar(float angka) {
 	float c,f;
 	c = angka;
 	f = (c*1.8)+32;
-	
-	return f;	
+
+	return f;
 }
 
-float celciToKel(float angka){
+float celciToKel(float angka) {
 	float c,k;
 	c = angka;
 	k = c + 273.15;
-	
-	return k;	
+
+	return k;
 }
 
-float celciToRea(float angka){
+float celciToRea(float angka) {
 	float c,r;
 	c = angka;
 	r = (c*4)/5;
@@ -649,24 +713,24 @@ float celciToRea(float angka){
 	return r;
 }
 
-float farToCelci(float angka){
+float farToCelci(float angka) {
 	float f,c;
 	f = angka;
 	c = (f-32)*5/9;
-	
+
 	return c;
 }
 
-float farToKel(float angka){
+float farToKel(float angka) {
 	float f,c,k;
 	f = angka;
 	c = (f-32)*5/9;
 	k = c + 273.15;
 
-	return k;	
+	return k;
 }
 
-float farToRea(float angka){
+float farToRea(float angka) {
 	float f,r;
 	f = angka;
 	r = (f-32)*4/9;
@@ -674,7 +738,7 @@ float farToRea(float angka){
 	return r;
 }
 
-float kelToCelci(float angka){
+float kelToCelci(float angka) {
 	float k,c;
 	k = angka;
 	c = k-273.15;
@@ -682,24 +746,24 @@ float kelToCelci(float angka){
 	return c;
 }
 
-float kelToFar(float angka){
+float kelToFar(float angka) {
 	float k,c,f;
 	k = angka;
 	c = k-273.15;
-	f = (c*1.8)+32; 
+	f = (c*1.8)+32;
 
 	return f;
 }
 
-float kelToRea(float angka){
+float kelToRea(float angka) {
 	float r,k;
 	k = angka;
 	r = (k-273.15)*4/5;
-	
+
 	return r;
 }
 
-float reaToCelci(float angka){
+float reaToCelci(float angka) {
 	float r,c;
 	r = angka;
 	c = r*5/4;
@@ -707,7 +771,7 @@ float reaToCelci(float angka){
 	return c;
 }
 
-float reaToFar(float angka){
+float reaToFar(float angka) {
 	float r,c,f;
 	r = angka;
 	c = r*5/4;
@@ -716,7 +780,7 @@ float reaToFar(float angka){
 	return f;
 }
 
-float reaToKel(float angka){
+float reaToKel(float angka) {
 	float k, r;
 	r = angka;
 	k = (r*5/4)+273.15;
@@ -725,36 +789,38 @@ float reaToKel(float angka){
 }
 
 //void utama
-void najwan(){
+void najwan() {
 	float hasil,n, a,b,c,d,e,angka,pilihan_dari,pilihan_ke;
 	int pilihan;
 	char operasi;
 	int detik, menit, jam, hari, minggu, bulan, tahun;
 	int f,k,r,q,w;
-	
-	
+
+
 	printf("masukan operasi aritmatika \n");
-	scanf("%f",a);scanf("%c",operasi);scanf("%f",b);
-	switch(operasi){
+	scanf("%f",a);
+	scanf("%c",operasi);
+	scanf("%f",b);
+	switch(operasi) {
 		case '+':
 			hasil = penjumlahan(a,b);
-			
+
 			break;
 		case '-':
 			hasil = pengurangan(a,b);
-			
+
 			break;
 		case '*':
 			hasil = perkalian(a,b);
-			
+
 			break;
 		case '/':
 			hasil = pembagian(a,b);
-			
+
 			break;
 		case '%':
 			hasil = modulus(a,b);
-			
+
 			break;
 		default:
 			printf("anda salah memasukan operasi hitung");
@@ -762,8 +828,8 @@ void najwan(){
 
 }
 
-void untuk_pemilihan_konverter(){
-	int pilihan;	
+void untuk_pemilihan_konverter() {
+	int pilihan;
 	printf("==========Satuan apa yang ingin anda konversi?========== \n");
 	printf("\t\t1. Satuan Panjang \n");
 	printf("\t\t2. Satuan Luas \n");
@@ -773,8 +839,8 @@ void untuk_pemilihan_konverter(){
 	printf("\t\t6. Satuan Suhu \n");
 	printf("\n\t\tjawab : ");
 	scanf("%d", &pilihan);
-	switch(pilihan){
-		
+	switch(pilihan) {
+
 		case 1:
 			panjang();
 			break;
@@ -787,7 +853,8 @@ void untuk_pemilihan_konverter(){
 		case 4:
 			massa();
 			break;
-		case 5:;
+		case 5:
+			;
 			waktu();
 			break;
 		case 6:
@@ -796,12 +863,12 @@ void untuk_pemilihan_konverter(){
 		default:
 			printf("masukan angka dengan benar");
 			break;
-			
+
 	}
-	
+
 }
 
-void panjang(){
+void panjang() {
 	int pilihan_panjang,pilihan_panjang2;
 	float angka,y;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
@@ -812,16 +879,19 @@ void panjang(){
 	printf("\t\t5. dm\n");
 	printf("\t\t6. cm\n");
 	printf("\t\t7. mm\n");
-	printf("dari : ");scanf("%d", &pilihan_panjang);
-	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%f", &angka);
-	
+	printf("dari : ");
+	scanf("%d", &pilihan_panjang);
+	printf("ke : ");
+	scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");
+	scanf("%f", &angka);
+
 	y = konverter_panjang_dan_massa(pilihan_panjang,pilihan_panjang2,angka);
-	printf("-----hasil dari konverter : %f -----",y);	
+	printf("-----hasil dari konverter : %f -----",y);
 }
 
 
-void luas(){
+void luas() {
 	int pilihan_panjang,pilihan_panjang2;
 	long double angka,n;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
@@ -832,15 +902,18 @@ void luas(){
 	printf("\t\t5. dm\n");
 	printf("\t\t6. cm\n");
 	printf("\t\t7. mm\n");
-	printf("dari : ");scanf("%d", &pilihan_panjang);
-	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%Lf", &angka);
-	
+	printf("dari : ");
+	scanf("%d", &pilihan_panjang);
+	printf("ke : ");
+	scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");
+	scanf("%Lf", &angka);
+
 	n = konverter_luas(pilihan_panjang,pilihan_panjang2,angka);
-	printf("-----hasil dari konverter : %Lf -----",n);	
+	printf("-----hasil dari konverter : %Lf -----",n);
 }
 
-void volume(){
+void volume() {
 	int pilihan_panjang,pilihan_panjang2;
 	long double angka,n;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
@@ -851,15 +924,18 @@ void volume(){
 	printf("\t\t5. dm\n");
 	printf("\t\t6. cm\n");
 	printf("\t\t7. mm\n");
-	printf("dari : ");scanf("%d", &pilihan_panjang);
-	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%Lf", &angka);	
-	
+	printf("dari : ");
+	scanf("%d", &pilihan_panjang);
+	printf("ke : ");
+	scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");
+	scanf("%Lf", &angka);
+
 	n = konverter_volume(pilihan_panjang,pilihan_panjang2,angka);
 	printf("-----hasil dari konverter : %.16Lf -----",n);
 }
 
-void massa(){
+void massa() {
 	int pilihan_panjang,pilihan_panjang2;
 	float angka,n;
 	printf("\n\n===========Pilih satuan yang akan anda konversikan===========\n");
@@ -870,47 +946,52 @@ void massa(){
 	printf("\t\t5. dg\n");
 	printf("\t\t6. cg\n");
 	printf("\t\t7. mg\n");
-	printf("dari : ");scanf("%d", &pilihan_panjang);
-	printf("ke : ");scanf("%d", &pilihan_panjang2);
-	printf("masukan angka ");scanf("%f", &angka);
-	
+	printf("dari : ");
+	scanf("%d", &pilihan_panjang);
+	printf("ke : ");
+	scanf("%d", &pilihan_panjang2);
+	printf("masukan angka ");
+	scanf("%f", &angka);
+
 	n = konverter_panjang_dan_massa(pilihan_panjang,pilihan_panjang2,angka);
-	printf("-----hasil dari konverter : %.6f -----",n);	
+	printf("-----hasil dari konverter : %.6f -----",n);
 }
 
-void waktu(){
+void waktu() {
 	int detik = 0,
-		menit = 0,
-		jam = 0,
-		hari = 0,
-		minggu = 0,
-		bulan = 0, 
-		tahun = 0;
+	    menit = 0,
+	    jam = 0,
+	    hari = 0,
+	    minggu = 0,
+	    bulan = 0,
+	    tahun = 0;
 	int jawaban,jawaban2;
-	float angka; 
-	
+	float angka;
+
 	printf("==========konversi satuan waktu==========\n");
 	printf("\t\t1. Detik\n");
-	printf("\t\t2. Menit\n");	
+	printf("\t\t2. Menit\n");
 	printf("\t\t3. Jam\n");
 	printf("\t\t4. Hari\n");
 	printf("\t\t5. Minggu\n");
 	printf("\t\t6. Bulan\n");
 	printf("\t\t7. Tahun\n");
-	printf("dari : ");scanf("%d",&jawaban);
-	printf("ke : ");scanf("%d",&jawaban2);
-	printf("masukan angka yang akan di konversikan : ");scanf("%f",&angka);
-	
+	printf("dari : ");
+	scanf("%d",&jawaban);
+	printf("ke : ");
+	scanf("%d",&jawaban2);
+	printf("masukan angka yang akan di konversikan : ");
+	scanf("%f",&angka);
 
 
 
-	if(jawaban==1 && jawaban2==2){
+
+	if(jawaban==1 && jawaban2==2) {
 		//detik ke menit
 		detik = angka;
 		menit = secToMin(detik);
-		detik = detik%60;		
-	}
-	else if(jawaban==1 && jawaban2==3){
+		detik = detik%60;
+	} else if(jawaban==1 && jawaban2==3) {
 		//detik ke jam
 		detik = angka;
 		jam = secToHour(detik);
@@ -918,8 +999,8 @@ void waktu(){
 		menit = secToMin(detik);
 		detik = detik%60;
 	}
-	
-	else if(jawaban==1 && jawaban2==4){
+
+	else if(jawaban==1 && jawaban2==4) {
 		//detik ke hari
 		detik = angka;
 		hari = secToDay(angka);
@@ -929,8 +1010,8 @@ void waktu(){
 		menit = secToMin(detik);
 		detik = detik%60;
 	}
-	
-	else if(jawaban==1 && jawaban2==5){
+
+	else if(jawaban==1 && jawaban2==5) {
 		//detik ke minggu
 		detik = angka;
 		minggu = secToWeek(detik);
@@ -942,8 +1023,8 @@ void waktu(){
 		menit = secToMin(detik);
 		detik = detik%60;
 	}
-	
-	else if(jawaban==1 && jawaban2==6){
+
+	else if(jawaban==1 && jawaban2==6) {
 		//detik ke bulan
 		detik = angka;
 		bulan = secToMounth(detik);
@@ -957,8 +1038,8 @@ void waktu(){
 		menit = secToMin(detik);
 		detik = detik%60;
 	}
-	
-	else if(jawaban==1 && jawaban2==7){
+
+	else if(jawaban==1 && jawaban2==7) {
 		//detik ke tahun
 		detik = angka;
 		tahun = secToYear(detik);
@@ -973,23 +1054,23 @@ void waktu(){
 		detik = detik%3600;
 		menit = secToMin(detik);
 		detik = detik%60;
-	}		
-	
-	else if(jawaban==2 && jawaban2==1){
+	}
+
+	else if(jawaban==2 && jawaban2==1) {
 		//menit ke detik
 		menit = angka;
 		detik = minToSec(menit);
 		menit = 0;
 	}
-	
-	else if(jawaban==2 && jawaban2==3){
+
+	else if(jawaban==2 && jawaban2==3) {
 		//menit ke jam
 		menit = angka;
 		jam = minToHour(menit);
 		menit = menit%60;
 	}
-	
-	else if(jawaban==2 && jawaban2==4){
+
+	else if(jawaban==2 && jawaban2==4) {
 		//menit ke hari
 		menit = angka;
 		hari = minToDay(menit);
@@ -997,8 +1078,8 @@ void waktu(){
 		jam = minToHour(menit);
 		menit = menit%60;
 	}
-	
-	else if(jawaban==2 && jawaban2==5){
+
+	else if(jawaban==2 && jawaban2==5) {
 		//menit ke minggu
 		menit = angka;
 		minggu = minToWeek(menit);
@@ -1008,8 +1089,8 @@ void waktu(){
 		jam = minToHour(menit);
 		menit = menit%60;
 	}
-	
-	else if(jawaban==2 && jawaban2==6){
+
+	else if(jawaban==2 && jawaban2==6) {
 		//menit ke bulan
 		menit = angka;
 		bulan = minToMounth(menit);
@@ -1021,8 +1102,8 @@ void waktu(){
 		jam = minToHour(menit);
 		menit = menit%60;
 	}
-	
-	else if(jawaban==2 && jawaban2==7){
+
+	else if(jawaban==2 && jawaban2==7) {
 		//menit ke tahun
 		menit = angka;
 		tahun = minToYear(menit);
@@ -1035,29 +1116,29 @@ void waktu(){
 		menit = menit%1440;
 		jam = minToHour(menit);
 		menit = menit%60;
-	}	
-		
-	else if(jawaban==3 && jawaban2==1){
+	}
+
+	else if(jawaban==3 && jawaban2==1) {
 		//jam ke detik
 		detik = hourToSec(angka);
 		jam = 0;
 	}
-	
-	else if(jawaban==3 && jawaban2==2){
+
+	else if(jawaban==3 && jawaban2==2) {
 		//jam ke menit
 		menit = hourToMin(angka);
 		jam = 0;
-		
+
 	}
-	
-	else if(jawaban==3 && jawaban2==4){
+
+	else if(jawaban==3 && jawaban2==4) {
 		//jam ke hari
 		jam = angka;
 		hari = hourToDay(jam);
-		jam = jam%24;	
+		jam = jam%24;
 	}
-	
-	else if(jawaban==3 && jawaban2==5){
+
+	else if(jawaban==3 && jawaban2==5) {
 		//jam ke minggu
 		jam = angka;
 		minggu = hourToWeek(jam);
@@ -1065,8 +1146,8 @@ void waktu(){
 		hari = hourToDay(jam);
 		jam = jam%24;
 	}
-	
-	else if(jawaban==3 && jawaban2==6){
+
+	else if(jawaban==3 && jawaban2==6) {
 		//jam ke bulan
 		jam = angka;
 		bulan = hourToMounth(jam);
@@ -1074,10 +1155,10 @@ void waktu(){
 		minggu = hourToWeek(jam);
 		jam = jam%168;
 		hari = hourToDay(jam);
-		jam = jam%24; 
+		jam = jam%24;
 	}
-	
-	else if(jawaban==3 && jawaban2==7){
+
+	else if(jawaban==3 && jawaban2==7) {
 		////jam ke tahun
 		jam = angka;
 		tahun = hourToYear(jam);
@@ -1087,36 +1168,36 @@ void waktu(){
 		minggu = hourToWeek(jam);
 		jam = jam%168;
 		hari = hourToDay(jam);
-		jam = jam%24; 
-		
+		jam = jam%24;
+
 	}
-	
-	else if(jawaban==4 && jawaban2==1){
+
+	else if(jawaban==4 && jawaban2==1) {
 		//hari ke detik
 		detik = dayToSec(angka);
 		hari = 0;
 	}
-	
-	else if(jawaban==4 && jawaban2==2){
+
+	else if(jawaban==4 && jawaban2==2) {
 		//hari ke menit
 		menit = dayToMin(angka);
 		hari = 0;
 	}
 
-	else if(jawaban==4 && jawaban2==3){
+	else if(jawaban==4 && jawaban2==3) {
 		//hari ke jam
 		jam = dayToHour(angka);
 		hari = 0;
 	}
-	
-	else if(jawaban==4 && jawaban2==5){
+
+	else if(jawaban==4 && jawaban2==5) {
 		//hari ke minggu
 		hari = angka;
 		minggu = dayToWeek(hari);
 		hari = hari%7;
 	}
-	
-	else if(jawaban==4 && jawaban2==6){
+
+	else if(jawaban==4 && jawaban2==6) {
 		//hari ke bulan
 		hari = angka;
 		bulan = dayToMounth(hari);
@@ -1124,8 +1205,8 @@ void waktu(){
 		minggu = dayToWeek(hari);
 		hari = hari%7;
 	}
-	
-	else if(jawaban==4 && jawaban2==7){
+
+	else if(jawaban==4 && jawaban2==7) {
 		//hari ke tahun
 		hari = angka;
 		tahun = dayToYear(hari);
@@ -1136,209 +1217,199 @@ void waktu(){
 		hari = hari%7;
 	}
 
-	else if(jawaban==5 && jawaban2==1){
+	else if(jawaban==5 && jawaban2==1) {
 		//minggu ke detik
 		detik = weekToSec(angka);
 		minggu = 0;
 	}
 
-	else if(jawaban==5 && jawaban2==2){
+	else if(jawaban==5 && jawaban2==2) {
 		//minggu ke menit
 		menit = weekToMin(angka);
 		minggu = 0;
 	}
-	
-	else if(jawaban==5 && jawaban2==3){
+
+	else if(jawaban==5 && jawaban2==3) {
 		//minggu ke jam
 		jam = weekToHour(angka);
 		minggu = 0;
 	}
-	
-	else if(jawaban==5 && jawaban2==4){
+
+	else if(jawaban==5 && jawaban2==4) {
 		//minggu ke hari
 		hari = weekToDay(angka);
 		minggu = 0;
 	}
-	
-	else if(jawaban==5 && jawaban2==6){
+
+	else if(jawaban==5 && jawaban2==6) {
 		//minggu ke bulan
 		minggu = angka;
 		bulan = weekToMounth(minggu);
 		minggu = minggu%4;
 	}
-	
-	else if(jawaban==5 && jawaban2==7){
+
+	else if(jawaban==5 && jawaban2==7) {
 		//minggu ke tahun
 		minggu = angka;
 		tahun = weekToYear(minggu);
 		minggu = minggu%52;
 		bulan = weekToMounth(minggu);
 		minggu = minggu%4;
-		
+
 	}
-	
-	else if(jawaban==6 && jawaban2==1){
+
+	else if(jawaban==6 && jawaban2==1) {
 		//bulan ke detik
 		detik = mounthToSec(angka);
 		bulan = 0;
 	}
-	
-	else if(jawaban==6 && jawaban2==2){
+
+	else if(jawaban==6 && jawaban2==2) {
 		//bulan ke menit
 		menit = mounthToMin(angka);
 		bulan = 0;
 	}
-	
-	else if(jawaban==6 && jawaban2==3){
-		//bulan ke jam 
+
+	else if(jawaban==6 && jawaban2==3) {
+		//bulan ke jam
 		jam = mounthToHour(angka);
 		bulan = 0;
 	}
-	
-	else if(jawaban==6 && jawaban2==4){
-		//bulan ke hari 
+
+	else if(jawaban==6 && jawaban2==4) {
+		//bulan ke hari
 		hari = mounthToDay(angka);
 		bulan = 0;
 	}
-	
-	else if(jawaban==6 && jawaban2==5){
+
+	else if(jawaban==6 && jawaban2==5) {
 		//bulan ke minggu
 		minggu = mounthToWeek(angka);
 		bulan = 0;
 	}
-	
-	else if(jawaban==6 && jawaban2==7){
+
+	else if(jawaban==6 && jawaban2==7) {
 		//bulan ke tahun
 		bulan = angka;
 		tahun = mounthToYear(bulan);
-		bulan = bulan%12;	
+		bulan = bulan%12;
 	}
-	
-	else if(jawaban==7 && jawaban2==1){
+
+	else if(jawaban==7 && jawaban2==1) {
 		//tahun ke detik
 		detik = yearToSec(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==7 && jawaban2==2){
+
+	else if(jawaban==7 && jawaban2==2) {
 		//tahun ke menit
 		menit = yearToMin(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==7 && jawaban2==3){
+
+	else if(jawaban==7 && jawaban2==3) {
 		//tahun ke jam
 		jam = yearToHour(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==7 && jawaban2==4){
+
+	else if(jawaban==7 && jawaban2==4) {
 		//tahun ke hari
 		hari = yearToDay(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==7 && jawaban2==5){
+
+	else if(jawaban==7 && jawaban2==5) {
 		//tahun ke minggu
 		minggu = yearToWeek(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==7 && jawaban2==6){
+
+	else if(jawaban==7 && jawaban2==6) {
 		//tahun ke bulan
 		bulan = yearToMounth(angka);
 		tahun = 0;
 	}
-	
-	else if(jawaban==jawaban2){
+
+	else if(jawaban==jawaban2) {
 		printf("tidak ada perubahan\n");
 	}
-	
-	else{
+
+	else {
 		printf("piihan yang anda masukan kurang tepat\n");
 	}
-	printf("%d tahun, %d bulan, %d minggu, %d hari,%d jam, %d menit, %d detik",tahun, bulan, minggu, hari, jam, menit, detik); 
-	
-}	
+	printf("%d tahun, %d bulan, %d minggu, %d hari,%d jam, %d menit, %d detik",tahun, bulan, minggu, hari, jam, menit, detik);
 
-void suhu(){
-	int jawaban, jawaban2; 
+}
+
+void suhu() {
+	int jawaban, jawaban2;
 	float angka, f, c, r, k;
 	printf("==========konversi satuan suhu==========\n");
 	printf("\t\t1. celcuis\n");
-	printf("\t\t2. fahrenheit\n");	
+	printf("\t\t2. fahrenheit\n");
 	printf("\t\t3. kelvin\n");
 	printf("\t\t4. reamur\n");
-	printf("dari : ");scanf("%d",&jawaban);
-	printf("ke : ");scanf("%d",&jawaban2);
-	printf("masukan angka yang akan di konversikan : ");scanf("%f",&angka);
-	
-	if(jawaban==1 && jawaban2==2){
+	printf("dari : ");
+	scanf("%d",&jawaban);
+	printf("ke : ");
+	scanf("%d",&jawaban2);
+	printf("masukan angka yang akan di konversikan : ");
+	scanf("%f",&angka);
+
+	if(jawaban==1 && jawaban2==2) {
 		//c ke f
 		f = celciToFar(angka);
 		printf("-----hasil dari konverter : %f f -----",f);
-	}
-	else if(jawaban==1 && jawaban2==3){
+	} else if(jawaban==1 && jawaban2==3) {
 		//c ke k
 		k = celciToKel(angka);
 		printf("-----hasil dari konverter : %f k -----",k);
-	}
-	else if(jawaban==1 && jawaban2==4){
+	} else if(jawaban==1 && jawaban2==4) {
 		//c ke r
 		r = celciToRea(angka);
 		printf("-----hasil dari konverter : %f r -----",r);
-	}
-	else if(jawaban==2 && jawaban2==1){
+	} else if(jawaban==2 && jawaban2==1) {
 		//f ke c
 		c = farToCelci(angka);
 		printf("-----hasil dari konverter : %f c -----",c);
-	}
-	else if(jawaban==2 && jawaban2==3){
+	} else if(jawaban==2 && jawaban2==3) {
 		//f ke k
 		k = farToKel(angka);
 		printf("-----hasil dari konverter : %f k -----",k);
-	}
-	else if(jawaban==2 && jawaban2==4){
+	} else if(jawaban==2 && jawaban2==4) {
 		//f ke r
 		r = farToRea(angka);
 		printf("-----hasil dari konverter : %f r -----",r);
-	}
-	else if(jawaban==3 && jawaban2==1){
+	} else if(jawaban==3 && jawaban2==1) {
 		//k ke c
 		c = kelToCelci(angka);
 		printf("-----hasil dari konverter : %f c -----",c);
-	}
-	else if(jawaban==3 && jawaban2==2){
+	} else if(jawaban==3 && jawaban2==2) {
 		//k ke f
 		f = kelToFar(angka);
-		printf("-----hasil dari konverter : %f f -----",f);	
-	}
-	else if(jawaban==3 && jawaban2==4){
+		printf("-----hasil dari konverter : %f f -----",f);
+	} else if(jawaban==3 && jawaban2==4) {
 		//k ke r
 		r = kelToRea(angka);
 		printf("-----hasil dari konverter : %f r -----",r);
-	}
-	else if(jawaban==4 && jawaban2==1){
+	} else if(jawaban==4 && jawaban2==1) {
 		//r ke c
 		c = reaToCelci(angka);
 		printf("-----hasil dari konverter : %f c -----",c);
-	}
-	else if(jawaban==4 && jawaban2==2){
+	} else if(jawaban==4 && jawaban2==2) {
 		//r ke f
 		f = reaToFar(angka);
 		printf("-----hasil dari konverter : %f f -----",f);
-	}
-	else if(jawaban==4 && jawaban2==3){
+	} else if(jawaban==4 && jawaban2==3) {
 		//r ke k
 		k = reaToKel(angka);
-		printf("-----hasil dari konverter : %f k -----",k);	
-	}
-	else if(jawaban==jawaban2){
+		printf("-----hasil dari konverter : %f k -----",k);
+	} else if(jawaban==jawaban2) {
 		printf("\ntidak ada perubahan\n");
-	}
-	else{
+	} else {
 		printf("masukan kembali suhu yang akan dikonversikan sesuai dengan yang ada\n");
 	}
-	
-	
+
+
 }

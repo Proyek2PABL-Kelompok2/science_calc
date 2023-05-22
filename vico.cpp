@@ -2,143 +2,207 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "najwan.h"
-#define jmlh_pangkat 10
-
-float akarPangkat(float nilai_akar,float pangkat_akar)
-{
-	return pow(nilai_akar, 1.0/pangkat_akar);
-} 
-
-float logaritma(double nilai_loga, double basis)
-{
-	return log(nilai_loga)/log(basis);
-}
-
-int turunanPolinomial(int pangkat_turunan, int koef)
-{
-	return pangkat_turunan;
-}
-float hitung_logaritma(double nilai_loga, double basis)
-{
-	return log(nilai_loga)/log(basis);
-}
-
-//int main()
-void vico()
-{
-	int i,koef[jmlh_pangkat+1], koefs[jmlh_pangkat] , pangkat_turunan, pilihlah;
-	char str[100];
-	float c, nilai_perpangkatan, pangkat_perpangkatan,pangkat_akar;
-	double basis, nilai_loga, hasil_loga;
-	float nilai_akar, hasil_akar;
-	long long total = 1;
+#include "vico.h"
 	
-	printf("1. Perpangkatan\n");
-	printf("2. Akar\n");
-	printf("3. Logaritma\n");
-	printf("4. Turunan\n");
-	printf("Masukan Pilihan anda : ");
-	scanf("%d", &pilihlah);
-	system("cls");
-	switch(pilihlah){
-		case 1:
-	printf("2. Akar Pangkat\n");
-	printf("3. Logaritma\n");
-	printf("4. Turunan\n");
-	printf("Masukan pilihan anda : ");
-	scanf("%d", &pilihlah);
-	switch(pilihlah){
-		case 1:
-			system("cls");
+	char* funcNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";
 
-			printf("Masukan angka yang akan dipangkatkan= ");
-			scanf("%f", &nilai_perpangkatan);
-			printf("Masukan pangkatnya = ");
-			scanf("%f", &pangkat_perpangkatan);
-			
-			for(c=1; c<=pangkat_perpangkatan; c++) //Membuat perpangkatan
-			{
-				total = perkalian(total, nilai_perpangkatan);
-			}
-			printf("Hasil dari %g pangkat %g adalah = %lld \n", nilai_perpangkatan, pangkat_perpangkatan,total); //Hasil dari perpangkatan
-			break;
-		case 2:
+	char mathNotations[7] = {
+		'+',
+		'-',
+		'*',
+		'/',
+		'^',
+		'v',
+		'!',
+	};
 
-			system("cls");
-			printf("Masukan bilangan yang akan diakarkan :"); //Membuat nilai akar
-			scanf("%f", &nilai_akar);
-			
-			printf("Masukan nilai pangkatnya :"); //Membuat pangkat dari akarnya
-			scanf("%f", &pangkat_akar);
-			
-			hasil_akar=pow(nilai_akar, 1.0/pangkat_akar);
-			
-			printf("%g hasil pangkat = %g \n", nilai_akar, hasil_akar); //hasil yang didapat dari akar
-			break;
-		case 3:
-			printf("Masukan angka untuk log :"); //Membuat logaritma
-			scanf("%lf", &nilai_loga); //Memasukan nilainya
+//bool isRootWorthy(treeNode* root, treeNode* any) {
+//	return ((root!=NULL && any->oper!=NULL) || (root==NULL && any->oper=='\0'));
+//}
 
-			system("cls");
-			printf("Masukan angka untuk log :"); //Membuat logaritma
-			scanf("%lf", &nilai_loga); //Memasukan nilainya.
-			
-			printf("Masukan basis log :");
-			scanf("%lf", &basis); //Memasukan basis dari log
-			
-			hasil_loga = pembagian(log(nilai_loga),log(basis));
-			printf("log(%g) base %g = %g \n", nilai_loga, basis, hasil_loga); //Hasil logaritma
-			break;
-		case 4:
-
-			system("cls");
-
-		    printf("Masukkan banyak variabel persamaan: "); //Membuat turunan polinomial
-		    scanf("%d", &pangkat_turunan); //Memasukan jumlah dari isinya misal membuat tiga pangkat = (ax^3 + bx^2 + cx + d)
-		
-		    printf("Masukkan koefisien setiap pangkatnya dari 0 hingga %d: \n", pangkat_turunan);
-		    for (i = 0; i <= pangkat_turunan; i++) 
-			{
-		        printf("koefisien untuk pangkat %d: ", i);
-		        scanf("%d", &koef[i]);
-		    }
-		
-		    for (i = 0; i < pangkat_turunan; i++)
-			{
-		        koefs[i] = koef[i+1] * (i+1);
-		    }
-		
-		    printf("Turunannya adalah: ");
-		    for (i = 0; i < pangkat_turunan; i++) 
-			{
-		        printf("%dx^%d ", koefs[i], i);
-		        if (i < pangkat_turunan-1) 
-				{
-		            printf("+ ");
-		        }
-		    }
-		    break;
-		case 5:
-			
-			system("cls");
-			// Membaca input sebagai string
-		    printf("Masukkan basislognilai : ");
-		    scanf("%[^\n]", str);
-		
-		    // Memecah string menjadi basis dan nilai
-		    sscanf(str, "%lflog%lf", &basis, &nilai_loga);
-		
-		    // Menghitung logaritma
-		    hasil_loga = pembagian(log(nilai_loga),log(basis));
-		
-		    // Menampilkan hasil
-		    printf("%glog%g = %g\n", basis, nilai_loga, hasil_loga);
-			break;
-		default:
-			printf("Angka yang anda masukan tidak ada");
-		    break;
-		
+bool isMathNotation(char keypress, int iteration) {
+	if(iteration<0)
+	{
+		return false;
+	}
+	else if(keypress!=mathNotations[iteration])
+	{
+		return isMathNotation(keypress, iteration-1);
+	}
+	else
+	{
+		return true;
 	}
 }
+
+bool isNumberChar(char input) {
+	return (input >= '0' && input <= '9');
+}
+
+bool isFunctionNameLetter(char input, int iteration) {
+	if(iteration<0)
+	{
+		return false;
+	}
+	else if(input!=funcNameLetters[iteration])
+	{
+		return isFunctionNameLetter(input, iteration-1);
+	}
+	else
+	{
+		return true;
+	}
+}
+
+double hitunglogaritma(char *query){
+int angka1, angka2;	
+	if(strstr(query,"log")){
+		sscanf(query,"log%lf(%lf)", &angka1, &angka2);
+		return logaritma(angka1,angka2);
+	}
+}
+
+double hitungakar(char *query){
+int angka1, angka2;
+	if(strstr(query,"v")){
+		sscanf(query,"%dv%lf", &angka1, &angka2);
+		return akar(angka1, angka2);
+	}
+}
+
+double hitungpower(char *query){
+int angka1, angka2;
+	if(strstr(query,"^")){
+		sscanf(query,"%lf^%lf", &angka1 , &angka2);
+		return power(angka1, angka2);
+	}
+}
+
+double hitungln(char *query){
+int angka;
+	if(strstr(query,"ln")){
+		sscanf(query,"ln%d", angka);
+		return ln(angka);
+	}
+}
+
+double ln(double nilai_ln) {
+    double hasil = 0.0;
+    double y = (nilai_ln - 1) / (nilai_ln + 1);
+    double power = y;
+    double kententuan = power;
+    int hitung = 1;
+    while (kententuan > 1e-15 || kententuan < -1e-15) {
+        hasil = hasil + kententuan;
+        power = power * y * y;
+        kententuan = power / (2 * hitung + 1);
+        hitung++;
+    }
+    return 2 * hasil;
+}
+
+double logaritma(double nilai_logaritma, double basis_logaritma) {
+    double lnX, lnY, hasil;
+    lnX = ln(nilai_logaritma);
+    lnY = ln(basis_logaritma);
+    hasil = lnX / lnY;
+    return hasil;
+}
+
+double power(double nilai, int pangkat) {
+    double hasil = 1.0;
+    int i;
+
+    if (pangkat < 0) {
+        nilai = 1.0 / nilai;
+        pangkat = -pangkat;
+    }
+
+    for (i = 0; i < pangkat; i++) {
+        hasil *= nilai;
+    }
+
+    return hasil;
+}
+
+double akar(double nilai_akar, int basis) {
+    double hasil = nilai_akar;
+    double epsilon = 0.00001;
+
+    while ((power(hasil, basis) - nilai_akar) > epsilon) {
+        hasil = ((basis - 1) * hasil + nilai_akar / power(hasil, basis - 1)) / basis;
+    }
+
+    return hasil;
+}
+
+//int main
+void vico() {
+	
+    double hasil, nilai, nilai_akar, nilai_logaritma, basis_logaritma, nilai_ln, hasil_ln;
+    int i, pilih, pangkat, basis, nilai_faktorial, hasil_faktorial;
+    long long faktorial = 1;
+    char ulang;
+
+	do{
+		system("cls");
+	    printf("1. perpangkatan\n");
+	    printf("2. Akar\n");
+	    printf("3. Logaritma\n");
+	    printf("4. Logaritma Natural\n");
+	    printf("Masukan pilihan anda : ");
+	    scanf("%d", &pilih);
+	
+	    switch (pilih) 
+		{
+	
+		    case 1:
+		    	system("cls");
+		        printf("Masukkan (nilai)^(pangkat): ");
+		        scanf("%lf^%d", &nilai, &pangkat);
+		        printf("%g^%d = %g\n", nilai, pangkat, power(nilai, pangkat));
+		    break;
+		
+		    case 2:
+		    	system("cls");
+		        printf("Masukkan (basis)v(nilai): ");
+		        scanf("%dv%lf", &basis, &nilai_akar);
+		        printf("Akar pangkat %d dari %g adalah %g\n", basis, nilai_akar, akar(nilai_akar, basis));
+		    break;
+		
+		    case 3:
+		    	system("cls");
+			    printf("Masukkan nilai logaritma:");
+			    getchar();
+			    scanf("log%lf(%lf)", &basis_logaritma, &nilai_logaritma);
+			    
+			    if (nilai_logaritma > 0 && basis_logaritma > 0)
+			    {
+			        hasil = logaritma(nilai_logaritma, basis_logaritma);
+			        printf("log%.lf(%.lf) = %g\n", basis_logaritma, nilai_logaritma,hasil);
+			    }
+			    else 
+			    {
+			        printf("\nInvalid input\n");
+			    }
+		    break;
+		    
+		    case 4:
+				system("cls");
+				printf("Masukkan bilangan ln: ");
+		    	scanf("log%lf", &nilai_ln);
+		   		hasil_ln = ln(nilai_ln);
+		   		printf("ln%f = %g\n", nilai_ln, hasil_ln);
+	   		break;
+		   		
+			default:
+				printf("Pilihan yang anda masukan tidak ada!");
+			break;
+			
+		}
+
+		printf("Kembali ke menu : ");
+		scanf(" %c", &ulang);
+	}while (ulang == 'y' || ulang == 'Y');
+
 }

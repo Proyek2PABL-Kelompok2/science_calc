@@ -1,10 +1,21 @@
 #ifndef vico_h
 #define vico_h
-#include <math.h>
+//#include "jacky.h"
+//#include "najwan.h"
+
 void vico();
 
-float akarPangkat(float nilai_akar, float pangkat_akar);
-float logaritma(double nilai_loga, double basis);
-int turunanPolinominal(int pangkat_turunan, int koef);
-float hitung_logaritma(double nilai_loga, double basis);
+//extern char* funcNameLetters;
+//
+//char mathNotations[7];
+
+//bool isRootWorthy(treeNode* root, treeNode* any);
+bool isMathNotation(char keypress, int iteration);
+bool isNumberChar(char input);
+bool isFunctionNameLetter(char input, int iteration);
+
+double power(double nilai, int pangkat);
+double akar(double nilai_akar, int basis);
+double ln(double nilai_ln);
+double logaritma(double nilai_logaritma, double basis_logaritma);
 #endif

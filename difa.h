@@ -1,6 +1,6 @@
 #ifndef difa_h
 #define difa_h
-
+#include "jacky.h"
 #define info(P) (P)->opp
 #define angka(P) (P)->angka
 #define next(P) (P)->next
@@ -19,29 +19,29 @@ typedef struct tElmtlist //Var bentukan untuk list
 } ElmtList;
 
 
-float sinus(float angka);
-
-float cosinus(float angka);
-
-float tangent(float angka);
-
-float secan(float angka);
-
-float cotangent(float angka);
-
-float cosecan(float angka);
-
-float asinus(float angka);
-
-float acosinus(float angka);
-
-float atangent(float angka);
-
-float hitungTrigono(char *query);
-
-float hitungQuery(char query[]);
-
-float operasi(char opp,int operandNum1,int operandNum2);
+//float sinus(float angka);
+//
+//float cosinus(float angka);
+//
+//float tangent(float angka);
+//
+//float secan(float angka);
+//
+//float cotangent(float angka);
+//
+//float cosecan(float angka);
+//
+//float asinus(float angka);
+//
+//float acosinus(float angka);
+//
+//float atangent(float angka);
+//
+//float hitungTrigono(char *query);
+//
+//float hitungQuery(char query[]);
+//
+//float operasi(char opp,int operandNum1,int operandNum2);
 
 //Linked List
 
@@ -64,6 +64,10 @@ float HitungHasil(address First,address Last);
 void LLBuatList(char query[]);
 
 
+//tree
 
+
+double evaluate(treeNode* root);
+int getPrecedence(char oper);
 
 #endif

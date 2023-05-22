@@ -5,7 +5,7 @@
 #include "difa.h"
 #include "fathia.h"
 #include "jacky.h"
-#include "najwan.h"
+//#include "najwan.h"
 #include "vico.h"
 
 #define isRootWorthy(x, y) (x!=NULL && y->oper!=NULL) || (x==NULL && y->oper=='\0')
@@ -35,8 +35,11 @@ int main() {
 //		'!',
 //	};
 	char keypress, prevKeypress = '#'; double numInput, prevNumInput = NULL;
+	char* functionNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";
+	char *possiblyFuncName = (char*)malloc(3*sizeof(char));
 	bool hasComma = false; // hasOpenParenthesis = false, hasCloseParenthesis = false;
-	int tenth = 0, negativeNotation = 1, openParentheses = 0, closeParentheses = 0, totalOpenParen = 0, totalCloseParen = 0;
+	int tenth = 0, negativeNotation = 1, openParentheses = 0, closeParentheses = 0, totalOpenParen = 0, totalCloseParen = 0, j=0;
+	enum mathFunction func = NO_FUNC;
 	do
 	{
 		system("cls");
@@ -50,6 +53,7 @@ int main() {
 //			printf("%c")
 			printf("%c", (prevKeypress=='.')?prevKeypress:'\0');
 			printf("%c", (negativeNotation<0 && !(prevKeypress >= '0' && prevKeypress <= '9') && prevKeypress!='.')?'-':'\0');
+//			printf("%c", (isFunctionNameLetter(keypress, sizeof(functionNameLetters)/sizeof(functionNameLetters[0]))?keypress:'\0'));
 			printf("\n\n\n");
 			printTree(root, 0);
 		}
@@ -78,7 +82,7 @@ int main() {
 			else
 			{
 				numInput*=negativeNotation; // !!
-				nodeInsertion = createNode(numInput, '\0', NULL, NULL, NULL);
+				nodeInsertion = createNode(numInput, '\0', func, NULL, NULL, NULL);
 				if(isRootWorthy(root, nodeInsertion))
 				{
 					root = nodeInsertion;
@@ -115,7 +119,7 @@ int main() {
 			}
 			else{
 				negativeNotation = 1;
-				nodeInsertion = createNode(NULL, keypress, NULL, NULL, NULL);
+				nodeInsertion = createNode(NULL, keypress, NO_FUNC, NULL, NULL, NULL);
 				if(root!=NULL)
 				{
 					current = root;
@@ -172,8 +176,59 @@ int main() {
 			else if(toBeDeleted->num >= -9 && toBeDeleted->num <= 9 && toBeDeleted->num - (int)toBeDeleted->num == 0)
 			// is round num and is one digit maximum
 			{
-				root = deleteNode(root, toBeDeleted);
+				if(toBeDeleted->closeParentheses>0)
+				{
+					toBeDeleted->closeParentheses-=1;
+				}
+				else if(toBeDeleted->openParentheses>0 && toBeDeleted->num==NULL)
+				{
+					toBeDeleted->openParentheses-=1;
+				}
+				else
+				{
+					toBeDeleted->num=NULL;
+				}
+				
+				if(toBeDeleted->closeParentheses==0 && toBeDeleted->num==NULL && toBeDeleted->openParentheses==0){
+					root = deleteNode(root, toBeDeleted);
+				}
 			}
+//			else if(toBeDeleted->oper!='\0')
+//			{
+//				
+//			}
+		}
+		else if(isFunctionNameLetter(keypress, sizeof(functionNameLetters)/sizeof(functionNameLetters[0])))
+		{
+//			printf("%c is in the array.\n", keypress);
+			if (j<3)
+				possiblyFuncName[j++] = keypress;
+				
+			if(strcmp(possiblyFuncName, "sin")==0)
+			{
+				func = SINUS;
+			}
+			else if(strcmp(possiblyFuncName, "cos")==0)
+			{
+				func = COSINUS;
+			}
+			else if(strcmp(possiblyFuncName, "tan")==0)
+			{
+				func = TANGENT;
+			}
+		}
+		else if(keypress == '(')
+		{
+			openParentheses+=1;
+			totalOpenParen+=1;
+			
+//			hasOpenParenthesis = true;
+		}
+		else if(keypress == ')' && totalOpenParen > totalCloseParen)
+		{
+			getLastInorderNode(root)->closeParentheses+=1;
+			totalCloseParen+=1;
+//			getLastInorderNode(root)->hasCloseParenthesis = true;
 		}
 //		prevNumInput = numInput;
 		prevKeypress = keypress;

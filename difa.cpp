@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "difa.h"
+#include "fathia.h"
 
 
 float hitungTrigono(char *query){
@@ -35,31 +36,31 @@ float hitungTrigono(char *query){
 
 }
 double sinus(float angka){
-//	 double result = 0.0;
-//    int i;
-//
-//    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
-//        int exponent = 2 * i + 1;
-//        int sign = i % 2 == 0 ? 1 : -1;
-//        double term = sign * power(angka, exponent) / factorial(exponent);
-//        result += term;
-//    }
-//
-//    return result;
+	double result = 0.0;
+    int i;
+
+    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
+        int exponent = 2 * i + 1;
+        int sign = i % 2 == 0 ? 1 : -1;
+        double term = sign * pow(angka, exponent) / faktoril(exponent);
+        result += term;
+    }
+
+    return result;
 }
 
 double cosinus(float angka){
-//	 double result = 0.0;
-//    int i;
-//
-//    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
-//        int exponent = 2 * i;
-//        int sign = i % 2 == 0 ? 1 : -1;
-//        double term = sign * power(angka, exponent) / factorial(exponent);
-//        result += term;
-//    }
-//
-//    return result;
+	double result = 0.0;
+    int i;
+
+    for (i = 0; i <= 25; ++i) { // Menambah jumlah suku menjadi 25
+        int exponent = 2 * i;
+        int sign = i % 2 == 0 ? 1 : -1;
+        double term = sign * pow(angka, exponent) / faktoril(exponent);
+        result += term;
+    }
+
+    return result;
 }
 
 double tangent(double angka){

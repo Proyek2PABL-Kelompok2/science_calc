@@ -1,11 +1,11 @@
 #ifndef vico_h
 #define vico_h
-#include "jacky.h"
+//#include "jacky.h"
 //#include "najwan.h"
 
 void vico();
 
-//char *funcNameLetters;
+//extern char* funcNameLetters;
 //
 //char mathNotations[7];
 

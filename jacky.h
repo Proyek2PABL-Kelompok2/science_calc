@@ -4,6 +4,7 @@
 void otherCalcs(); //menu display for other calculations outside inline calculator
 
 enum mathFunction {
+	NO_FUNC = 0,
 	SINUS,
 	COSINUS,
 	TANGENT,
@@ -18,14 +19,13 @@ enum mathFunction {
 	COMMON_LOG,
 	SQUARE_ROOT,
 	CUBE_ROOT,
-	POWER,
-	NO_FUNC
+	POWER
 };
 
 typedef struct treeNode {
 	double num; // operand
 	char oper; // operator
-	mathFunction func;
+	enum mathFunction func;
 	int openParentheses;
 	int closeParentheses;
 	treeNode* left; // left son
@@ -39,7 +39,7 @@ typedef struct treeNode {
 //	EXPONENT
 //};
 
-treeNode* createNode(double num, char oper, /*mathFunction func,*/ treeNode* left, treeNode* right, treeNode* parent);
+treeNode* createNode(double num, char oper, enum mathFunction func, treeNode* left, treeNode* right, treeNode* parent);
 
 double updateNodeNum(double numInNode, double newNum, bool hasComma, int* tenth);
 

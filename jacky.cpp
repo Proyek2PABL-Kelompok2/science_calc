@@ -3,6 +3,25 @@
 #include <math.h>
 #include "jacky.h"
 
+//enum mathFunction {
+//	SINUS,
+//	COSINUS,
+//	TANGENT,
+//	ARC_SINUS,
+//	ARC_COSINUS,
+//	ARC_TANGENT,
+//	HYPERBOLIC_SINUS,
+//	HYPERBOLIC_COSINUS,
+//	HYPERBOLIC_TANGENT,
+//	EXPONENTIAL,
+//	NATURAL_LOG,
+//	COMMON_LOG,
+//	SQUARE_ROOT,
+//	CUBE_ROOT,
+//	POWER,
+//	NO_FUNC
+//};
+
 //void otherCalcs(){
 //	int choice;
 //	char s[250];
@@ -44,11 +63,11 @@
 //	EXPONENT
 //};
 
-treeNode* createNode(double num, char oper, /*mathFunction func, int openParentheses, int closeParentheses,*/ treeNode* left, treeNode* right, treeNode* parent) {
+treeNode* createNode(double num, char oper, enum mathFunction func, /*int openParentheses, int closeParentheses,*/ treeNode* left, treeNode* right, treeNode* parent) {
     treeNode* newNode = (treeNode*) malloc(sizeof(treeNode));
     newNode->num = num;
     newNode->oper = oper;
-    newNode->func = NO_FUNC;
+    newNode->func = func;
     newNode->openParentheses = 0;
     newNode->closeParentheses = 0;
     newNode->left = left;

@@ -4,7 +4,7 @@
 #include <string.h>
 #include "vico.h"
 	
-	char *funcNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";;
+	char* funcNameLetters = "sincostanarcsinarccosarctansinhcoshtanhexplog10lnsqrt";
 
 	char mathNotations[7] = {
 		'+',

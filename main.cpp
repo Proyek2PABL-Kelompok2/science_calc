@@ -5,7 +5,7 @@
 #include "difa.h"
 #include "fathia.h"
 #include "jacky.h"
-//#include "najwan.h"
+#include "najwan.h"
 #include "vico.h"
 
 #define isRootWorthy(x, y) (x!=NULL && y->oper!=NULL) || (x==NULL && y->oper=='\0')
@@ -154,6 +154,25 @@ int main() {
 	//					parentAndChildrenPairing(current->left, rightChildCarrier, current);
 					}
 				}
+			}
+		}
+		else if(keypress == '\b' && root != NULL)
+		{
+			toBeDeleted = getLastInorderNode(root);
+			if((toBeDeleted->num <= -10 || toBeDeleted->num >= 10) && toBeDeleted->num - (int)toBeDeleted->num == 0)
+			// is round num and is two digits minimum
+			{
+				toBeDeleted->num = (int)(toBeDeleted->num / 10); // not working
+			}
+			else if(toBeDeleted->num - (int)toBeDeleted->num != 0)
+			// is not round num
+			{
+				
+			}
+			else if(toBeDeleted->num >= -9 && toBeDeleted->num <= 9 && toBeDeleted->num - (int)toBeDeleted->num == 0)
+			// is round num and is one digit maximum
+			{
+				root = deleteNode(root, toBeDeleted);
 			}
 		}
 //		prevNumInput = numInput;

@@ -5,7 +5,7 @@
 #include "difa.h"
 #include "fathia.h"
 #include "jacky.h"
-//#include "najwan.h"
+#include "najwan.h"
 #include "vico.h"
 
 #define isRootWorthy(x, y) (x!=NULL && y->oper!=NULL) || (x==NULL && y->oper=='\0')

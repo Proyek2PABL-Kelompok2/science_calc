@@ -83,6 +83,13 @@ int main() {
 			{
 				numInput*=negativeNotation; // !!
 				nodeInsertion = createNode(numInput, '\0', func, NULL, NULL, NULL);
+				if(openParentheses > 0)
+				{
+					nodeInsertion->openParentheses = openParentheses;
+//					totalOpenParen+=nodeInsertion->openParentheses;
+//					hasOpenParenthesis = false;
+					openParentheses = 0;
+				}
 				if(isRootWorthy(root, nodeInsertion))
 				{
 					root = nodeInsertion;

@@ -195,7 +195,16 @@ void printInorder(treeNode* root) {
     if (root->oper != '\0') {
         printf("%c", root->oper);
     } else {
-        printf("%g", root->num);
+    	for(int i=0; i<root->openParentheses; i++)
+    	{
+    		printf("(");
+		}
+		if(root->num!=NULL)
+        	printf("%.1000g", root->num);
+        for(int i=0; i<root->closeParentheses; i++)
+    	{
+    		printf(")");
+		}
     }
     printInorder(root->right);
 }
